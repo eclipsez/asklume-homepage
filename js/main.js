@@ -260,9 +260,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
-  // Set default language (supports URL parameter ?lang=cn or localStorage or defaults to 'cn' if user requested Chinese)
-  const urlParams = new URLSearchParams(window.location.search);
-  let currentLang = urlParams.get('lang') || localStorage.getItem('asklume_lang') || 'cn';
+  // Auto-detect language based on HTML lang attribute or URL path (/zh/ vs /)
+  const isZhPage = document.documentElement.lang.startsWith('zh') || window.location.pathname.includes('/zh/');
+  let currentLang = isZhPage ? 'cn' : 'en';
 
   const langBtnTrigger = document.getElementById('lang-btn-trigger');
   const langDropdownMenu = document.getElementById('lang-dropdown-menu');
