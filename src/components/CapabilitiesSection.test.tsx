@@ -47,7 +47,7 @@ describe('CapabilitiesSection', () => {
     expect(new Set(headingIds).size).toBe(articles.length)
   })
 
-  it('uses configured artwork and marks the first three cards as sequential', () => {
+  it('uses the configured artwork for each independent capability card', () => {
     render(<CapabilitiesSection />)
 
     const articles = screen.getAllByRole('article')
@@ -59,10 +59,32 @@ describe('CapabilitiesSection', () => {
       )
     })
     expect(articles.map((article) => article.getAttribute('data-flow'))).toEqual([
-      'next',
-      'next',
-      'next',
+      null,
+      null,
+      null,
       null,
     ])
+  })
+
+  it('uses non-interactive pointer cards with one decorative arrow each', () => {
+    render(<CapabilitiesSection />)
+
+    const articles = screen.getAllByRole('article')
+
+    expect(articles).toHaveLength(4)
+    expect(screen.queryAllByRole('link')).toHaveLength(0)
+    expect(screen.queryAllByRole('button')).toHaveLength(0)
+
+    articles.forEach((article) => {
+      expect(article).toHaveStyle({
+        '--pointer-x': '50%',
+        '--pointer-y': '50%',
+      })
+      expect(article.querySelectorAll('[data-capability-arrow]')).toHaveLength(1)
+      expect(article.querySelector('[data-capability-arrow]')).toHaveAttribute(
+        'aria-hidden',
+        'true',
+      )
+    })
   })
 })
