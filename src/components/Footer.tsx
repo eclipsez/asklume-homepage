@@ -4,7 +4,7 @@ import styles from './Footer.module.css'
 
 type SocialName = 'LinkedIn' | 'X' | 'YouTube'
 
-const socialLinks = ['LinkedIn', 'X', 'YouTube'] as const satisfies readonly SocialName[]
+const socialChannels = ['LinkedIn', 'X', 'YouTube'] as const satisfies readonly SocialName[]
 
 function SocialIcon({ name }: { name: SocialName }) {
   if (name === 'LinkedIn') {
@@ -48,10 +48,16 @@ export function Footer() {
         </nav>
 
         <div aria-label="社交媒体" className={styles.socials} role="group">
-          {socialLinks.map((name) => (
-            <a aria-label={name} href="#footer" key={name}>
+          {socialChannels.map((name) => (
+            <span
+              aria-label={`${name}（暂未开放）`}
+              className={styles.socialMark}
+              key={name}
+              role="img"
+              title={`${name}（暂未开放）`}
+            >
               <SocialIcon name={name} />
-            </a>
+            </span>
           ))}
         </div>
       </div>

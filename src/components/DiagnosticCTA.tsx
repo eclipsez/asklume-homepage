@@ -1,5 +1,9 @@
 import { useId } from 'react'
+import { footerContact } from '../content/homeContent'
 import styles from './DiagnosticCTA.module.css'
+
+const diagnosticEmailHref = `mailto:${footerContact.email}?subject=${encodeURIComponent('AI认知基线诊断')}`
+const expertEmailHref = `mailto:${footerContact.email}`
 
 export function DiagnosticCTA() {
   const svgId = useId().replace(/:/g, '')
@@ -19,12 +23,12 @@ export function DiagnosticCTA() {
             <h2 id="diagnostic-title">开启您的AI认知基线诊断</h2>
             <p>了解企业在AI中的真实表现，发现机会，制定提升策略。</p>
             <div className={styles.actions}>
-              <a className={styles.primaryAction} href="#diagnostic">
+              <a className={styles.primaryAction} href={diagnosticEmailHref}>
                 立即开始诊断 <span aria-hidden="true">→</span>
               </a>
               <a
                 className={styles.secondaryAction}
-                href="mailto:hello@asklume.com"
+                href={expertEmailHref}
               >
                 与专家咨询 <span aria-hidden="true">↗</span>
               </a>

@@ -1,6 +1,6 @@
 import { render, screen, within } from '@testing-library/react'
 import App from '../App'
-import { navItems } from '../content/homeContent'
+import { footerContact, navItems } from '../content/homeContent'
 
 describe('Closing homepage sections', () => {
   it('offers the required AI diagnostic call-to-action', () => {
@@ -23,15 +23,18 @@ describe('Closing homepage sections', () => {
       within(diagnostic as HTMLElement).getByRole('link', {
         name: '立即开始诊断',
       }),
-    ).toHaveAttribute('href', '#diagnostic')
+    ).toHaveAttribute(
+      'href',
+      `mailto:${footerContact.email}?subject=${encodeURIComponent('AI认知基线诊断')}`,
+    )
     expect(
       within(diagnostic as HTMLElement).getByRole('link', {
         name: '与专家咨询',
       }),
-    ).toHaveAttribute('href', 'mailto:hello@asklume.com')
+    ).toHaveAttribute('href', `mailto:${footerContact.email}`)
   })
 
-  it('provides the configured footer navigation and labelled social links', () => {
+  it('provides the configured footer navigation', () => {
     render(<App />)
 
     const footer = screen.getByRole('contentinfo')
@@ -47,11 +50,22 @@ describe('Closing homepage sections', () => {
         within(navigation).getByRole('link', { name: item.label }),
       ).toHaveAttribute('href', item.href)
     }
+  })
+
+  it('presents unavailable social channels as non-interactive marks', () => {
+    render(<App />)
+
+    const footer = screen.getByRole('contentinfo')
 
     for (const socialName of ['LinkedIn', 'X', 'YouTube']) {
       expect(
-        within(footer).getByRole('link', { name: socialName }),
-      ).toHaveAttribute('href', '#footer')
+        within(footer).queryByRole('link', { name: socialName }),
+      ).not.toBeInTheDocument()
+      expect(
+        within(footer).getByRole('img', {
+          name: `${socialName}（暂未开放）`,
+        }),
+      ).toBeVisible()
     }
   })
 })

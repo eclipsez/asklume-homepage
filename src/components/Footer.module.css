@@ -46,7 +46,7 @@
   gap: 10px;
 }
 
-.socials a {
+.socialMark {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -56,12 +56,6 @@
   border: 1px solid rgba(83, 89, 130, 0.08);
   border-radius: 50%;
   background: #f7f8fc;
-  transition: color 160ms ease, transform 160ms ease;
-}
-
-.socials a:hover {
-  color: #6457e9;
-  transform: translateY(-1px);
 }
 
 .socials svg {
@@ -114,7 +108,7 @@
     gap: 6px;
   }
 
-  .socials a {
+  .socialMark {
     width: 32px;
     height: 32px;
   }
@@ -130,7 +124,7 @@
     transform: scale(0.68);
   }
 
-  .socials a {
+  .socialMark {
     width: 30px;
     height: 30px;
   }
