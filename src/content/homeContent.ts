@@ -19,12 +19,17 @@ export interface Pillar {
 export interface Metric {
   label: string
   value: string
-  change: string
+  delta: string
 }
 
-export interface TrustBrand {
-  name: string
-}
+export type TrustBrand =
+  | '华为'
+  | '腾讯'
+  | '阿里巴巴'
+  | '字节跳动'
+  | '小米'
+  | '中国平安'
+  | '美的集团'
 
 export interface FooterContact {
   phone: string
@@ -113,20 +118,20 @@ export const capabilities = [
 ] as const satisfies readonly FeatureCard[]
 
 export const metrics = [
-  { label: '可见性', value: '72%', change: '12%' },
-  { label: '理解度', value: '68%', change: '9%' },
-  { label: '引用量', value: '156', change: '23%' },
-  { label: '推荐率', value: '29%', change: '6%' },
+  { label: '可见性', value: '72%', delta: '12%' },
+  { label: '理解度', value: '68%', delta: '9%' },
+  { label: '引用量', value: '156', delta: '23%' },
+  { label: '推荐率', value: '29%', delta: '6%' },
 ] as const satisfies readonly Metric[]
 
 export const trustBrands = [
-  { name: '华为' },
-  { name: '腾讯' },
-  { name: '阿里巴巴' },
-  { name: '字节跳动' },
-  { name: '小米' },
-  { name: '中国平安' },
-  { name: '美的集团' },
+  '华为',
+  '腾讯',
+  '阿里巴巴',
+  '字节跳动',
+  '小米',
+  '中国平安',
+  '美的集团',
 ] as const satisfies readonly TrustBrand[]
 
 export const footerContact = {
