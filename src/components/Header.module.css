@@ -15,7 +15,11 @@
   margin-inline: auto;
 }
 
-.brandLink {
+.desktopBrandLink {
+  display: none;
+}
+
+.mobileBrandLink {
   display: inline-flex;
   min-width: 0;
 }
@@ -60,6 +64,15 @@
     justify-content: center;
     gap: clamp(18px, 2.1vw, 34px);
     margin-inline: auto;
+  }
+
+  .desktopBrandLink {
+    display: inline-flex;
+    min-width: 0;
+  }
+
+  .mobileBrandLink {
+    display: none;
   }
 
   .navLink,

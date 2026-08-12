@@ -27,8 +27,21 @@ export function Header() {
   return (
     <header className={styles.header}>
       <div className={styles.inner}>
-        <a aria-label="AskLume 首页" className={styles.brandLink} href="#top">
+        <a
+          aria-label="AskLume 首页"
+          className={styles.desktopBrandLink}
+          data-header-brand="desktop"
+          href="#top"
+        >
           <Brand />
+        </a>
+        <a
+          aria-label="AskLume 首页"
+          className={styles.mobileBrandLink}
+          data-header-brand="mobile"
+          href="#top"
+        >
+          <Brand compact />
         </a>
 
         <nav aria-label="主导航" className={styles.desktopNav}>

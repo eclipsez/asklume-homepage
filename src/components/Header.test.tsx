@@ -27,6 +27,19 @@ describe('Header', () => {
     expect(openButton).toHaveAttribute('aria-expanded', 'false')
   })
 
+  it('provides a compact brand for the mobile header and a full brand for desktop', () => {
+    const { container } = render(<Header />)
+
+    expect(container.querySelectorAll('[data-header-brand="desktop"]')).toHaveLength(1)
+    expect(container.querySelectorAll('[data-header-brand="mobile"]')).toHaveLength(1)
+    expect(
+      container.querySelector('[data-header-brand="mobile"] [class*="brandCompact"]'),
+    ).toBeInTheDocument()
+    expect(
+      container.querySelector('[data-header-brand="desktop"] [class*="brandCompact"]'),
+    ).not.toBeInTheDocument()
+  })
+
   it('closes with Escape, restores trigger focus, and preserves the body scroll style', async () => {
     const user = userEvent.setup()
     document.body.style.overflow = 'clip'
