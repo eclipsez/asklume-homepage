@@ -47,11 +47,13 @@
 }
 
 .card {
-  min-height: 180px;
+  min-height: 188px;
   padding: 31px 27px 28px;
   border: 1px solid rgba(96, 111, 171, 0.12);
   border-radius: 17px;
   background:
+    radial-gradient(circle at 7% 58%, rgba(126, 103, 255, 0.075), transparent 34%),
+    radial-gradient(circle at 92% 92%, rgba(86, 149, 255, 0.07), transparent 35%),
     linear-gradient(135deg, rgba(255, 255, 255, 0.94), rgba(246, 248, 255, 0.82)),
     rgba(255, 255, 255, 0.88);
   box-shadow:
@@ -126,9 +128,12 @@
   --art-transform: rotate(0deg) scale(1);
   position: absolute;
   z-index: 2;
+  height: auto;
+  mix-blend-mode: multiply;
   pointer-events: none;
   user-select: none;
-  filter: saturate(0.96) contrast(1.02) drop-shadow(0 18px 17px rgba(76, 72, 196, 0.12));
+  opacity: 1;
+  filter: brightness(0.96) saturate(1.62) contrast(1.16) drop-shadow(0 20px 20px rgba(76, 72, 196, 0.17));
   transform:
     translate3d(
       calc(var(--depth-x) * -7px),
@@ -142,28 +147,27 @@
 }
 
 .card[data-glass-art='loop'] .art {
-  --art-transform: rotate(-9deg) scale(1.06);
-  width: 205px;
+  --art-transform: rotate(-12deg) scale(1.06);
+  width: 300px;
   max-width: none;
-  top: -20px;
-  bottom: -43px;
-  left: -77px;
+  top: -49px;
+  left: -116px;
 }
 
 .card[data-glass-art='bloom'] .art {
-  --art-transform: rotate(-19deg) scale(1.08);
-  width: 181px;
+  --art-transform: rotate(-16deg) scale(1.08);
+  width: 258px;
   max-width: none;
-  right: -55px;
-  bottom: -60px;
+  right: -72px;
+  bottom: -88px;
 }
 
 .card[data-glass-art='ribbon'] .art {
-  --art-transform: rotate(-2deg) scale(1.02);
-  width: 260px;
+  --art-transform: rotate(4deg) scale(1.04);
+  width: 370px;
   max-width: none;
-  right: -117px;
-  bottom: -57px;
+  right: -150px;
+  bottom: -10px;
 }
 
 @media (hover: hover) and (pointer: fine) {
@@ -177,7 +181,7 @@
   }
 
   .card:hover .art {
-    filter: saturate(1.05) contrast(1.03) drop-shadow(0 22px 21px rgba(76, 72, 196, 0.18));
+    filter: brightness(0.95) saturate(1.82) contrast(1.19) drop-shadow(0 25px 24px rgba(76, 72, 196, 0.22));
   }
 }
 
@@ -257,18 +261,21 @@
   }
 
   .card[data-glass-art='loop'] .art {
-    width: 178px;
-    left: -72px;
+    width: 245px;
+    top: -35px;
+    left: -96px;
   }
 
   .card[data-glass-art='bloom'] .art {
-    width: 155px;
-    right: -55px;
+    width: 215px;
+    right: -66px;
+    bottom: -72px;
   }
 
   .card[data-glass-art='ribbon'] .art {
-    width: 230px;
-    right: -112px;
+    width: 310px;
+    right: -125px;
+    bottom: -10px;
   }
 }
 
