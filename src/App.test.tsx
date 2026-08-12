@@ -1,4 +1,5 @@
 import { render, screen, within } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
 import App from './App'
 
 describe('App', () => {
@@ -56,5 +57,25 @@ describe('App', () => {
     ).toBeInTheDocument()
     expect(prompts).toHaveLength(2)
     expect(new Set(prompts.map((prompt) => prompt.id)).size).toBe(2)
+  })
+
+  it('gives every same-document link an existing anchor target', async () => {
+    const user = userEvent.setup()
+    render(<App />)
+
+    await user.click(screen.getByRole('button', { name: '打开菜单' }))
+
+    const sameDocumentLinks = Array.from(
+      document.querySelectorAll<HTMLAnchorElement>('a[href^="#"]'),
+    )
+
+    expect(sameDocumentLinks.length).toBeGreaterThan(0)
+
+    for (const link of sameDocumentLinks) {
+      const href = link.getAttribute('href')
+
+      expect(href).toBeTruthy()
+      expect(document.querySelector(href as string)).toBeInTheDocument()
+    }
   })
 })

@@ -155,4 +155,18 @@ describe('Header', () => {
       ),
     ).not.toBeInTheDocument()
   })
+
+  it('routes the appointment card to the expert email address', async () => {
+    const user = userEvent.setup()
+    render(<Header />)
+
+    await user.click(screen.getByRole('button', { name: '打开菜单' }))
+
+    expect(
+      within(screen.getByRole('dialog', { name: '网站导航' })).getByRole(
+        'link',
+        { name: /与我们的专家团队交流/ },
+      ),
+    ).toHaveAttribute('href', 'mailto:hello@asklume.com')
+  })
 })

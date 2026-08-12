@@ -124,7 +124,11 @@ export function MobileMenu({ id, onClose }: MobileMenuProps) {
           </button>
         </div>
 
-        <a className={styles.appointmentCard} href="#contact" onClick={onClose}>
+        <a
+          className={styles.appointmentCard}
+          href={`mailto:${footerContact.email}`}
+          onClick={onClose}
+        >
           <span className={styles.cardEyebrow}>预约演示</span>
           <strong>与我们的专家团队交流</strong>
           <span className={styles.cardAction}>
