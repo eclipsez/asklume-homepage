@@ -28,4 +28,22 @@ describe('CapabilitiesSection', () => {
       ).toBeVisible()
     })
   })
+
+  it('labels every capability article with its contained heading', () => {
+    render(<CapabilitiesSection />)
+
+    const articles = screen.getAllByRole('article')
+    const headingIds = articles.map((article) => {
+      const headingId = article.getAttribute('aria-labelledby')
+
+      expect(headingId).toBeTruthy()
+      expect(
+        within(article).getByRole('heading', { level: 3 }),
+      ).toHaveAttribute('id', headingId)
+
+      return headingId
+    })
+
+    expect(new Set(headingIds).size).toBe(articles.length)
+  })
 })

@@ -1,3 +1,4 @@
+import { useId } from 'react'
 import { capabilities } from '../content/homeContent'
 import { Icon } from './Icon'
 import styles from './CapabilitiesSection.module.css'
@@ -12,6 +13,8 @@ const capabilityArt = [
 ] as const satisfies readonly CapabilityArt[]
 
 export function CapabilitiesSection() {
+  const articleIdPrefix = useId()
+
   return (
     <section
       aria-labelledby="capabilities-title"
@@ -28,26 +31,34 @@ export function CapabilitiesSection() {
         </header>
 
         <div className={styles.grid}>
-          {capabilities.map((capability, index) => (
-            <article className={styles.card} key={capability.title}>
-              <span className={styles.icon} aria-hidden="true">
-                <Icon name={capability.icon} size={27} />
-              </span>
-              <div className={styles.copy}>
-                <h3>{capability.title}</h3>
-                <p>{capability.description}</p>
-              </div>
-              <span
-                aria-hidden="true"
-                className={styles.art}
-                data-art={capabilityArt[index]}
+          {capabilities.map((capability, index) => {
+            const headingId = `${articleIdPrefix}-capability-${index}`
+
+            return (
+              <article
+                aria-labelledby={headingId}
+                className={styles.card}
+                key={capability.title}
               >
-                <i />
-                <i />
-                <i />
-              </span>
-            </article>
-          ))}
+                <span className={styles.icon} aria-hidden="true">
+                  <Icon name={capability.icon} size={27} />
+                </span>
+                <div className={styles.copy}>
+                  <h3 id={headingId}>{capability.title}</h3>
+                  <p>{capability.description}</p>
+                </div>
+                <span
+                  aria-hidden="true"
+                  className={styles.art}
+                  data-art={capabilityArt[index]}
+                >
+                  <i />
+                  <i />
+                  <i />
+                </span>
+              </article>
+            )
+          })}
         </div>
       </div>
     </section>

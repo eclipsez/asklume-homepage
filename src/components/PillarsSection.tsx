@@ -1,3 +1,4 @@
+import { useId } from 'react'
 import { pillars } from '../content/homeContent'
 import { Icon, type IconName } from './Icon'
 import styles from './PillarsSection.module.css'
@@ -9,6 +10,8 @@ const pillarIcons: Record<(typeof pillars)[number]['title'], IconName> = {
 }
 
 export function PillarsSection() {
+  const articleIdPrefix = useId()
+
   return (
     <section
       aria-labelledby="pillars-title"
@@ -27,21 +30,29 @@ export function PillarsSection() {
         </header>
 
         <div className={styles.grid}>
-          {pillars.map((pillar) => (
-            <article className={styles.card} key={pillar.title}>
-              <span className={styles.icon} aria-hidden="true">
-                <Icon name={pillarIcons[pillar.title]} size={38} />
-              </span>
-              <div className={styles.copy}>
-                <h3>{pillar.title}</h3>
-                <ul>
-                  {pillar.lines.map((line) => (
-                    <li key={line}>{line}</li>
-                  ))}
-                </ul>
-              </div>
-            </article>
-          ))}
+          {pillars.map((pillar, index) => {
+            const headingId = `${articleIdPrefix}-pillar-${index}`
+
+            return (
+              <article
+                aria-labelledby={headingId}
+                className={styles.card}
+                key={pillar.title}
+              >
+                <span className={styles.icon} aria-hidden="true">
+                  <Icon name={pillarIcons[pillar.title]} size={38} />
+                </span>
+                <div className={styles.copy}>
+                  <h3 id={headingId}>{pillar.title}</h3>
+                  <ul>
+                    {pillar.lines.map((line) => (
+                      <li key={line}>{line}</li>
+                    ))}
+                  </ul>
+                </div>
+              </article>
+            )
+          })}
         </div>
       </div>
     </section>
