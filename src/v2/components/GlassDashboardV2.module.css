@@ -1,0 +1,149 @@
+.dashboardCard {
+  background: rgba(255, 255, 255, 0.94);
+  border-radius: var(--v2-radius-card);
+  border: 1px solid rgba(255, 255, 255, 0.95);
+  box-shadow: 
+    0 1px 2px rgba(15, 23, 42, 0.04),
+    0 12px 32px -4px rgba(99, 102, 241, 0.08),
+    0 30px 80px -10px rgba(124, 58, 237, 0.18);
+  padding: 32px;
+  position: relative;
+  backdrop-filter: blur(30px) saturate(200%);
+  transition: all 0.3s ease;
+}
+
+.dashboardCard:hover {
+  box-shadow: 
+    0 1px 2px rgba(15, 23, 42, 0.04),
+    0 16px 40px -4px rgba(99, 102, 241, 0.12),
+    0 40px 90px -10px rgba(124, 58, 237, 0.25);
+}
+
+.dashHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.dashUserTitle {
+  font-size: 1.4rem;
+  font-weight: 900;
+  color: #0b132b;
+  margin-bottom: 4px;
+}
+
+.dashUserSub {
+  font-size: 0.82rem;
+  color: var(--v2-ink-muted);
+  font-weight: 500;
+}
+
+.dashSearchBox {
+  position: relative;
+  margin-bottom: 22px;
+}
+
+.dashInput {
+  width: 100%;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: var(--v2-radius-pill);
+  padding: 14px 50px 14px 20px;
+  font-size: 0.88rem;
+  color: #0b132b;
+  outline: none;
+}
+
+.dashSendBtn {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--v2-violet), var(--v2-blue));
+  color: #ffffff;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(117, 86, 244, 0.35);
+}
+
+.dashTabs {
+  display: flex;
+  gap: 16px;
+  border-bottom: 1px solid #f1f5f9;
+  padding-bottom: 12px;
+  margin-bottom: 24px;
+  overflow-x: auto;
+}
+
+.dashTab {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--v2-ink-muted);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.dashTabActive {
+  color: var(--v2-violet);
+  position: relative;
+}
+
+.dashTabActive::after {
+  content: '';
+  position: absolute;
+  bottom: -13px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--v2-violet);
+  border-radius: 2px;
+}
+
+.dashMetricsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+
+.metricCard {
+  background: #f8fafc;
+  border: 1px solid #f1f5f9;
+  border-radius: var(--v2-radius-md);
+  padding: 16px 12px;
+  text-align: center;
+  transition: all 0.2s ease;
+}
+
+.metricCard:hover {
+  background: #ffffff;
+  border-color: rgba(117, 86, 244, 0.2);
+  box-shadow: 0 6px 16px rgba(117, 86, 244, 0.08);
+}
+
+.metricLabel {
+  font-size: 0.75rem;
+  color: var(--v2-ink-muted);
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.metricVal {
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: #0b132b;
+  line-height: 1.1;
+  margin-bottom: 6px;
+}
+
+.metricBadge {
+  font-size: 0.72rem;
+  font-weight: 750;
+  color: #10b981;
+}
