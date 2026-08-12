@@ -40,4 +40,21 @@ describe('App', () => {
 
     expect(new Set(headingIds).size).toBe(articles.length)
   })
+
+  it('reuses the dashboard in a distinct mobile overview with unique prompt IDs', () => {
+    render(<App />)
+
+    const mobileOverview = screen.getByRole('region', {
+      name: 'AI认知概览',
+    })
+    const prompts = screen.getAllByRole('textbox', { name: '向AskLume提问' })
+
+    expect(
+      within(mobileOverview).getByRole('region', {
+        name: 'AskLume AI品牌影响力看板',
+      }),
+    ).toBeInTheDocument()
+    expect(prompts).toHaveLength(2)
+    expect(new Set(prompts.map((prompt) => prompt.id)).size).toBe(2)
+  })
 })

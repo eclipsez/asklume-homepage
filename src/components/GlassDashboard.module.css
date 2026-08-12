@@ -228,6 +228,13 @@
   border-radius: 18px;
 }
 
+.mobile {
+  background: rgba(255, 255, 255, 0.94);
+  box-shadow: 0 20px 50px rgba(37, 42, 89, 0.1);
+  -webkit-backdrop-filter: blur(12px) saturate(112%);
+  backdrop-filter: blur(12px) saturate(112%);
+}
+
 @media (max-width: 1040px) {
   .topBar {
     padding-inline: 19px;
@@ -256,5 +263,74 @@
   .prompt button {
     width: 44px;
     height: 44px;
+  }
+
+  .mobile .topBar {
+    min-height: 66px;
+    padding: 11px 16px;
+  }
+
+  .mobile .brand {
+    transform: scale(0.8);
+  }
+
+  .mobile .intro {
+    padding: 25px 20px 18px;
+  }
+
+  .mobile .greeting {
+    font-size: 18px;
+  }
+
+  .mobile .question {
+    max-width: 290px;
+    font-size: 10px;
+    line-height: 1.6;
+  }
+
+  .mobile .prompt {
+    min-height: 55px;
+    margin: 0 15px 18px;
+    padding-left: 14px;
+  }
+
+  .mobile .prompt input {
+    font-size: 9.5px;
+  }
+
+  .mobile .tabs {
+    grid-template-columns: repeat(5, minmax(72px, 1fr));
+    min-height: 50px;
+    padding: 0 8px;
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+    scrollbar-width: none;
+  }
+
+  .mobile .tabs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .mobile .tab,
+  .mobile .activeTab {
+    font-size: 8px;
+  }
+
+  .mobile .metrics {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    padding: 11px 12px 14px;
+    gap: 7px;
+  }
+
+  .mobile .metric {
+    min-height: 91px;
+    padding: 13px 14px;
+    border-color: rgba(78, 84, 132, 0.08);
+    background: rgba(255, 255, 255, 0.91);
+    box-shadow: 0 8px 20px rgba(44, 46, 90, 0.045);
+  }
+
+  .mobile .metric dd {
+    font-size: 22px;
   }
 }

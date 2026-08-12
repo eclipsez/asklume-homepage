@@ -1,0 +1,137 @@
+.footer {
+  scroll-margin-top: 96px;
+  border-top: 1px solid rgba(80, 87, 126, 0.08);
+  background: #fff;
+}
+
+.inner {
+  display: grid;
+  grid-template-columns: minmax(230px, 1fr) auto minmax(150px, 1fr);
+  align-items: center;
+  width: min(calc(100% - 48px), var(--content-width));
+  min-height: 112px;
+  margin-inline: auto;
+  gap: 28px;
+}
+
+.brandLink {
+  display: inline-flex;
+  width: max-content;
+  min-width: 0;
+}
+
+.navigation {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(20px, 2.6vw, 38px);
+}
+
+.navigation a {
+  color: #28304d;
+  font-size: 12px;
+  font-weight: 650;
+  white-space: nowrap;
+  transition: color 160ms ease;
+}
+
+.navigation a:hover {
+  color: #6657ee;
+}
+
+.socials {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.socials a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  color: #65708f;
+  border: 1px solid rgba(83, 89, 130, 0.08);
+  border-radius: 50%;
+  background: #f7f8fc;
+  transition: color 160ms ease, transform 160ms ease;
+}
+
+.socials a:hover {
+  color: #6457e9;
+  transform: translateY(-1px);
+}
+
+.socials svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.75;
+}
+
+@media (max-width: 960px) {
+  .inner {
+    grid-template-columns: minmax(190px, 1fr) auto minmax(115px, 1fr);
+    gap: 18px;
+  }
+
+  .navigation {
+    gap: 15px;
+  }
+
+  .navigation a {
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer {
+    scroll-margin-top: 76px;
+  }
+
+  .inner {
+    grid-template-columns: minmax(0, 1fr) auto;
+    width: min(calc(100% - 32px), 520px);
+    min-height: 98px;
+    gap: 12px;
+  }
+
+  .brandLink {
+    transform: scale(0.78);
+    transform-origin: left center;
+  }
+
+  .navigation {
+    display: none;
+  }
+
+  .socials {
+    gap: 6px;
+  }
+
+  .socials a {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+@media (max-width: 380px) {
+  .inner {
+    width: min(calc(100% - 24px), 520px);
+  }
+
+  .brandLink {
+    margin-right: -30px;
+    transform: scale(0.68);
+  }
+
+  .socials a {
+    width: 30px;
+    height: 30px;
+  }
+}

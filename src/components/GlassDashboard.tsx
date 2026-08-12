@@ -6,7 +6,7 @@ import styles from './GlassDashboard.module.css'
 
 export interface GlassDashboardProps {
   className?: string
-  variant?: 'hero' | 'embedded'
+  variant?: 'hero' | 'embedded' | 'mobile'
 }
 
 const dashboardTabs = [
@@ -24,7 +24,8 @@ export function GlassDashboard({
   const promptId = `dashboard-question-${useId()}`
   const rootClassName = [
     styles.dashboard,
-    variant === 'embedded' ? styles.embedded : '',
+    variant !== 'hero' ? styles.embedded : '',
+    variant === 'mobile' ? styles.mobile : '',
     className ?? '',
   ]
     .filter(Boolean)
