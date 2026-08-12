@@ -37,11 +37,18 @@ export function MobileMenu({ id, onClose }: MobileMenuProps) {
 
       if (controls.length === 0) {
         event.preventDefault()
+        dialogRef.current?.focus()
         return
       }
 
       const firstControl = controls[0]
       const lastControl = controls[controls.length - 1]
+
+      if (!dialogRef.current?.contains(document.activeElement)) {
+        event.preventDefault()
+        firstControl.focus()
+        return
+      }
 
       if (event.shiftKey && document.activeElement === firstControl) {
         event.preventDefault()
@@ -68,6 +75,7 @@ export function MobileMenu({ id, onClose }: MobileMenuProps) {
       id={id}
       ref={dialogRef}
       role="dialog"
+      tabIndex={-1}
     >
       <div className={styles.shell}>
         <div className={styles.topbar}>
@@ -136,10 +144,10 @@ export function MobileMenu({ id, onClose }: MobileMenuProps) {
           </div>
         </div>
 
-        <footer className={styles.footer}>
+        <div className={styles.footer}>
           <span>{footerContact.copyright}</span>
           <span>{footerContact.icp}</span>
-        </footer>
+        </div>
       </div>
     </div>,
     document.body,

@@ -1,10 +1,11 @@
-import { render, screen, within } from '@testing-library/react'
+import { act, render, screen, within } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import { afterEach, describe, expect, it } from 'vitest'
+import { afterEach, describe, expect, it, vi } from 'vitest'
 import { Header } from './Header'
 
 afterEach(() => {
   document.body.style.overflow = ''
+  vi.unstubAllGlobals()
 })
 
 describe('Header', () => {
@@ -80,5 +81,78 @@ describe('Header', () => {
 
     await user.click(within(dialog).getByRole('link', { name: '产品与服务' }))
     expect(screen.queryByRole('dialog', { name: '网站导航' })).not.toBeInTheDocument()
+  })
+
+  it('closes the mobile menu when the viewport crosses into the desktop layout', async () => {
+    const user = userEvent.setup()
+    let desktopChangeListener: ((event: MediaQueryListEvent) => void) | undefined
+    const mediaQueryList = {
+      matches: false,
+      media: '(min-width: 769px)',
+      onchange: null,
+      addEventListener: vi.fn(
+        (_type: string, listener: (event: MediaQueryListEvent) => void) => {
+          desktopChangeListener = listener
+        },
+      ),
+      removeEventListener: vi.fn(),
+      addListener: vi.fn(),
+      removeListener: vi.fn(),
+      dispatchEvent: vi.fn(),
+    }
+    vi.stubGlobal('matchMedia', vi.fn(() => mediaQueryList))
+    document.body.style.overflow = 'clip'
+    const { unmount } = render(<Header />)
+
+    const openButton = screen.getByRole('button', { name: '打开菜单' })
+    await user.click(openButton)
+    expect(document.body.style.overflow).toBe('hidden')
+
+    act(() => {
+      desktopChangeListener?.({ matches: true } as MediaQueryListEvent)
+    })
+
+    expect(screen.queryByRole('dialog', { name: '网站导航' })).not.toBeInTheDocument()
+    expect(openButton).toHaveAttribute('aria-expanded', 'false')
+    expect(document.body.style.overflow).toBe('clip')
+    unmount()
+    expect(mediaQueryList.removeEventListener).toHaveBeenCalledWith(
+      'change',
+      expect.any(Function),
+    )
+  })
+
+  it('recovers focus into the dialog when Tab starts outside it', async () => {
+    const user = userEvent.setup()
+    render(
+      <>
+        <button type="button">外部操作</button>
+        <Header />
+      </>,
+    )
+
+    await user.click(screen.getByRole('button', { name: '打开菜单' }))
+    const dialog = screen.getByRole('dialog', { name: '网站导航' })
+    const closeButton = within(dialog).getByRole('button', { name: '关闭菜单' })
+    const outsideButton = screen.getByRole('button', { name: '外部操作' })
+
+    expect(dialog).toHaveAttribute('tabindex', '-1')
+    outsideButton.focus()
+    await user.tab()
+
+    expect(closeButton).toHaveFocus()
+  })
+
+  it('does not add a second contentinfo landmark inside the menu', async () => {
+    const user = userEvent.setup()
+    render(<Header />)
+
+    await user.click(screen.getByRole('button', { name: '打开菜单' }))
+
+    expect(
+      within(screen.getByRole('dialog', { name: '网站导航' })).queryByRole(
+        'contentinfo',
+      ),
+    ).not.toBeInTheDocument()
   })
 })

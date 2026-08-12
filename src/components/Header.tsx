@@ -24,6 +24,21 @@ export function Header() {
     wasMenuOpen.current = isMenuOpen
   }, [isMenuOpen])
 
+  useEffect(() => {
+    if (typeof window.matchMedia !== 'function') return
+
+    const desktopQuery = window.matchMedia('(min-width: 769px)')
+    const handleDesktopChange = (event: MediaQueryListEvent) => {
+      if (event.matches) closeMenu()
+    }
+
+    desktopQuery.addEventListener('change', handleDesktopChange)
+
+    return () => {
+      desktopQuery.removeEventListener('change', handleDesktopChange)
+    }
+  }, [closeMenu])
+
   return (
     <header className={styles.header}>
       <div className={styles.inner}>
