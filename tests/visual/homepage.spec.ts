@@ -247,6 +247,26 @@ test('premium card motion is immediate when reduced motion is requested', async 
     .toBe('none')
 })
 
+test('premium capability motion is immediate when reduced motion is requested', async ({
+  page,
+}) => {
+  await page.setViewportSize({ width: 1024, height: 1000 })
+  await page.emulateMedia({ reducedMotion: 'reduce', colorScheme: 'light' })
+  await page.goto('/')
+  await settlePage(page)
+
+  const card = page.locator('#capabilities article').first()
+  const art = card.locator('[data-art]')
+  await card.hover()
+
+  await expect
+    .poll(() => card.evaluate((element) => getComputedStyle(element).transform))
+    .toBe('none')
+  await expect
+    .poll(() => art.evaluate((element) => getComputedStyle(element).transform))
+    .toBe('none')
+})
+
 test('mobile menu at 390px matches the approved dialog composition', async ({
   page,
 }) => {
