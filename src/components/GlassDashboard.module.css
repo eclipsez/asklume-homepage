@@ -1,0 +1,242 @@
+.dashboard {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  color: var(--ink);
+  border: 1px solid rgba(255, 255, 255, 0.76);
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.76);
+  box-shadow:
+    0 28px 70px rgba(61, 46, 130, 0.14),
+    inset 0 1px 0 rgba(255, 255, 255, 0.88);
+  -webkit-backdrop-filter: blur(24px) saturate(126%);
+  backdrop-filter: blur(24px) saturate(126%);
+}
+
+@supports not ((-webkit-backdrop-filter: blur(1px)) or (backdrop-filter: blur(1px))) {
+  .dashboard {
+    background: rgba(255, 255, 255, 0.94);
+  }
+}
+
+.dashboard::after {
+  position: absolute;
+  inset: auto -12% -35% 45%;
+  height: 48%;
+  background: radial-gradient(circle, rgba(208, 135, 255, 0.18), transparent 69%);
+  content: '';
+  pointer-events: none;
+}
+
+.topBar,
+.intro,
+.prompt,
+.tabs,
+.metrics {
+  position: relative;
+  z-index: 1;
+}
+
+.topBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 70px;
+  padding: 13px 24px;
+  border-bottom: 1px solid rgba(96, 90, 143, 0.07);
+}
+
+.brand {
+  transform: scale(0.86);
+  transform-origin: left center;
+}
+
+.utilities {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.utilityButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  color: #969ab1;
+  border: 0;
+  border-radius: 10px;
+  background: transparent;
+  transition: color 160ms ease, background-color 160ms ease;
+}
+
+.utilityButton:hover {
+  color: var(--ink);
+  background: rgba(255, 255, 255, 0.72);
+}
+
+.intro {
+  padding: 27px 29px 21px;
+}
+
+.greeting {
+  font-size: 20px;
+  font-weight: 750;
+  letter-spacing: -0.02em;
+  line-height: 1.35;
+}
+
+.question {
+  margin-top: 6px;
+  color: #6f758f;
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.prompt {
+  display: flex;
+  align-items: center;
+  min-height: 55px;
+  margin: 0 24px 23px;
+  padding: 7px 8px 7px 17px;
+  border: 1px solid rgba(107, 97, 153, 0.08);
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.71);
+  box-shadow: 0 8px 22px rgba(66, 56, 118, 0.06);
+}
+
+.prompt input {
+  width: 100%;
+  min-width: 0;
+  padding: 0;
+  color: var(--ink);
+  border: 0;
+  outline: 0;
+  background: transparent;
+  font-size: 10px;
+}
+
+.prompt input::placeholder {
+  color: #a5a8b9;
+  opacity: 1;
+}
+
+.prompt button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  flex: 0 0 auto;
+  padding: 0;
+  color: #fff;
+  border: 0;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #7655fa 15%, #b43fea 82%);
+  box-shadow: 0 8px 18px rgba(122, 67, 238, 0.27);
+}
+
+.tabs {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  min-height: 52px;
+  padding: 0 17px;
+  border-top: 1px solid rgba(96, 90, 143, 0.06);
+  border-bottom: 1px solid rgba(96, 90, 143, 0.06);
+}
+
+.tab,
+.activeTab {
+  position: relative;
+  min-width: 0;
+  padding: 2px 3px 0;
+  overflow: hidden;
+  color: #7e839b;
+  border: 0;
+  background: transparent;
+  font-size: 8.5px;
+  font-weight: 600;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.activeTab {
+  color: #6654ee;
+}
+
+.activeTab::after {
+  position: absolute;
+  right: 13px;
+  bottom: -1px;
+  left: 13px;
+  height: 2px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #5d72ff, #b74fe6);
+  content: '';
+}
+
+.metrics {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  padding: 16px 17px 21px;
+  gap: 8px;
+}
+
+.metric {
+  min-width: 0;
+  padding: 12px 12px 13px;
+  border: 1px solid rgba(255, 255, 255, 0.68);
+  border-radius: 13px;
+  background: rgba(255, 255, 255, 0.49);
+}
+
+.metric dt {
+  color: #7b8198;
+  font-size: 9px;
+  font-weight: 600;
+}
+
+.metric dd {
+  margin-top: 4px;
+  color: #101936;
+  font-size: 23px;
+  font-weight: 780;
+  letter-spacing: -0.035em;
+  line-height: 1.18;
+}
+
+.metric .delta {
+  display: block;
+  margin-top: 4px;
+  color: #25bd65;
+  font-size: 9px;
+  font-weight: 650;
+}
+
+.embedded {
+  border-radius: 18px;
+}
+
+@media (max-width: 1040px) {
+  .topBar {
+    padding-inline: 19px;
+  }
+
+  .intro {
+    padding-inline: 23px;
+  }
+
+  .prompt {
+    margin-inline: 19px;
+  }
+
+  .metrics {
+    padding-inline: 13px;
+    gap: 5px;
+  }
+
+  .metric {
+    padding-inline: 8px;
+  }
+}

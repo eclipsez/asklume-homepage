@@ -1,0 +1,91 @@
+import { metrics } from '../content/homeContent'
+import { Brand } from './Brand'
+import { Icon } from './Icon'
+import styles from './GlassDashboard.module.css'
+
+export interface GlassDashboardProps {
+  className?: string
+  variant?: 'hero' | 'embedded'
+}
+
+const dashboardTabs = [
+  '可见性概览',
+  '理解度分析',
+  '引用质量',
+  '竞品对比',
+  '趋势洞察',
+] as const
+
+export function GlassDashboard({
+  className,
+  variant = 'hero',
+}: GlassDashboardProps) {
+  const rootClassName = [
+    styles.dashboard,
+    variant === 'embedded' ? styles.embedded : '',
+    className ?? '',
+  ]
+    .filter(Boolean)
+    .join(' ')
+
+  return (
+    <section aria-label="AskLume AI品牌影响力看板" className={rootClassName}>
+      <div className={styles.topBar}>
+        <Brand className={styles.brand} compact />
+        <div className={styles.utilities}>
+          <button aria-label="搜索看板" className={styles.utilityButton} type="button">
+            <Icon name="search" size={16} />
+          </button>
+          <button aria-label="用户中心" className={styles.utilityButton} type="button">
+            <Icon name="user" size={16} />
+          </button>
+        </div>
+      </div>
+
+      <div className={styles.intro}>
+        <p className={styles.greeting}>早上好，市场团队 <span aria-hidden="true">👋</span></p>
+        <p className={styles.question}>今天我们可能如何提升企业在AI中的品牌影响力？</p>
+      </div>
+
+      <form className={styles.prompt} onSubmit={(event) => event.preventDefault()}>
+        <label className="srOnly" htmlFor="dashboard-question">
+          向AskLume提问
+        </label>
+        <input
+          id="dashboard-question"
+          placeholder="输入企业在AI中的可见性、理解度或引用量问题…"
+          type="text"
+        />
+        <button aria-label="提交问题" type="submit">
+          <Icon name="arrow" size={17} />
+        </button>
+      </form>
+
+      <div aria-label="分析维度" className={styles.tabs} role="tablist">
+        {dashboardTabs.map((tab, index) => (
+          <button
+            aria-selected={index === 0}
+            className={index === 0 ? styles.activeTab : styles.tab}
+            key={tab}
+            role="tab"
+            type="button"
+          >
+            {tab}
+          </button>
+        ))}
+      </div>
+
+      <dl className={styles.metrics}>
+        {metrics.map((metric) => (
+          <div className={styles.metric} key={metric.label}>
+            <dt>{metric.label}</dt>
+            <dd>{metric.value}</dd>
+            <dd aria-label={`提升 ${metric.delta}`} className={styles.delta}>
+              ↑ {metric.delta}
+            </dd>
+          </div>
+        ))}
+      </dl>
+    </section>
+  )
+}
