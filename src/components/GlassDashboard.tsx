@@ -1,3 +1,4 @@
+import { useId } from 'react'
 import { metrics } from '../content/homeContent'
 import { Brand } from './Brand'
 import { Icon } from './Icon'
@@ -20,6 +21,7 @@ export function GlassDashboard({
   className,
   variant = 'hero',
 }: GlassDashboardProps) {
+  const promptId = `dashboard-question-${useId()}`
   const rootClassName = [
     styles.dashboard,
     variant === 'embedded' ? styles.embedded : '',
@@ -48,11 +50,11 @@ export function GlassDashboard({
       </div>
 
       <form className={styles.prompt} onSubmit={(event) => event.preventDefault()}>
-        <label className="srOnly" htmlFor="dashboard-question">
+        <label className="srOnly" htmlFor={promptId}>
           向AskLume提问
         </label>
         <input
-          id="dashboard-question"
+          id={promptId}
           placeholder="输入企业在AI中的可见性、理解度或引用量问题…"
           type="text"
         />
@@ -61,19 +63,17 @@ export function GlassDashboard({
         </button>
       </form>
 
-      <div aria-label="分析维度" className={styles.tabs} role="tablist">
+      <ul aria-label="分析维度" className={styles.tabs}>
         {dashboardTabs.map((tab, index) => (
-          <button
-            aria-selected={index === 0}
+          <li
+            aria-current={index === 0 ? 'true' : undefined}
             className={index === 0 ? styles.activeTab : styles.tab}
             key={tab}
-            role="tab"
-            type="button"
           >
             {tab}
-          </button>
+          </li>
         ))}
-      </div>
+      </ul>
 
       <dl className={styles.metrics}>
         {metrics.map((metric) => (
