@@ -10,8 +10,18 @@ const viewports = [
 const boundaryViewports = [
   { width: 768, height: 900, mobileNavigation: true },
   { width: 769, height: 900, mobileNavigation: false },
-  { width: 900, height: 1000, mobileNavigation: false },
-  { width: 901, height: 1000, mobileNavigation: false },
+  {
+    width: 900,
+    height: 1000,
+    mobileNavigation: false,
+    contentColumns: 1,
+  },
+  {
+    width: 901,
+    height: 1000,
+    mobileNavigation: false,
+    contentColumns: 3,
+  },
 ] as const
 
 interface RuntimeErrors {
@@ -74,6 +84,47 @@ async function expectOneVisibleDashboardAndPrompt(page: Page) {
   ).toHaveCount(1)
 }
 
+async function expectBenefitsAndPillarsColumns(
+  page: Page,
+  expectedColumns: 1 | 3,
+) {
+  const sectionHeadingIds = ['benefits-title', 'pillars-title'] as const
+
+  for (const headingId of sectionHeadingIds) {
+    const cards = page.locator(
+      `section[aria-labelledby="${headingId}"] article`,
+    )
+    await expect(cards).toHaveCount(3)
+
+    const layout = await cards.evaluateAll(([firstCard, secondCard]) => {
+      const first = firstCard.getBoundingClientRect()
+      const second = secondCard.getBoundingClientRect()
+      const grid = firstCard.parentElement
+
+      return {
+        first: { x: first.x, y: first.y },
+        second: { x: second.x, y: second.y },
+        gridTemplateColumns: grid
+          ? getComputedStyle(grid).gridTemplateColumns.split(' ').length
+          : 0,
+      }
+    })
+
+    expect(layout.gridTemplateColumns, headingId).toBe(expectedColumns)
+    if (expectedColumns === 1) {
+      expect(Math.abs(layout.first.x - layout.second.x), headingId).toBeLessThan(
+        2,
+      )
+      expect(layout.second.y, headingId).toBeGreaterThan(layout.first.y)
+    } else {
+      expect(Math.abs(layout.first.y - layout.second.y), headingId).toBeLessThan(
+        2,
+      )
+      expect(layout.second.x, headingId).toBeGreaterThan(layout.first.x)
+    }
+  }
+}
+
 function expectNoRuntimeErrors(runtimeErrors: RuntimeErrors) {
   expect(runtimeErrors.console).toEqual([])
   expect(runtimeErrors.page).toEqual([])
@@ -122,6 +173,10 @@ for (const viewport of boundaryViewports) {
     } else {
       await expect(menuButton).toBeHidden()
       await expect(desktopNavigation).toBeVisible()
+    }
+
+    if ('contentColumns' in viewport) {
+      await expectBenefitsAndPillarsColumns(page, viewport.contentColumns)
     }
 
     expectNoRuntimeErrors(runtimeErrors)
