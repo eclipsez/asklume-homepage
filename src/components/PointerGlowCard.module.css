@@ -1,0 +1,33 @@
+.card {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.card::before {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  content: '';
+  pointer-events: none;
+  opacity: 0;
+  background: radial-gradient(
+    260px circle at var(--pointer-x) var(--pointer-y),
+    rgba(160, 187, 255, 0.2),
+    rgba(161, 126, 255, 0.08) 34%,
+    transparent 70%
+  );
+  transition: opacity 260ms ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .card:hover::before {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card::before {
+    transition: none;
+  }
+}
