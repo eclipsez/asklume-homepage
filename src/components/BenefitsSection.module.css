@@ -117,6 +117,19 @@
   transform: translateX(2px);
 }
 
+/* Keep the icon-and-copy layout readable before the desktop cards get cramped. */
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: minmax(0, 680px);
+    justify-content: center;
+    gap: 14px;
+  }
+
+  .copy p {
+    max-width: none;
+  }
+}
+
 @media (max-width: 768px) {
   .inner {
     width: min(calc(100% - 32px), 520px);
