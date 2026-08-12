@@ -28,6 +28,15 @@ describe('homeContent', () => {
     expect(capabilities).toHaveLength(4)
   })
 
+  it('configures the decorative art for each platform capability', () => {
+    expect(capabilities.map(({ art }) => art)).toEqual([
+      'platform',
+      'ring',
+      'cubes',
+      'orb',
+    ])
+  })
+
   it('provides the approved metric values', () => {
     expect(metrics.map(({ value }) => value)).toEqual(['72%', '68%', '156', '29%'])
   })

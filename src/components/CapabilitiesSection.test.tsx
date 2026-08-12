@@ -46,4 +46,23 @@ describe('CapabilitiesSection', () => {
 
     expect(new Set(headingIds).size).toBe(articles.length)
   })
+
+  it('uses configured artwork and marks the first three cards as sequential', () => {
+    render(<CapabilitiesSection />)
+
+    const articles = screen.getAllByRole('article')
+
+    articles.forEach((article, index) => {
+      expect(article.querySelector('[data-art]')).toHaveAttribute(
+        'data-art',
+        capabilities[index].art,
+      )
+    })
+    expect(articles.map((article) => article.getAttribute('data-flow'))).toEqual([
+      'next',
+      'next',
+      'next',
+      null,
+    ])
+  })
 })

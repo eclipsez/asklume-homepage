@@ -3,15 +3,6 @@ import { capabilities } from '../content/homeContent'
 import { Icon } from './Icon'
 import styles from './CapabilitiesSection.module.css'
 
-type CapabilityArt = 'platform' | 'ring' | 'cubes' | 'orb'
-
-const capabilityArt = [
-  'platform',
-  'ring',
-  'cubes',
-  'orb',
-] as const satisfies readonly CapabilityArt[]
-
 export function CapabilitiesSection() {
   const articleIdPrefix = useId()
 
@@ -38,6 +29,7 @@ export function CapabilitiesSection() {
               <article
                 aria-labelledby={headingId}
                 className={styles.card}
+                data-flow={index < capabilities.length - 1 ? 'next' : undefined}
                 key={capability.title}
               >
                 <span className={styles.icon} aria-hidden="true">
@@ -50,7 +42,7 @@ export function CapabilitiesSection() {
                 <span
                   aria-hidden="true"
                   className={styles.art}
-                  data-art={capabilityArt[index]}
+                  data-art={capability.art}
                 >
                   <i />
                   <i />

@@ -12,6 +12,12 @@ export interface FeatureCard {
   href?: `#${string}`
 }
 
+export type CapabilityArt = 'platform' | 'ring' | 'cubes' | 'orb'
+
+export interface CapabilityCard extends FeatureCard {
+  art: CapabilityArt
+}
+
 export interface Pillar {
   title: '被看见' | '被理解' | '被选择'
   lines: readonly [string, string, string, string]
@@ -103,23 +109,27 @@ export const capabilities = [
     title: 'AI搜索与洞察',
     description: '追踪品牌在主流AI平台中的表现、发现问题、洞察机会。',
     icon: 'search',
+    art: 'platform',
   },
   {
     title: '持续监测与预警',
     description: '实时监测AI回答变化、识别风险信号、助力品牌管理。',
     icon: 'shield',
+    art: 'ring',
   },
   {
     title: '企业协同与资产管理',
     description: '跨团队、跨系统协作，沉淀企业资产、提升组织生产力。',
     icon: 'cube',
+    art: 'cubes',
   },
   {
     title: '定制化智能方案',
     description: '根据行业与业务特点定制方案，匹配企业独特需求。',
     icon: 'spark',
+    art: 'orb',
   },
-] as const satisfies readonly FeatureCard[]
+] as const satisfies readonly CapabilityCard[]
 
 export const metrics = [
   { label: '可见性', value: '72%', delta: '12%' },

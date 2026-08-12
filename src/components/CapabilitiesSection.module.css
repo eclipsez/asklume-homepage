@@ -269,6 +269,7 @@
     padding-right: 23px;
   }
 
+  .card::before,
   .card::after {
     display: none;
   }
@@ -299,12 +300,42 @@
   .grid {
     grid-template-columns: minmax(0, 1fr);
     margin-top: 28px;
-    gap: 14px;
+    gap: 22px;
   }
 
   .card {
     min-height: 137px;
     padding: 20px 92px 20px 18px;
+  }
+
+  .card[data-flow='next']::before {
+    display: block;
+    position: absolute;
+    z-index: 4;
+    top: auto;
+    right: 50%;
+    bottom: -20px;
+    width: 1px;
+    height: 20px;
+    content: '';
+    background: linear-gradient(#cac6ff, #e1ddff);
+  }
+
+  .card[data-flow='next']::after {
+    display: block;
+    position: absolute;
+    z-index: 5;
+    top: auto;
+    right: calc(50% - 3px);
+    bottom: -20px;
+    width: 7px;
+    height: 7px;
+    color: transparent;
+    border-right: 1px solid #c7c0ff;
+    border-bottom: 1px solid #c7c0ff;
+    content: '';
+    font-size: 0;
+    transform: rotate(45deg);
   }
 
   .copy h3 {
