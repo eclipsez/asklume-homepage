@@ -5,7 +5,7 @@
 .inner {
   width: min(calc(100% - 48px), var(--content-width));
   margin-inline: auto;
-  padding: 36px 0 46px;
+  padding: 18px 0 17px;
 }
 
 .message {

@@ -10,6 +10,6 @@
   --border: rgba(83,89,130,.11);
   --shadow-card: 0 22px 60px rgba(32,39,86,.08);
   --radius-card: 18px;
-  --content-width: 1120px;
+  --content-width: clamp(890px, 78vw, 1120px);
   --font-sans: "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
 }

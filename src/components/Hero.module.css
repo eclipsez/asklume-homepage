@@ -1,6 +1,6 @@
 .hero {
   position: relative;
-  min-height: 520px;
+  min-height: 425px;
   overflow: hidden;
   isolation: isolate;
   background:
@@ -36,9 +36,9 @@
   grid-template-columns: minmax(0, 0.98fr) minmax(0, 1.02fr);
   align-items: center;
   width: min(calc(100% - 48px), var(--content-width));
-  min-height: 520px;
+  min-height: 425px;
   margin-inline: auto;
-  padding: 54px 0 61px;
+  padding: 36px 0;
   gap: clamp(38px, 5vw, 74px);
 }
 

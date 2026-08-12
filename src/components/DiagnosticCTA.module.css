@@ -7,12 +7,12 @@
 .inner {
   width: min(calc(100% - 48px), var(--content-width));
   margin-inline: auto;
-  padding: 0 0 42px;
+  padding: 0 0 18px;
 }
 
 .banner {
   position: relative;
-  min-height: 194px;
+  min-height: 146px;
   overflow: hidden;
   color: #fff;
   border: 1px solid rgba(255, 255, 255, 0.42);
@@ -39,7 +39,7 @@
   z-index: 2;
   width: 58%;
   max-width: 620px;
-  padding: 34px 44px 31px;
+  padding: 20px 34px 16px;
 }
 
 .copy h2 {
@@ -61,7 +61,7 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  margin-top: 21px;
+  margin-top: 12px;
   gap: 10px;
 }
 
@@ -70,7 +70,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 42px;
+  min-height: 36px;
   padding: 0 19px;
   border-radius: 999px;
   font-size: 12px;

@@ -258,6 +258,42 @@
   }
 }
 
+@media (min-width: 769px) {
+  .topBar {
+    min-height: 52px;
+    padding-block: 7px;
+  }
+
+  .intro {
+    padding-block: 17px 13px;
+  }
+
+  .greeting {
+    font-size: 18px;
+  }
+
+  .prompt {
+    min-height: 45px;
+    margin-bottom: 15px;
+  }
+
+  .tabs {
+    min-height: 40px;
+  }
+
+  .metrics {
+    padding-block: 11px 14px;
+  }
+
+  .metric {
+    padding-block: 9px 10px;
+  }
+
+  .metric dd {
+    font-size: 21px;
+  }
+}
+
 @media (max-width: 768px) {
   .utilityButton,
   .prompt button {

@@ -9,7 +9,7 @@
   grid-template-columns: minmax(230px, 1fr) auto minmax(150px, 1fr);
   align-items: center;
   width: min(calc(100% - 48px), var(--content-width));
-  min-height: 112px;
+  min-height: 76px;
   margin-inline: auto;
   gap: 28px;
 }
