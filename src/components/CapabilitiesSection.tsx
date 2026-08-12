@@ -1,6 +1,7 @@
 import { useId } from 'react'
 import { capabilities } from '../content/homeContent'
 import { Icon } from './Icon'
+import { PointerGlowCard } from './PointerGlowCard'
 import { Reveal } from './Reveal'
 import styles from './CapabilitiesSection.module.css'
 
@@ -29,10 +30,10 @@ export function CapabilitiesSection() {
             const headingId = `${articleIdPrefix}-capability-${index}`
 
             return (
-              <article
+              <PointerGlowCard
                 aria-labelledby={headingId}
                 className={styles.card}
-                data-flow={index < capabilities.length - 1 ? 'next' : undefined}
+                data-art-type={capability.art}
                 key={capability.title}
               >
                 <span className={styles.icon} aria-hidden="true">
@@ -44,6 +45,13 @@ export function CapabilitiesSection() {
                 </div>
                 <span
                   aria-hidden="true"
+                  className={styles.arrow}
+                  data-capability-arrow=""
+                >
+                  →
+                </span>
+                <span
+                  aria-hidden="true"
                   className={styles.art}
                   data-art={capability.art}
                 >
@@ -51,7 +59,7 @@ export function CapabilitiesSection() {
                   <i />
                   <i />
                 </span>
-              </article>
+              </PointerGlowCard>
             )
           })}
         </Reveal>

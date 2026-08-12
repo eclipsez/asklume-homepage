@@ -109,7 +109,11 @@ async function expectBenefitsAndPillarsColumns(
     const layout = await cards.evaluateAll(([firstCard, secondCard]) => {
       const first = firstCard.getBoundingClientRect()
       const second = secondCard.getBoundingClientRect()
-      const grid = firstCard.parentElement
+      let grid = firstCard.parentElement
+
+      while (grid && getComputedStyle(grid).display !== 'grid') {
+        grid = grid.parentElement
+      }
 
       return {
         first: { x: first.x, y: first.y },
@@ -133,6 +137,16 @@ async function expectBenefitsAndPillarsColumns(
       expect(layout.second.x, headingId).toBeGreaterThan(layout.first.x)
     }
   }
+}
+
+async function expectPremiumCardComposition(page: Page) {
+  await expect(page.getByRole('region', { name: '客户信赖' })).toHaveCount(0)
+  await expect(page.getByText('值得信赖的选择 · 为全球领先企业提供AI认知基线设施')).toHaveCount(0)
+
+  const sequences = page.getByTestId('pillar-sequence')
+  await expect(sequences).toHaveText(['01', '02', '03'])
+  await expect(page.locator('#insights article[data-glass-art]')).toHaveCount(3)
+  await expect(page.locator('#pillars article[data-glass-art]')).toHaveCount(3)
 }
 
 async function expectCapabilityColumns(page: Page, expectedColumns: 1 | 2) {
@@ -170,6 +184,7 @@ for (const viewport of viewports) {
 
     await expectNoHorizontalOverflow(page)
     await expectOneVisibleDashboardAndPrompt(page)
+    await expectPremiumCardComposition(page)
 
     await expect(page).toHaveScreenshot(`homepage-${viewport.name}.png`, {
       fullPage: true,
@@ -191,6 +206,7 @@ for (const viewport of boundaryViewports) {
 
     await expectNoHorizontalOverflow(page)
     await expectOneVisibleDashboardAndPrompt(page)
+    await expectPremiumCardComposition(page)
 
     const menuButton = page.getByRole('button', { name: '打开菜单' })
     const desktopNavigation = page.getByRole('navigation', { name: '主导航' })
@@ -213,6 +229,43 @@ for (const viewport of boundaryViewports) {
     expectNoRuntimeErrors(runtimeErrors)
   })
 }
+
+test('premium card motion is immediate when reduced motion is requested', async ({
+  page,
+}) => {
+  await page.setViewportSize({ width: 1024, height: 1000 })
+  await page.emulateMedia({ reducedMotion: 'reduce', colorScheme: 'light' })
+  await page.goto('/')
+  await settlePage(page)
+
+  const card = page.locator('#insights article').first()
+  const art = card.locator('img')
+  await card.hover()
+
+  await expect
+    .poll(() => art.evaluate((element) => getComputedStyle(element).transform))
+    .toBe('none')
+})
+
+test('premium capability motion is immediate when reduced motion is requested', async ({
+  page,
+}) => {
+  await page.setViewportSize({ width: 1024, height: 1000 })
+  await page.emulateMedia({ reducedMotion: 'reduce', colorScheme: 'light' })
+  await page.goto('/')
+  await settlePage(page)
+
+  const card = page.locator('#capabilities article').first()
+  const art = card.locator('[data-art]')
+  await card.hover()
+
+  await expect
+    .poll(() => card.evaluate((element) => getComputedStyle(element).transform))
+    .toBe('none')
+  await expect
+    .poll(() => art.evaluate((element) => getComputedStyle(element).transform))
+    .toBe('none')
+})
 
 test('mobile menu at 390px matches the approved dialog composition', async ({
   page,

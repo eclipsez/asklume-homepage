@@ -29,15 +29,6 @@ export interface Metric {
   delta: string
 }
 
-export type TrustBrand =
-  | '华为'
-  | '腾讯'
-  | '阿里巴巴'
-  | '字节跳动'
-  | '小米'
-  | '中国平安'
-  | '美的集团'
-
 export interface FooterContact {
   phone: string
   email: string
@@ -137,16 +128,6 @@ export const metrics = [
   { label: '引用量', value: '156', delta: '23%' },
   { label: '推荐率', value: '29%', delta: '6%' },
 ] as const satisfies readonly Metric[]
-
-export const trustBrands = [
-  '华为',
-  '腾讯',
-  '阿里巴巴',
-  '字节跳动',
-  '小米',
-  '中国平安',
-  '美的集团',
-] as const satisfies readonly TrustBrand[]
 
 export const footerContact = {
   phone: '400-888-8888',

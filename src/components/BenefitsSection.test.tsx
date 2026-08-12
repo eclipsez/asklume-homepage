@@ -1,22 +1,10 @@
 import { render, screen, within } from '@testing-library/react'
-import App from '../App'
-import { benefits, trustBrands } from '../content/homeContent'
+import { benefits } from '../content/homeContent'
+import { BenefitsSection } from './BenefitsSection'
 
-describe('TrustStrip and BenefitsSection', () => {
-  it('renders the trust statement and all configured brands', () => {
-    render(<App />)
-
-    expect(
-      screen.getByText('值得信赖的选择 · 为全球领先企业提供AI认知基线设施'),
-    ).toBeVisible()
-
-    for (const brand of trustBrands) {
-      expect(screen.getByText(brand)).toBeVisible()
-    }
-  })
-
+describe('BenefitsSection', () => {
   it('renders exactly three configured benefit articles beneath the section heading', () => {
-    const { container } = render(<App />)
+    const { container } = render(<BenefitsSection />)
     const section = container.querySelector<HTMLElement>('#insights')
 
     expect(section).toBeInTheDocument()
@@ -40,5 +28,37 @@ describe('TrustStrip and BenefitsSection', () => {
       '更准确的AI理解',
       '更强的品牌选择力',
     ])
+  })
+
+  it('uses labelled glass-art cards while preserving every configured action', () => {
+    render(<BenefitsSection />)
+    const articles = screen.getAllByRole('article')
+
+    expect(articles.map((article) => article.dataset.glassArt)).toEqual([
+      'loop',
+      'bloom',
+      'ribbon',
+    ])
+    expect(articles.every((article) => article.querySelector('svg') === null)).toBe(true)
+
+    const headingIds = articles.map((article, index) => {
+      const heading = within(article).getByRole('heading', {
+        level: 3,
+        name: benefits[index].title,
+      })
+      const headingId = article.getAttribute('aria-labelledby')
+
+      expect(headingId).toBeTruthy()
+      expect(heading).toHaveAttribute('id', headingId)
+      expect(within(article).getByText(benefits[index].description)).toBeVisible()
+      expect(within(article).getByRole('link', { name: /了解更多/ })).toHaveAttribute(
+        'href',
+        benefits[index].href,
+      )
+
+      return headingId
+    })
+
+    expect(new Set(headingIds).size).toBe(3)
   })
 })

@@ -22,7 +22,7 @@ describe('static homepage contracts', () => {
     expect(noscript).toContain('© 2024 问答光源科技：保留所有权利')
   })
 
-  it('stacks capabilities throughout the mobile navigation breakpoint', () => {
+  it('stacks independent capabilities throughout the mobile navigation breakpoint', () => {
     const css = readProjectFile(
       '../../src/components/CapabilitiesSection.module.css',
     )
@@ -34,8 +34,9 @@ describe('static homepage contracts', () => {
     expect(mobileRules).toMatch(
       /\.grid\s*\{[\s\S]*?grid-template-columns:\s*minmax\(0, 1fr\)/,
     )
-    expect(mobileRules).toMatch(/\.card\[data-flow='next'\]::before/)
-    expect(mobileRules).toMatch(/\.card\[data-flow='next'\]::after/)
+    expect(css).not.toMatch(/data-flow='next'/)
+    expect(css).toMatch(/\.arrow\s*\{[\s\S]*?pointer-events:\s*none/)
+    expect(css).toMatch(/@media \(prefers-reduced-motion: reduce\)/)
   })
 
   it('gives the mobile menu a reduced-motion-safe entrance', () => {
