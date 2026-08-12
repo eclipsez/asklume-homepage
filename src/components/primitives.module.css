@@ -1,0 +1,84 @@
+.brand {
+  display: inline-flex;
+  align-items: center;
+  min-width: 0;
+  color: var(--ink);
+  line-height: 1;
+}
+
+.brandMark {
+  width: 46px;
+  height: 46px;
+  flex: 0 0 auto;
+}
+
+.brandCopy {
+  display: grid;
+  min-width: 0;
+  margin-left: 11px;
+  gap: 6px;
+}
+
+.brandName {
+  overflow: hidden;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  line-height: 1.1;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.brandSubtitle {
+  overflow: hidden;
+  color: var(--ink-muted);
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  line-height: 1.1;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.brandCompact .brandMark {
+  width: 38px;
+  height: 38px;
+}
+
+.brandCompact .brandCopy {
+  margin-left: 9px;
+}
+
+.brandCompact .brandName {
+  font-size: 14px;
+}
+
+.brandCompact .brandSubtitle {
+  display: none;
+}
+
+.icon {
+  display: block;
+  flex: 0 0 auto;
+  overflow: visible;
+}
+
+@media (max-width: 480px) {
+  .brand:not(.brandCompact) .brandMark {
+    width: 40px;
+    height: 40px;
+  }
+
+  .brand:not(.brandCompact) .brandCopy {
+    margin-left: 9px;
+    gap: 4px;
+  }
+
+  .brand:not(.brandCompact) .brandName {
+    font-size: 14px;
+  }
+
+  .brand:not(.brandCompact) .brandSubtitle {
+    font-size: 8px;
+  }
+}

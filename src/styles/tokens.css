@@ -1,0 +1,15 @@
+:root {
+  --ink: #0d1638;
+  --ink-muted: #68708b;
+  --blue: #566fff;
+  --violet: #7657f7;
+  --magenta: #df5fd1;
+  --coral: #ff7d8d;
+  --cloud: #f7f8fc;
+  --surface: rgba(255,255,255,.9);
+  --border: rgba(83,89,130,.11);
+  --shadow-card: 0 22px 60px rgba(32,39,86,.08);
+  --radius-card: 18px;
+  --content-width: 1120px;
+  --font-sans: "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
+}
