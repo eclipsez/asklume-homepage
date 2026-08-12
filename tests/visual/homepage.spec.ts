@@ -8,8 +8,18 @@ const viewports = [
 ] as const
 
 const boundaryViewports = [
-  { width: 768, height: 900, mobileNavigation: true },
-  { width: 769, height: 900, mobileNavigation: false },
+  {
+    width: 768,
+    height: 900,
+    mobileNavigation: true,
+    capabilityColumns: 1,
+  },
+  {
+    width: 769,
+    height: 900,
+    mobileNavigation: false,
+    capabilityColumns: 2,
+  },
   {
     width: 900,
     height: 1000,
@@ -125,6 +135,23 @@ async function expectBenefitsAndPillarsColumns(
   }
 }
 
+async function expectCapabilityColumns(page: Page, expectedColumns: 1 | 2) {
+  const cards = page.locator(
+    'section[aria-labelledby="capabilities-title"] article',
+  )
+  await expect(cards).toHaveCount(4)
+
+  const actualColumns = await cards.first().evaluate((firstCard) => {
+    const grid = firstCard.parentElement
+
+    return grid
+      ? getComputedStyle(grid).gridTemplateColumns.split(' ').length
+      : 0
+  })
+
+  expect(actualColumns).toBe(expectedColumns)
+}
+
 function expectNoRuntimeErrors(runtimeErrors: RuntimeErrors) {
   expect(runtimeErrors.console).toEqual([])
   expect(runtimeErrors.page).toEqual([])
@@ -177,6 +204,10 @@ for (const viewport of boundaryViewports) {
 
     if ('contentColumns' in viewport) {
       await expectBenefitsAndPillarsColumns(page, viewport.contentColumns)
+    }
+
+    if ('capabilityColumns' in viewport) {
+      await expectCapabilityColumns(page, viewport.capabilityColumns)
     }
 
     expectNoRuntimeErrors(runtimeErrors)

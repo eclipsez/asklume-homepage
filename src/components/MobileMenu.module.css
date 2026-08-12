@@ -8,6 +8,7 @@
   background:
     radial-gradient(circle at 100% 72%, rgba(223, 95, 209, 0.08), transparent 34%),
     linear-gradient(180deg, #fff 0%, #fbfbfe 100%);
+  animation: overlayEntrance 240ms ease-out both;
 }
 
 .shell {
@@ -20,6 +21,29 @@
   margin-inline: auto;
   padding: 14px 0 24px;
   isolation: isolate;
+  animation: panelEntrance 240ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes overlayEntrance {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes panelEntrance {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .shell::before,
@@ -212,6 +236,13 @@
 @media (min-width: 769px) {
   .overlay {
     display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .overlay,
+  .shell {
+    animation: none;
   }
 }
 
