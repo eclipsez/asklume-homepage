@@ -1,14 +1,17 @@
 import { useId } from 'react'
+import glassBloom from '../assets/glass/glass-bloom.webp'
+import glassLoop from '../assets/glass/glass-loop.webp'
+import glassRibbon from '../assets/glass/glass-ribbon.webp'
 import { pillars } from '../content/homeContent'
-import { Icon, type IconName } from './Icon'
+import { PointerGlowCard } from './PointerGlowCard'
 import { Reveal } from './Reveal'
 import styles from './PillarsSection.module.css'
 
-const pillarIcons: Record<(typeof pillars)[number]['title'], IconName> = {
-  被看见: 'search',
-  被理解: 'brain',
-  被选择: 'star',
-}
+const glassArt = [
+  { name: 'loop', src: glassLoop, width: 1254, height: 1254 },
+  { name: 'bloom', src: glassBloom, width: 1254, height: 1254 },
+  { name: 'ribbon', src: glassRibbon, width: 1536, height: 1024 },
+] as const
 
 export function PillarsSection() {
   const articleIdPrefix = useId()
@@ -35,25 +38,46 @@ export function PillarsSection() {
         <Reveal className={styles.grid} delay={0.08}>
           {pillars.map((pillar, index) => {
             const headingId = `${articleIdPrefix}-pillar-${index}`
+            const sequence = String(index + 1).padStart(2, '0')
+            const art = glassArt[index]
 
             return (
-              <article
-                aria-labelledby={headingId}
-                className={styles.card}
-                key={pillar.title}
-              >
-                <span className={styles.icon} aria-hidden="true">
-                  <Icon name={pillarIcons[pillar.title]} size={38} />
-                </span>
-                <div className={styles.copy}>
-                  <h3 id={headingId}>{pillar.title}</h3>
-                  <ul>
-                    {pillar.lines.map((line) => (
-                      <li key={line}>{line}</li>
-                    ))}
-                  </ul>
-                </div>
-              </article>
+              <div className={styles.cell} key={pillar.title}>
+                <PointerGlowCard
+                  aria-labelledby={headingId}
+                  className={styles.card}
+                  data-glass-art={art.name}
+                  data-sequence={sequence}
+                >
+                  <img
+                    alt=""
+                    aria-hidden="true"
+                    className={styles.art}
+                    decoding="async"
+                    draggable="false"
+                    height={art.height}
+                    src={art.src}
+                    width={art.width}
+                  />
+                  <div className={styles.copy}>
+                    <span className={styles.sequence} data-testid="pillar-sequence">
+                      {sequence}
+                    </span>
+                    <h3 id={headingId}>{pillar.title}</h3>
+                    <p className={styles.lead} data-testid="pillar-lead">
+                      {pillar.lines[0]}
+                    </p>
+                    <ul>
+                      {pillar.lines.slice(1).map((line) => (
+                        <li key={line}>{line}</li>
+                      ))}
+                    </ul>
+                  </div>
+                </PointerGlowCard>
+                {index < pillars.length - 1 ? (
+                  <span aria-hidden="true" className={styles.connector} />
+                ) : null}
+              </div>
             )
           })}
         </Reveal>

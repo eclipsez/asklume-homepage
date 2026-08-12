@@ -18,7 +18,7 @@ describe('PillarsSection', () => {
     ])
   })
 
-  it('presents the approved section message and four facts per pillar', () => {
+  it('presents the approved section message with one lead and three facts per pillar', () => {
     render(<PillarsSection />)
 
     expect(
@@ -36,10 +36,25 @@ describe('PillarsSection', () => {
     const articles = screen.getAllByRole('article')
     expect(articles).toHaveLength(3)
     articles.forEach((article, index) => {
+      expect(within(article).getByTestId('pillar-lead')).toHaveTextContent(
+        pillars[index].lines[0],
+      )
       expect(
         within(article).getAllByRole('listitem').map((item) => item.textContent),
-      ).toEqual(pillars[index].lines)
+      ).toEqual(pillars[index].lines.slice(1))
     })
+  })
+
+  it('shows the numbered glass-art decision sequence', () => {
+    render(<PillarsSection />)
+
+    expect(
+      screen.getAllByTestId('pillar-sequence').map((node) => node.textContent),
+    ).toEqual(['01', '02', '03'])
+    expect(
+      screen.getAllByRole('article').map((article) => article.dataset.sequence),
+    ).toEqual(['01', '02', '03'])
+    expect(document.querySelectorAll('img[aria-hidden="true"]')).toHaveLength(3)
   })
 
   it('keeps the closing title phrase together for narrow layouts', () => {
