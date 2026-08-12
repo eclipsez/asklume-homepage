@@ -6,13 +6,14 @@ export default defineConfig({
   forbidOnly: true,
   retries: 0,
   reporter: 'list',
-  snapshotPathTemplate: '{testDir}/__snapshots__/{arg}{ext}',
+  snapshotPathTemplate:
+    '{testDir}/__snapshots__/{platform}/{projectName}/{arg}{ext}',
   expect: {
     timeout: 10_000,
     toHaveScreenshot: {
       animations: 'disabled',
       caret: 'hide',
-      maxDiffPixelRatio: 0.015,
+      maxDiffPixelRatio: 0.005,
       scale: 'css',
     },
   },
