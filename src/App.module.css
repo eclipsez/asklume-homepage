@@ -1,0 +1,17 @@
+.mobileOverview {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .mobileOverview {
+    display: block;
+    overflow: hidden;
+    background: #fff;
+  }
+
+  .mobileOverviewInner {
+    width: min(calc(100% - 32px), 520px);
+    margin-inline: auto;
+    padding: 0 0 46px;
+  }
+}

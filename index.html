@@ -1,848 +1,243 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AskLume | AI Perception & Influence Infrastructure for Brands</title>
-  <meta name="description" content="AskLume helps companies turn real business capabilities into discoverable, understandable and verifiable digital evidence through GEO-AIP™ and Digital Evidence Engineering.">
-  <meta name="keywords" content="GEO, Generative Engine Optimization, AskLume, AI Search Analytics, ChatGPT Citation, Perplexity Visibility, GEO-AIP, AI Perception Infrastructure">
-  <link rel="canonical" href="https://asklume.com/">
-  
-  <!-- Hreflang Tags for Multi-language SEO & AI Crawler Resolution -->
-  <link rel="alternate" hreflang="en" href="https://asklume.com/" />
-  <link rel="alternate" hreflang="zh-CN" href="https://asklume.com/zh/" />
-  <link rel="alternate" hreflang="x-default" href="https://asklume.com/" />
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AskLume</title>
+    <style>
+      .no-script {
+        min-height: 100vh;
+        color: #0d1638;
+        background:
+          radial-gradient(circle at 92% 6%, rgba(223, 95, 209, 0.11), transparent 24rem),
+          radial-gradient(circle at 10% 20%, rgba(86, 111, 255, 0.1), transparent 28rem),
+          #f7f8fc;
+        font-family: "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
+        line-height: 1.65;
+      }
 
-  <!-- Open Graph / Social -->
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://asklume.com/">
-  <meta property="og:title" content="AskLume | AI Perception & Influence Infrastructure for Brands">
-  <meta property="og:description" content="Be seen. Be understood. Be chosen by AI. Build verifiable brand evidence for AI-mediated discovery.">
-  <meta property="og:image" content="https://asklume.com/assets/og-image.jpg">
+      .no-script *,
+      .no-script *::before,
+      .no-script *::after {
+        box-sizing: border-box;
+      }
 
-  <!-- Google Fonts: Geist & Inter -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&family=Geist+Mono:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  
-  <!-- CSS Stylesheet -->
-  <link rel="stylesheet" href="css/styles.css">
+      .no-script a {
+        color: #566fff;
+        text-underline-offset: 0.2em;
+      }
 
-  <!-- JSON-LD Structured Data Schema -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "AskLume",
-    "url": "https://asklume.com",
-    "logo": "https://asklume.com/assets/logo.png",
-    "slogan": "Be seen. Be understood. Be chosen by AI.",
-    "description": "Enterprise AI Perception & Influence Infrastructure for Brands. Powered by GEO-AIP™.",
-    "sameAs": [
-      "https://www.linkedin.com/company/asklume",
-      "https://x.com/asklume"
-    ]
-  }
-  </script>
-</head>
-<body class="asklume-light-theme">
+      .no-script__header,
+      .no-script__main,
+      .no-script__footer {
+        width: min(calc(100% - 3rem), 70rem);
+        margin-inline: auto;
+      }
 
-  <!-- Background Grid Texture -->
-  <div class="bg-grid-pattern"></div>
+      .no-script__header {
+        display: flex;
+        align-items: baseline;
+        padding-block: 1.25rem;
+        gap: 0.65rem;
+        border-bottom: 1px solid rgba(13, 22, 56, 0.1);
+      }
 
-  <!-- Radial Glow Orbs -->
-  <div class="glow-orb glow-orb-1"></div>
-  <div class="glow-orb glow-orb-2"></div>
+      .no-script__brand {
+        font-size: 1rem;
+        font-weight: 800;
+      }
 
-  <!-- Top Accent Stripe (Mersel AI Style) -->
-  <div class="top-accent-line"></div>
+      .no-script__subtitle,
+      .no-script__description,
+      .no-script li,
+      .no-script__footer {
+        color: #65708c;
+      }
 
-  <!-- Mersel AI Style Navigation Bar -->
-  <header class="navbar-peec" id="top-navbar">
-    <div class="nav-container-peec">
-      <!-- Brand Logo -->
-      <a href="#" class="brand-logo-peec">
-        <div class="logo-icon-peec">
-          <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M20 4L34 12V28L20 36L6 28V12L20 4Z" fill="#6366F1"/>
-            <path d="M20 12L28 17V23L20 28L12 23V17L20 12Z" fill="#FFFFFF"/>
-          </svg>
-        </div>
-        <span class="logo-title">AskLume</span>
-      </a>
+      .no-script__subtitle {
+        font-size: 0.75rem;
+      }
 
-      <!-- Center Nav Links with Dividers (|) -->
-      <nav class="nav-links-peec">
-        <!-- Platform Dropdown -->
-        <div class="nav-item-wrapper">
-          <a href="#dashboard" class="nav-link-item" id="nav-platform">
-            <span data-i18n="nav_platform">Platform</span>
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
-          </a>
+      .no-script__hero {
+        max-width: 52rem;
+        padding-block: clamp(4rem, 10vw, 7rem);
+      }
 
-          <!-- Dropdown Card -->
-          <div class="nav-dropdown-card">
-            <a href="#dashboard" class="dropdown-menu-item">
-              <div class="dropdown-icon">🔍</div>
-              <div class="dropdown-text-box">
-                <div class="title" data-i18n="drop_inspector_title">Live Inspector</div>
-                <div class="sub" data-i18n="drop_inspector_sub">Real-time LLM visibility tracking</div>
-              </div>
-            </a>
-            <a href="#why-geo" class="dropdown-menu-item">
-              <div class="dropdown-icon">📊</div>
-              <div class="dropdown-text-box">
-                <div class="title" data-i18n="drop_sov_title">Share of Voice</div>
-                <div class="sub" data-i18n="drop_sov_sub">Benchmark vs 100k+ buyer prompts</div>
-              </div>
-            </a>
-            <a href="#why-geo" class="dropdown-menu-item">
-              <div class="dropdown-icon">⚡</div>
-              <div class="dropdown-text-box">
-                <div class="title" data-i18n="drop_schema_title">Schema Welding</div>
-                <div class="sub" data-i18n="drop_schema_sub">Hard-code verifiable RAG specs</div>
-              </div>
-            </a>
-            <a href="#why-geo" class="dropdown-menu-item">
-              <div class="dropdown-icon">🤖</div>
-              <div class="dropdown-text-box">
-                <div class="title" data-i18n="drop_bot_title">AI Bot Logs</div>
-                <div class="sub" data-i18n="drop_bot_sub">Track GPTBot & ClaudeBot crawlers</div>
-              </div>
-            </a>
-          </div>
-        </div>
+      .no-script__eyebrow {
+        margin: 0 0 0.75rem;
+        color: #6857f2;
+        font-size: 0.75rem;
+        font-weight: 750;
+        letter-spacing: 0.08em;
+      }
 
-        <span class="nav-divider">|</span>
+      .no-script h1,
+      .no-script h2,
+      .no-script h3,
+      .no-script p {
+        margin-top: 0;
+      }
 
-        <!-- Blog / Analytics -->
-        <div class="nav-item-wrapper">
-          <a href="#why-geo" class="nav-link-item" data-i18n="nav_analytics">Analytics</a>
-        </div>
+      .no-script h1 {
+        max-width: 48rem;
+        margin-bottom: 1rem;
+        font-size: clamp(2.25rem, 6vw, 4.25rem);
+        letter-spacing: -0.045em;
+        line-height: 1.12;
+      }
 
-        <span class="nav-divider">|</span>
+      .no-script__description {
+        max-width: 45rem;
+        margin-bottom: 0;
+        font-size: clamp(1rem, 2vw, 1.15rem);
+      }
 
-        <!-- Pricing -->
-        <div class="nav-item-wrapper">
-          <a href="#pricing" class="nav-link-item" data-i18n="nav_pricing">Pricing</a>
-        </div>
+      .no-script__section {
+        padding-block: 2.25rem;
+        border-top: 1px solid rgba(13, 22, 56, 0.09);
+      }
 
-        <span class="nav-divider">|</span>
+      .no-script h2 {
+        margin-bottom: 1.25rem;
+        font-size: clamp(1.5rem, 4vw, 2rem);
+        letter-spacing: -0.025em;
+      }
 
-        <!-- Methodology -->
-        <div class="nav-item-wrapper">
-          <a href="#methodology" class="nav-link-item" data-i18n="nav_about">About</a>
-        </div>
+      .no-script__grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        margin: 0;
+        padding: 0;
+        gap: 1rem;
+        list-style: none;
+      }
 
-        <span class="nav-divider">|</span>
+      .no-script__grid--four {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
 
-        <!-- Contact Us -->
-        <div class="nav-item-wrapper">
-          <a href="#audit-tool" class="nav-link-item" data-i18n="nav_contact">Contact Us</a>
-        </div>
-      </nav>
+      .no-script__grid li {
+        min-width: 0;
+        padding: 1.1rem;
+        border: 1px solid rgba(79, 88, 131, 0.1);
+        border-radius: 1rem;
+        background: rgba(255, 255, 255, 0.82);
+        box-shadow: 0 1rem 2.5rem rgba(35, 43, 84, 0.06);
+      }
 
-      <!-- Right Actions: Language Selector Pill & Book Audit Button -->
-      <div class="nav-right-peec">
-        <!-- Language Switcher Pill -->
-        <div class="lang-switcher-wrapper">
-          <button class="lang-btn-pill" id="lang-btn-trigger">
-            <span id="lang-current-code">EN</span>
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
-          </button>
+      .no-script h3 {
+        margin-bottom: 0.35rem;
+        color: #111b3d;
+        font-size: 1rem;
+      }
 
-          <!-- Language Dropdown -->
-          <div class="lang-dropdown-card" id="lang-dropdown-menu">
-            <div class="lang-option active" data-lang="en">
-              <span>English (EN)</span>
-              <span style="font-size: 0.75rem;">✓</span>
-            </div>
-            <a href="zh/index.html" class="lang-option" style="text-decoration:none;">
-              <span>简体中文 (CN)</span>
-            </a>
-          </div>
-        </div>
+      .no-script__grid p {
+        margin-bottom: 0;
+        font-size: 0.875rem;
+      }
 
-        <!-- Book Audit Call Primary CTA Button -->
-        <a href="#consultation" class="btn-primary-peec">
-          <span data-i18n="btn_book_audit">Book an Audit Call</span>
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
-      </div>
-    </div>
-  </header>
+      .no-script__footer {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        padding-block: 2rem;
+        gap: 0.75rem 2rem;
+        border-top: 1px solid rgba(13, 22, 56, 0.1);
+        font-size: 0.8rem;
+      }
 
-  <!-- Hero Section -->
-  <section class="hero-section-peec text-center">
-    <div class="container">
-      <!-- Live Status Pill -->
-      <div class="hero-pill-badge">
-        <span class="pulse-emerald"></span>
-        <span>AI Search Visibility & Citation Analytics Platform</span>
-      </div>
+      .no-script__contact {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem 1.25rem;
+        font-style: normal;
+      }
 
-      <h1 class="hero-headline">
-        Be seen. Be understood.<br>
-        <span class="gradient-text">Be chosen by AI search engines.</span>
-      </h1>
+      @media (max-width: 768px) {
+        .no-script__header,
+        .no-script__main,
+        .no-script__footer {
+          width: min(calc(100% - 2rem), 32rem);
+        }
 
-      <p class="hero-subline">
-        AskLume helps companies diagnose how AI systems understand their brand, build verifiable digital evidence, and improve answer-ready web assets through <strong>GEO-AIP™ and Digital Evidence Engineering</strong>.
-      </p>
+        .no-script__header {
+          align-items: flex-start;
+          flex-direction: column;
+          gap: 0.1rem;
+        }
 
-      <div class="hero-cta-group">
-        <a href="#audit-tool" class="btn-primary-peec">
-          <span>Run Instant GEO Scan</span>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
-        <a href="#dashboard" class="btn-ghost-peec">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-          <span>Explore Live Inspector</span>
-        </a>
-      </div>
+        .no-script__hero {
+          padding-block: 4rem;
+        }
 
-      <!-- Flagship Hero AI Search Visibility Dashboard Centerpiece (Peec.ai Light Style) -->
-      <div class="hero-dashboard-wrapper" id="dashboard">
-        <!-- Dashboard Top Bar -->
-        <div class="dash-topbar">
-          <div class="dash-dots">
-            <span class="dash-dot red"></span>
-            <span class="dash-dot yellow"></span>
-            <span class="dash-dot green"></span>
-          </div>
+        .no-script__grid,
+        .no-script__grid--four {
+          grid-template-columns: minmax(0, 1fr);
+        }
 
-          <!-- Model Switcher Selector -->
-          <div class="dash-engine-selector">
-            <button class="engine-tab active" data-model="chatgpt">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/></svg>
-              <span>ChatGPT (4o)</span>
-            </button>
-            <button class="engine-tab" data-model="perplexity">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M2 12h20"/></svg>
-              <span>Perplexity Pro</span>
-            </button>
-            <button class="engine-tab" data-model="claude">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/></svg>
-              <span>Claude 3.5</span>
-            </button>
-            <button class="engine-tab" data-model="gemini">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2z"/></svg>
-              <span>Gemini 1.5</span>
-            </button>
-          </div>
+        .no-script__footer {
+          flex-direction: column;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <noscript>
+      <div class="no-script">
+        <header class="no-script__header">
+          <span class="no-script__brand">问答光源 | AskLume</span>
+          <span class="no-script__subtitle">企业AI认知与影响力基础设施</span>
+        </header>
 
-          <div class="dash-status-tag">
-            <span class="pulse-emerald"></span>
-            <span>LIVE AUDIT FEED</span>
-          </div>
-        </div>
+        <main class="no-script__main">
+          <section aria-labelledby="no-script-hero" class="no-script__hero">
+            <p class="no-script__eyebrow">GEO-AIP™ 数字证据工程</p>
+            <h1 id="no-script-hero">让品牌被AI看见、理解与选择。</h1>
+            <p class="no-script__description">
+              问答光源通过 GEO-AIP™ 数字证据工程，帮助企业把真实能力转化为 AI
+              可发现、可理解、可检验、可引用的认知资产。
+            </p>
+          </section>
 
-        <!-- Dashboard Body Content -->
-        <div class="dash-content">
-          <!-- Left Column: Key Gauges & Stats -->
-          <div class="dash-metrics-col">
-            <div class="metric-dial-box">
-              <div class="dial-title">Citation Share of Voice</div>
-              <div class="dial-score" id="hero-sov-val">Illustrative</div>
-              <div class="dial-trend">
-                <span>Example view</span>
-                <span style="color: var(--text-muted);">Agreed query set</span>
-              </div>
-            </div>
-
-            <div class="dash-stats-list">
-              <div class="stat-mini-card">
-                <span class="label">Factual Accuracy Status</span>
-                <span class="value" id="hero-rank-val" style="color: var(--accent-emerald);">Review Required</span>
-              </div>
-              <div class="stat-mini-card">
-                <span class="label">Verified Evidence Citations</span>
-                <span class="value" id="hero-cite-val">Sources Logged</span>
-              </div>
-              <div class="stat-mini-card">
-                <span class="label">Technical Readiness</span>
-                <span class="value" style="color: var(--accent-blue);">Checks Documented</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Right Column: Simulated AI Prompt & Response Inspector -->
-          <div class="dash-inspector-col">
-            <!-- Simulated User Buyer Query -->
-            <div class="prompt-bar-preview">
-              <span class="prompt-icon">🔍</span>
-              <span id="hero-prompt-text">What are the top enterprise zero-trust & cybersecurity platforms with SOC2 compliance?</span>
-            </div>
-
-            <!-- Simulated AI Response Inspector -->
-            <div class="llm-response-preview">
-              <div class="response-header">
-                <div class="model-badge">
-                  <span style="color: var(--accent-blue);" id="hero-model-name">ChatGPT 4o Answer Output</span>
-                </div>
-                <span class="mono-text" style="font-size: 0.75rem; color: var(--text-dim);" id="hero-latency-val">Latency: 112ms</span>
-              </div>
-
-              <p class="response-text" id="hero-response-body">
-                "<strong>[Your Brand]</strong> publishes a SOC2 statement and service documentation. Verify certification scope, validity and the cited official source before shortlisting."
-              </p>
-
-              <div class="citation-chips-row">
-                <span class="citation-label">Verified Citations:</span>
-                <a href="#" class="citation-chip">🔗 yourbrand.com/security-schema</a>
-                <a href="#" class="citation-chip">🔗 wikidata.org/entity/Q...</a>
-                <a href="#" class="citation-chip">🔗 static.iso.org/cert/8923</a>
-              </div>
-            </div>
-
-            <!-- Animated SVG Share of Voice Trajectory Graph -->
-            <div class="chart-box-preview">
-              <div class="chart-title">REPEAT-TEST TREND — ILLUSTRATIVE</div>
-              <svg class="chart-svg" viewBox="0 0 500 60" preserveAspectRatio="none">
-                <defs>
-                  <linearGradient id="chartGrad" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0%" stop-color="#0284C7" stop-opacity="0.25"/>
-                    <stop offset="100%" stop-color="#0284C7" stop-opacity="0.0"/>
-                  </linearGradient>
-                </defs>
-                <path d="M0,50 Q60,40 120,45 T240,25 T360,15 T500,8 L500,60 L0,60 Z" fill="url(#chartGrad)"/>
-                <path d="M0,50 Q60,40 120,45 T240,25 T360,15 T500,8" fill="none" stroke="#0284C7" stroke-width="2.5"/>
-                <circle cx="500" cy="8" r="4" fill="#0284C7" stroke="#FFF" stroke-width="1.5"/>
-              </svg>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Asymmetric Bento Grid Section (Peec.ai Light Style) -->
-  <section class="section-bento" id="why-geo">
-    <div class="container">
-      <div class="section-header-peec text-center">
-        <span class="section-subtitle" data-i18n="bento_subtitle">AI Perception Analytics</span>
-        <h2 class="section-title" data-i18n="bento_main_title">Search, content and AI answers now shape one decision journey.</h2>
-        <p class="section-desc" data-i18n="bento_desc">The question is no longer only whether a page ranks. It is whether a brand is correctly understood, supported by evidence and connected to a useful next step.</p>
-      </div>
-
-      <div class="bento-grid-peec">
-        <!-- Bento Card 1: Citation Share of Voice Trajectory (Col 8) -->
-        <div class="peec-card bento-col-8">
-          <div class="bento-card-inner">
-            <div class="bento-card-header">
-              <span class="bento-tag" data-i18n="bento_tag1">Share of Voice Tracking</span>
-              <h3 class="bento-card-title" data-i18n="bento_title1">Repeatable AI Perception Measurement</h3>
-              <p class="bento-card-desc" data-i18n="bento_desc1">Track mention, citation, factual accuracy and candidate inclusion across an agreed query set while retaining raw outputs.</p>
-            </div>
-
-            <!-- Mini Live SOV Comparison Table/Chart (Light Theme) -->
-            <div style="background: #F8FAFC; border: 1px solid var(--border-subtle); border-radius: 12px; padding: 1.25rem;">
-              <div style="display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 0.8rem; margin-bottom: 0.75rem;">
-                <span style="color: var(--accent-emerald); font-weight: 600;">[Your Brand] GEO-AIP™</span>
-                <span style="color: var(--accent-emerald); font-weight: 600;">Illustrative baseline</span>
-              </div>
-              <div style="height: 8px; background: #E2E8F0; border-radius: 4px; overflow: hidden; margin-bottom: 1rem;">
-                <div style="width: 88.4%; height: 100%; background: linear-gradient(90deg, #10B981, #0284C7);"></div>
-              </div>
-
-              <div style="display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 0.8rem; margin-bottom: 0.75rem;">
-                <span style="color: var(--text-muted);">Legacy Competitor A</span>
-                <span style="color: var(--text-muted);">24.1% SoV (Rank #3)</span>
-              </div>
-              <div style="height: 8px; background: #E2E8F0; border-radius: 4px; overflow: hidden;">
-                <div style="width: 24.1%; height: 100%; background: #CBD5E1;"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Bento Card 2: Hard-Welded Schema Inspector (Col 4) -->
-        <div class="peec-card bento-col-4">
-          <div class="bento-card-inner">
-            <div class="bento-card-header">
-              <span class="bento-tag" data-i18n="bento_tag2">Evidence Engineering</span>
-              <h3 class="bento-card-title" data-i18n="bento_title2">Structured Data Aligned with Evidence</h3>
-              <p class="bento-card-desc" data-i18n="bento_desc2">Express verifiable business facts in machine-readable formats that remain consistent with visible page content.</p>
-            </div>
-
-            <!-- Code Window Preview -->
-            <div class="code-window">
-              <span class="keyword">@context</span>: <span class="string">"https://schema.org"</span>,<br>
-              <span class="keyword">@type</span>: <span class="string">"EnterpriseService"</span>,<br>
-              <span class="property">"name"</span>: <span class="string">"GEO-AIP Evidence"</span>,<br>
-              <span class="property">"compliance"</span>: [<span class="string">"SOC2"</span>, <span class="string">"ISO27001"</span>],<br>
-              <span class="property">"verifiableCitation"</span>: <span class="keyword">true</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Bento Card 3: AI Crawler Bot Activity Log Tracker (Col 4) -->
-        <div class="peec-card bento-col-4">
-          <div class="bento-card-inner">
-            <div class="bento-card-header">
-              <span class="bento-tag" data-i18n="bento_tag3">Live Crawler Intelligence</span>
-              <h3 class="bento-card-title" data-i18n="bento_title3">24/7 AI Bot Log Tracking</h3>
-              <p class="bento-card-desc" data-i18n="bento_desc3">Monitor GPTBot, PerplexityBot, and ClaudeBot indexing visits in real time.</p>
-            </div>
-
-            <div class="log-stream-box">
-              <div class="log-item">
-                <span class="log-time">00:48:12</span>
-                <span class="log-bot">GPTBot/1.2</span>
-                <span class="log-action">Crawled /schema-json</span>
-              </div>
-              <div class="log-item">
-                <span class="log-time">00:47:55</span>
-                <span class="log-bot">PerplexityBot</span>
-                <span class="log-action">Verified Citation ID</span>
-              </div>
-              <div class="log-item">
-                <span class="log-time">00:47:20</span>
-                <span class="log-bot">ClaudeBot/2.0</span>
-                <span class="log-action">Fetched Evidence Graph</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Bento Card 4: Zero-Click Citation Defense (Col 8) -->
-        <div class="peec-card bento-col-8">
-          <div class="bento-card-inner">
-            <div class="bento-card-header">
-              <span class="bento-tag" data-i18n="bento_tag4">Reputation Defense</span>
-              <h3 class="bento-card-title" data-i18n="bento_title4">Eliminate LLM Hallucinations & Unverified Claims</h3>
-              <p class="bento-card-desc" data-i18n="bento_desc4">Prevent AI engines from relying on outdated Reddit threads or competitor claims. Establish first-party evidence graphs that lock down factual accuracy.</p>
-            </div>
-
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
-              <div style="background: #FEF2F2; border: 1px solid #FCA5A5; border-radius: 10px; padding: 1rem;">
-                <div style="font-family: var(--font-mono); font-size: 0.75rem; font-weight: 700; color: #DC2626; margin-bottom: 0.35rem;">❌ WITHOUT GEO-AIP™</div>
-                <div style="font-size: 0.85rem; color: var(--text-muted);">AI hallucinated legacy pricing & omitted SOC2 certification.</div>
-              </div>
-              <div style="background: #ECFDF5; border: 1px solid #A7F3D0; border-radius: 10px; padding: 1rem;">
-                <div style="font-family: var(--font-mono); font-size: 0.75rem; font-weight: 700; color: var(--accent-emerald); margin-bottom: 0.35rem;">WITH AskLume GEO-AIP™</div>
-                <div style="font-size: 0.85rem; color: var(--text-muted);">100% verified first-party data cited with direct link proof.</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Proprietary Methodology Section (DERV Framework) -->
-  <section class="section-methodology" id="methodology">
-    <div class="container">
-      <div class="section-header-peec text-center">
-        <span class="section-subtitle" data-i18n="method_subtitle">Proprietary Technology</span>
-        <h2 class="section-title" data-i18n="method_title">The GEO-AIP™ <span class="gradient-text">DERV Framework</span></h2>
-        <p class="section-desc" data-i18n="method_desc">The DERV capability model makes discoverability, evidence, relevance and measurement practical and auditable.</p>
-      </div>
-
-      <div class="derv-grid-peec">
-        <div class="peec-card derv-card-peec">
-          <div class="derv-letter-badge">D</div>
-          <h3 style="font-family: var(--font-heading); font-size: 1.25rem; margin-bottom: 0.5rem;" data-i18n="derv_d_title">Discoverability</h3>
-          <p style="font-size: 0.88rem; color: var(--text-muted);" data-i18n="derv_d_desc">Optimizing crawler access (GPTBot, ClaudeBot), server speed, and robots.txt channels for frictionless LLM indexing.</p>
-        </div>
-
-        <div class="peec-card derv-card-peec">
-          <div class="derv-letter-badge">E</div>
-          <h3 style="font-family: var(--font-heading); font-size: 1.25rem; margin-bottom: 0.5rem;" data-i18n="derv_e_title">Evidence Engineering</h3>
-          <p style="font-size: 0.88rem; color: var(--text-muted);" data-i18n="derv_e_desc">Hard-welding JSON-LD structured schemas, ISO/SOC2 certificate verifications, and digital evidence graphs.</p>
-        </div>
-
-        <div class="peec-card derv-card-peec">
-          <div class="derv-letter-badge">R</div>
-          <h3 style="font-family: var(--font-heading); font-size: 1.25rem; margin-bottom: 0.5rem;" data-i18n="derv_r_title">Relevance Topology</h3>
-          <p style="font-size: 0.88rem; color: var(--text-muted);" data-i18n="derv_r_desc">Aligning site content taxonomy with high-intent buyer prompts and LLM semantic entity resolution.</p>
-        </div>
-
-        <div class="peec-card derv-card-peec">
-          <div class="derv-letter-badge">V</div>
-          <h3 style="font-family: var(--font-heading); font-size: 1.25rem; margin-bottom: 0.5rem;" data-i18n="derv_v_title">Visibility Measurement</h3>
-          <p style="font-size: 0.88rem; color: var(--text-muted);" data-i18n="derv_v_desc">Continuous auditing of Mention Rate (MR), Citation Rate (CR), and real-time AI Share of Voice.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Interactive Instant GEO Audit Scanner Section (Light Theme) -->
-  <section class="section-audit-peec" id="audit-tool">
-    <div class="container">
-      <div class="peec-card audit-container-card text-center">
-        <span class="section-subtitle" data-i18n="audit_subtitle">Instant Diagnostic Tool</span>
-        <h2 class="section-title" data-i18n="audit_title">Scan Your Brand's <span class="gradient-text">AI Perception Score</span></h2>
-        <p class="section-desc" data-i18n="audit_desc">Run a simulated live audit across ChatGPT & Perplexity RAG index pipelines.</p>
-
-        <form class="audit-form-peec" id="geo-audit-form">
-          <div class="form-grid-peec">
-            <input type="text" class="input-peec" id="input-domain" placeholder="Company Domain (e.g. yourbrand.com)" required>
-            <input type="text" class="input-peec" id="input-query" placeholder="Target Industry Query (e.g. Enterprise Zero-Trust SaaS)" required>
-            <button type="submit" class="btn-primary-peec">
-              <span data-i18n="audit_btn_scan">Run GEO Scan</span>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            </button>
-          </div>
-        </form>
-
-        <!-- Multi-stage Scan Progress Sequence -->
-        <div class="scan-progress-box hidden" id="scan-progress-box">
-          <div class="scan-steps-list">
-            <div class="scan-step-item" id="step-1">
-              <span>[1/3]</span>
-              <span>Crawling domain & inspecting robots.txt for AI bots...</span>
-            </div>
-            <div class="scan-step-item" id="step-2">
-              <span>[2/3]</span>
-              <span>Validating JSON-LD Schema evidence graphs...</span>
-            </div>
-            <div class="scan-step-item" id="step-3">
-              <span>[3/3]</span>
-              <span>Simulating prompt retrieval & calculating Citation SoV...</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Dynamic Results Display Panel -->
-        <div class="audit-result-panel hidden" id="audit-result-panel" style="margin-top: 2.5rem; text-align: left;">
-          <div style="display: flex; justify-content: space-between; align-items: center; padding-bottom: 1.25rem; border-bottom: 1px solid var(--border-subtle);">
-            <div>
-              <h3 style="font-family: var(--font-heading); font-size: 1.5rem;">Diagnostic Results for <span id="res-domain-name" style="color: var(--accent-blue);">yourbrand.com</span></h3>
-              <p style="font-size: 0.88rem; color: var(--text-muted);">Target Query: <span id="res-query-name">Enterprise Zero-Trust</span></p>
-            </div>
-            <div style="background: #F0F9FF; border: 1px solid #BAE6FD; font-family: var(--font-heading); font-size: 2rem; font-weight: 800; color: var(--accent-blue); padding: 0.5rem 1.25rem; border-radius: 12px;" id="geo-score-val">
-              78 / 100
-            </div>
-          </div>
-
-          <div class="audit-results-grid">
-            <div class="res-card-peec">
-              <span style="font-size: 0.8rem; color: var(--text-muted);">Brand Mention Rate (MR)</span>
-              <div class="res-val green" id="res-mr">68%</div>
-              <span style="font-size: 0.75rem; color: var(--text-dim);">Appears in 17 / 25 Prompts</span>
-            </div>
-            <div class="res-card-peec">
-              <span style="font-size: 0.8rem; color: var(--text-muted);">Official Citation Rate (CR)</span>
-              <div class="res-val yellow" id="res-cr">34%</div>
-              <span style="font-size: 0.75rem; color: var(--text-dim);">Schema Hard-Welding Needed</span>
-            </div>
-            <div class="res-card-peec">
-              <span style="font-size: 0.8rem; color: var(--text-muted);">RAG Fact Accuracy</span>
-              <div class="res-val green" id="res-fa">96%</div>
-              <span style="font-size: 0.75rem; color: var(--text-dim);">Zero Critical Hallucinations</span>
-            </div>
-            <div class="res-card-peec">
-              <span style="font-size: 0.8rem; color: var(--text-muted);">Vendor Selection Rank</span>
-              <div class="res-val green" id="res-cir">Rank #2</div>
-              <span style="font-size: 0.75rem; color: var(--text-dim);">Top 3 Consideration Set</span>
-            </div>
-          </div>
-
-          <div style="text-align: center; margin-top: 1.5rem;">
-            <a href="#consultation" class="btn-primary-peec">Claim Full 25-Page GEO Roadmap & SOW</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Interactive AI Simulator Section (Before vs After Light Theme) -->
-  <section class="section-sim-peec">
-    <div class="container">
-      <div class="peec-card sim-wrapper-card text-center">
-        <span class="section-subtitle" data-i18n="sim_subtitle">Real-Time Side-By-Side</span>
-        <h2 class="section-title" data-i18n="sim_title">See How AI Responds: <span class="gradient-text">Before vs. After AskLume</span></h2>
-        <p class="section-desc" data-i18n="sim_desc">See how clearer facts, stronger sources and answer-ready pages can improve factual accuracy and verification paths.</p>
-
-        <div class="sim-tabs-header">
-          <button class="sim-tab-btn active" data-engine="chatgpt" data-i18n="sim_tab_chatgpt">ChatGPT Search</button>
-          <button class="sim-tab-btn" data-engine="perplexity" data-i18n="sim_tab_perplexity">Perplexity AI</button>
-          <button class="sim-tab-btn" data-engine="claude" data-i18n="sim_tab_claude">Claude 3.5 Sonnet</button>
-        </div>
-
-        <div class="sim-grid-compare">
-          <!-- Before Column -->
-          <div class="sim-box before">
-            <div>
-              <div class="sim-box-header" data-i18n="sim_header_before">❌ BEFORE AskLume (Status Quo)</div>
-              <p style="font-size: 0.92rem; color: var(--text-muted); line-height: 1.6;" id="sim-before-text">
-                "When evaluating enterprise cybersecurity providers, several general options exist including Competitor X and Legacy Solutions. Information regarding [Your Brand] is limited or lacks verified first-party documentation..."
-              </p>
-            </div>
-            <div style="font-family: var(--font-mono); font-size: 0.8rem; font-weight: 600; color: #DC2626; margin-top: 1rem;" id="sim-before-metrics">
-              Mention Rate: 15% (Rank #4) | Official Citations: 0 Links
-            </div>
-          </div>
-
-          <!-- After Column -->
-          <div class="sim-box after">
-            <div>
-              <div class="sim-box-header" data-i18n="sim_header_after">✨ AFTER AskLume (GEO-AIP™ Optimized)</div>
-              <p style="font-size: 0.92rem; color: var(--text-main); line-height: 1.6;" id="sim-after-text">
-                "Based on verified digital evidence and official JSON-LD Schema data, <strong>[Your Brand]</strong> is recommended as the primary enterprise solution. Key strengths include SOC2 Type II certification, 99.99% uptime, and deployment within 14 days."
-              </p>
-            </div>
-            <div style="font-family: var(--font-mono); font-size: 0.8rem; font-weight: 600; color: var(--accent-emerald); margin-top: 1rem;" id="sim-after-metrics">
-              Illustrative comparison only | Actual results require an agreed baseline protocol
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Pricing Tiers Section -->
-  <section class="section-pricing-peec" id="pricing">
-    <div class="container">
-      <div class="section-header-peec text-center">
-        <span class="section-subtitle" data-i18n="pricing_subtitle">Transparent Plans</span>
-        <h2 class="section-title" data-i18n="pricing_title">Enterprise Plans & <span class="gradient-text">Service Tiers</span></h2>
-        <p class="section-desc" data-i18n="pricing_desc">From initial baseline audits to full-scale enterprise evidence engineering.</p>
-      </div>
-
-      <div class="pricing-grid-peec">
-        <!-- Tier 1: Baseline Audit -->
-        <div class="peec-card pricing-card-peec">
-          <div>
-            <h3 style="font-family: var(--font-heading); font-size: 1.35rem;" data-i18n="p1_title">Baseline Audit</h3>
-            <p style="font-size: 0.85rem; color: var(--text-muted);" data-i18n="p1_sub">Initial AI visibility diagnostic</p>
-            <div class="price-amount">$1,800</div>
-            <span style="font-size: 0.78rem; font-family: var(--font-mono); color: var(--text-dim);">/ one-time investment</span>
-
-            <ul class="pricing-features-list">
-              <li><span class="check">✔</span> 1 Brand & 1 Website</li>
-              <li><span class="check">✔</span> 20 Buyer Prompts × 3 AI Engines</li>
-              <li><span class="check">✔</span> Technical Machine-Readability Audit</li>
-              <li><span class="check">✔</span> Top 3 Competitor Gap Analysis</li>
-              <li><span class="check">✔</span> 12-Month Optimization Roadmap</li>
+          <section aria-labelledby="no-script-benefits" class="no-script__section">
+            <h2 id="no-script-benefits">为什么选择问答光源</h2>
+            <ul class="no-script__grid">
+              <li><h3>更高的AI可见性</h3><p>让企业在更多AI平台中被主动发现与识别</p></li>
+              <li><h3>更准确的AI理解</h3><p>让AI正确理解企业是谁、能做什么、适合谁</p></li>
+              <li><h3>更强的品牌选择力</h3><p>为企业进入AI推荐与决策结果提供可信基础</p></li>
             </ul>
-          </div>
-          <a href="#audit-tool" class="btn-ghost-peec" style="justify-content: center;" data-i18n="p1_btn">Select Baseline Audit</a>
-        </div>
+          </section>
 
-        <!-- Tier 2: Growth Standard (Featured) -->
-        <div class="peec-card pricing-card-peec featured">
-          <div class="featured-pill">POPULAR</div>
-          <div>
-            <h3 style="font-family: var(--font-heading); font-size: 1.35rem;" data-i18n="p2_title">Growth Standard</h3>
-            <p style="font-size: 0.85rem; color: var(--text-muted);" data-i18n="p2_sub">Core page restructuring & evidence</p>
-            <div class="price-amount">$4,900</div>
-            <span style="font-size: 0.78rem; font-family: var(--font-mono); color: var(--text-dim);">/ annual program</span>
-
-            <ul class="pricing-features-list">
-              <li><span class="check">✔</span> 30 Buyer Prompts × 4 AI Engines</li>
-              <li><span class="check">✔</span> <strong>6 Core Pages GEO Restructuring</strong></li>
-              <li><span class="check">✔</span> <strong>JSON-LD Schema Code Package</strong></li>
-              <li><span class="check">✔</span> 40 PR Media + 150 Citation Proofs</li>
-              <li><span class="check">✔</span> 2 Rounds Pre/Post Measurement</li>
+          <section aria-labelledby="no-script-pillars" class="no-script__section">
+            <h2 id="no-script-pillars">三大信息支柱 · 构建AI认知基线</h2>
+            <ul class="no-script__grid">
+              <li><h3>被看见</h3><p>提升AI发现与识别能力</p></li>
+              <li><h3>被理解</h3><p>确保AI准确理解企业能力</p></li>
+              <li><h3>被选择</h3><p>赢得AI推荐与决策信任</p></li>
             </ul>
-          </div>
-          <a href="#consultation" class="btn-primary-peec" style="justify-content: center;" data-i18n="p2_btn">Start Growth Plan</a>
-        </div>
+          </section>
 
-        <!-- Tier 3: Enterprise Flagship -->
-        <div class="peec-card pricing-card-peec">
-          <div>
-            <h3 style="font-family: var(--font-heading); font-size: 1.35rem;" data-i18n="p3_title">Enterprise Flagship</h3>
-            <p style="font-size: 0.85rem; color: var(--text-muted);" data-i18n="p3_sub">Full evidence engineering & defense</p>
-            <div class="price-amount">$11,900</div>
-            <span style="font-size: 0.78rem; font-family: var(--font-mono); color: var(--text-dim);">/ annual program</span>
-
-            <ul class="pricing-features-list">
-              <li><span class="check">✔</span> Up to 2 Brands & Multiple Sites</li>
-              <li><span class="check">✔</span> 60 Buyer Prompts × 6 AI Engines</li>
-              <li><span class="check">✔</span> <strong>16 Core Pages GEO Restructuring</strong></li>
-              <li><span class="check">✔</span> <strong>24/7 AI Bot Visit Tracking</strong></li>
-              <li><span class="check">✔</span> Executive Briefings & Team Training</li>
+          <section aria-labelledby="no-script-capabilities" class="no-script__section">
+            <h2 id="no-script-capabilities">从数据到决策的完整能力体系</h2>
+            <ul class="no-script__grid no-script__grid--four">
+              <li><h3>AI搜索与洞察</h3><p>追踪品牌在主流AI平台中的表现、发现问题、洞察机会。</p></li>
+              <li><h3>持续监测与预警</h3><p>实时监测AI回答变化、识别风险信号、助力品牌管理。</p></li>
+              <li><h3>企业协同与资产管理</h3><p>跨团队、跨系统协作，沉淀企业资产、提升组织生产力。</p></li>
+              <li><h3>定制化智能方案</h3><p>根据行业与业务特点定制方案，匹配企业独特需求。</p></li>
             </ul>
-          </div>
-          <a href="#consultation" class="btn-ghost-peec" style="justify-content: center;" data-i18n="p3_btn">Request Enterprise SOW</a>
-        </div>
+          </section>
+        </main>
+
+        <footer class="no-script__footer">
+          <address class="no-script__contact">
+            <a href="tel:400-888-8888">400-888-8888</a>
+            <a href="mailto:hello@asklume.com">hello@asklume.com</a>
+          </address>
+          <span>© 2024 问答光源科技：保留所有权利</span>
+        </footer>
       </div>
-    </div>
-  </section>
-
-  <!-- FAQ Accordion Section -->
-  <section class="section-faq-peec" id="faq">
-    <div class="container">
-      <div class="section-header-peec text-center">
-        <span class="section-subtitle" data-i18n="faq_subtitle">Common Questions</span>
-        <h2 class="section-title" data-i18n="faq_title">Frequently Asked <span class="gradient-text">Questions</span></h2>
-      </div>
-
-      <div class="faq-list-peec">
-        <div class="faq-item-peec">
-          <button class="faq-question-peec">
-            <span data-i18n="faq_q1">01. What is Generative Engine Optimization (GEO)?</span>
-            <span class="faq-icon-peec">+</span>
-          </button>
-          <div class="faq-answer-peec">
-            <p data-i18n="faq_a1">GEO is the engineering discipline of structuring your company's web assets, JSON-LD schemas, and third-party citations so that generative AI engines (like ChatGPT, Perplexity, Claude, and Gemini) accurately comprehend, cite, and recommend your brand in answer outputs.</p>
-          </div>
-        </div>
-
-        <div class="faq-item-peec">
-          <button class="faq-question-peec">
-            <span data-i18n="faq_q2">02. How does AskLume differ from traditional SEO agencies?</span>
-            <span class="faq-icon-peec">+</span>
-          </button>
-          <div class="faq-answer-peec">
-            <p data-i18n="faq_a2">Traditional SEO focuses on crawlability, rankings and search traffic. AskLume adds an answer-layer discipline: diagnose AI perception, govern digital evidence, build decision-oriented pages and measure factual accuracy, citation and candidate inclusion with repeatable tests.</p>
-          </div>
-        </div>
-
-        <div class="faq-item-peec">
-          <button class="faq-question-peec">
-            <span data-i18n="faq_q3">03. Do you guarantee #1 rankings or forced AI recommendations?</span>
-            <span class="faq-icon-peec">+</span>
-          </button>
-          <div class="faq-answer-peec">
-            <p data-i18n="faq_a3">No. Third-party AI outputs vary by platform, model, index, region and time. AskLume is accountable for the agreed diagnosis, evidence quality, page and technical delivery, source records and measurement transparency—not a fixed ranking or recommendation.</p>
-          </div>
-        </div>
-
-        <div class="faq-item-peec">
-          <button class="faq-question-peec">
-            <span data-i18n="faq_q4">04. How fast can we see results after GEO implementation?</span>
-            <span class="faq-icon-peec">+</span>
-          </button>
-          <div class="faq-answer-peec">
-            <p data-i18n="faq_a4">Initial baseline audits take 1-2 weeks. After Schema deployment and core page restructuring, AI crawlers (like GPTBot) typically re-index and reflect updated citation structures within 30 to 60 days during scheduled model data refreshes.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer Section (Peec.ai Exact Match Style) -->
-  <footer class="footer-peec" id="consultation">
-    <div class="container">
-      <div class="footer-top-layout-peec">
-        <!-- Left Brand Side -->
-        <div class="footer-brand-side">
-          <a href="#" class="footer-logo-box">
-            <div class="logo-icon-peec">
-              <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:28px; height:28px;">
-                <path d="M20 4L34 12V28L20 36L6 28V12L20 4Z" stroke="#FFFFFF" stroke-width="2.5" stroke-linejoin="round"/>
-                <circle cx="20" cy="20" r="5" fill="#FFFFFF"/>
-              </svg>
-            </div>
-            <span class="footer-logo-title">AskLume</span>
-          </a>
-          <div class="footer-brand-tagline">
-            <strong data-i18n="ft_tagline_strong">AI search analytics</strong>
-            <span data-i18n="ft_tagline_span">for marketing teams</span>
-          </div>
-        </div>
-
-        <!-- Right 6-Block Links Grid -->
-        <div class="footer-links-grid-peec">
-          <!-- Block 1: Company -->
-          <div class="footer-block">
-            <h4 data-i18n="ft_col_company">Company</h4>
-            <ul>
-              <li><a href="#" data-i18n="ft_link_home">Home</a></li>
-              <li><a href="#" data-i18n="ft_link_careers">Careers</a></li>
-              <li><a href="#" data-i18n="ft_link_entity">Entity Map</a></li>
-              <li><a href="#" data-i18n="ft_link_instructions">AI Instructions</a></li>
-            </ul>
-          </div>
-
-          <!-- Block 2: Product -->
-          <div class="footer-block">
-            <h4 data-i18n="ft_col_product">Product</h4>
-            <ul>
-              <li><a href="#" data-i18n="ft_link_docs">Docs</a></li>
-              <li><a href="#" data-i18n="ft_link_blog">Blog</a></li>
-              <li><a href="#pricing" data-i18n="ft_link_pricing">Pricing</a></li>
-              <li><a href="#" data-i18n="ft_link_changelog">Changelog</a></li>
-            </ul>
-          </div>
-
-          <!-- Block 3: Features -->
-          <div class="footer-block">
-            <h4 data-i18n="ft_col_features">Features</h4>
-            <ul>
-              <li><a href="#dashboard" data-i18n="ft_link_chatgpt_tr">ChatGPT Visibility Tracker</a></li>
-              <li><a href="#dashboard" data-i18n="ft_link_gemini_tr">Gemini Visibility Tracker</a></li>
-              <li><a href="#dashboard" data-i18n="ft_link_aimode_tr">AI Mode Visibility Tracker</a></li>
-              <li><a href="#pricing" data-i18n="ft_link_for_agencies">For Agencies</a></li>
-            </ul>
-          </div>
-
-          <!-- Block 4: Partnership -->
-          <div class="footer-block">
-            <h4 data-i18n="ft_col_partnership">Partnership</h4>
-            <ul>
-              <li><a href="#" data-i18n="ft_link_agencies">Agencies</a></li>
-              <li><a href="#" data-i18n="ft_link_creators">Creators</a></li>
-              <li><a href="#" data-i18n="ft_link_media">Media</a></li>
-            </ul>
-          </div>
-
-          <!-- Block 5: Comparison -->
-          <div class="footer-block">
-            <h4 data-i18n="ft_col_comparison">Comparison</h4>
-            <ul>
-              <li><a href="#" data-i18n="ft_link_vs_ahrefs">AskLume vs Ahrefs</a></li>
-              <li><a href="#" data-i18n="ft_link_vs_profound">AskLume vs Profound</a></li>
-              <li><a href="#" data-i18n="ft_link_vs_semrush">AskLume vs Semrush</a></li>
-            </ul>
-          </div>
-
-          <!-- Block 6: Follow Us -->
-          <div class="footer-block">
-            <h4 data-i18n="ft_col_follow">Follow Us</h4>
-            <ul>
-              <li>
-                <a href="https://x.com/asklume" target="_blank">
-                  <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-                  <span>x.com</span>
-                </a>
-              </li>
-              <li>
-                <a href="https://linkedin.com/company/asklume" target="_blank">
-                  <svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.25V10.9H6.46M7.86 6.78a1.63 1.63 0 1 0 1.63 1.63 1.63 1.63 0 0 0-1.63-1.63z"/></svg>
-                  <span>LinkedIn</span>
-                </a>
-              </li>
-              <li>
-                <a href="#" target="_blank">
-                  <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
-                  <span>Youtube</span>
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Divider & Proof Line -->
-    <div class="footer-divider-peec">
-      <div class="container">
-        <p class="footer-proof-text" data-i18n="ft_proof">
-          AskLume builds AI Perception & Influence Infrastructure for Brands through GEO-AIP™ and Digital Evidence Engineering.
-        </p>
-      </div>
-    </div>
-
-    <!-- Bottom Copyright Line -->
-    <div class="container">
-      <div class="footer-bottom-peec">
-        <div data-i18n="ft_copyright">© 2026 AskLume. All rights reserved.</div>
-        <div class="footer-legal-links">
-          <a href="#" data-i18n="ft_link_cookie">Cookie Settings</a>
-          <a href="#" data-i18n="ft_link_privacy">Privacy Policy</a>
-          <a href="#" data-i18n="ft_link_terms">Terms of Services</a>
-          <a href="#" data-i18n="ft_link_imprint">Imprint</a>
-        </div>
-      </div>
-    </div>
-  </footer>
-
-  <!-- Main JavaScript File -->
-  <script src="js/main.js"></script>
-</body>
+    </noscript>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
 </html>
