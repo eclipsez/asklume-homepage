@@ -1,22 +1,10 @@
 import { render, screen, within } from '@testing-library/react'
-import App from '../App'
-import { benefits, trustBrands } from '../content/homeContent'
+import { benefits } from '../content/homeContent'
+import { BenefitsSection } from './BenefitsSection'
 
-describe('TrustStrip and BenefitsSection', () => {
-  it('renders the trust statement and all configured brands', () => {
-    render(<App />)
-
-    expect(
-      screen.getByText('值得信赖的选择 · 为全球领先企业提供AI认知基线设施'),
-    ).toBeVisible()
-
-    for (const brand of trustBrands) {
-      expect(screen.getByText(brand)).toBeVisible()
-    }
-  })
-
+describe('BenefitsSection', () => {
   it('renders exactly three configured benefit articles beneath the section heading', () => {
-    const { container } = render(<App />)
+    const { container } = render(<BenefitsSection />)
     const section = container.querySelector<HTMLElement>('#insights')
 
     expect(section).toBeInTheDocument()

@@ -6,7 +6,6 @@ import { DiagnosticCTA } from './components/DiagnosticCTA'
 import { Footer } from './components/Footer'
 import { GlassDashboard } from './components/GlassDashboard'
 import { PillarsSection } from './components/PillarsSection'
-import { TrustStrip } from './components/TrustStrip'
 import { Reveal } from './components/Reveal'
 import styles from './App.module.css'
 
@@ -16,7 +15,6 @@ function App() {
       <Header />
       <main id="top">
         <Hero />
-        <TrustStrip />
         <BenefitsSection />
         <PillarsSection />
         <CapabilitiesSection />

@@ -20,6 +20,17 @@ describe('App', () => {
     expect(container.querySelector('#capabilities')).toBeInTheDocument()
   })
 
+  it('does not render the removed customer case strip', () => {
+    render(<App />)
+
+    expect(
+      screen.queryByRole('region', { name: '客户信赖' }),
+    ).not.toBeInTheDocument()
+    expect(
+      screen.queryByText('值得信赖的选择 · 为全球领先企业提供AI认知基线设施'),
+    ).not.toBeInTheDocument()
+  })
+
   it('uses unique heading associations for all pillar and capability cards', () => {
     const { container } = render(<App />)
     const articles = Array.from(

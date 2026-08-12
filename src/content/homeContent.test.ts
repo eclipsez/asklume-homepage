@@ -4,7 +4,6 @@ import {
   metrics,
   navItems,
   pillars,
-  trustBrands,
 } from './homeContent'
 
 describe('homeContent', () => {
@@ -43,17 +42,5 @@ describe('homeContent', () => {
 
   it('provides the approved metric deltas', () => {
     expect(metrics.map(({ delta }) => delta)).toEqual(['12%', '9%', '23%', '6%'])
-  })
-
-  it('provides the approved trust brands as names', () => {
-    expect(trustBrands).toEqual([
-      '华为',
-      '腾讯',
-      '阿里巴巴',
-      '字节跳动',
-      '小米',
-      '中国平安',
-      '美的集团',
-    ])
   })
 })
