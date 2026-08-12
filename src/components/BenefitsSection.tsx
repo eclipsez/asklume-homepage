@@ -1,9 +1,21 @@
+import { useId } from 'react'
+import glassBloom from '../assets/glass/glass-bloom.webp'
+import glassLoop from '../assets/glass/glass-loop.webp'
+import glassRibbon from '../assets/glass/glass-ribbon.webp'
 import { benefits } from '../content/homeContent'
-import { Icon } from './Icon'
+import { PointerGlowCard } from './PointerGlowCard'
 import { Reveal } from './Reveal'
 import styles from './BenefitsSection.module.css'
 
+const glassArt = [
+  { name: 'loop', src: glassLoop, width: 1254, height: 1254 },
+  { name: 'bloom', src: glassBloom, width: 1254, height: 1254 },
+  { name: 'ribbon', src: glassRibbon, width: 1536, height: 1024 },
+] as const
+
 export function BenefitsSection() {
+  const articleIdPrefix = useId()
+
   return (
     <section
       aria-labelledby="benefits-title"
@@ -22,18 +34,37 @@ export function BenefitsSection() {
         </Reveal>
 
         <Reveal className={styles.grid} delay={0.08}>
-          {benefits.map((benefit) => (
-            <article className={styles.card} key={benefit.title}>
-              <span className={styles.icon}>
-                <Icon name={benefit.icon} size={38} />
-              </span>
-              <div className={styles.copy}>
-                <h3>{benefit.title}</h3>
-                <p>{benefit.description}</p>
-                <a href={benefit.href}>了解更多 <span aria-hidden="true">→</span></a>
-              </div>
-            </article>
-          ))}
+          {benefits.map((benefit, index) => {
+            const art = glassArt[index]
+            const headingId = `${articleIdPrefix}-benefit-${index}`
+
+            return (
+              <PointerGlowCard
+                aria-labelledby={headingId}
+                className={styles.card}
+                data-glass-art={art.name}
+                key={benefit.title}
+              >
+                <img
+                  alt=""
+                  aria-hidden="true"
+                  className={styles.art}
+                  decoding="async"
+                  draggable="false"
+                  height={art.height}
+                  src={art.src}
+                  width={art.width}
+                />
+                <div className={styles.copy}>
+                  <h3 id={headingId}>{benefit.title}</h3>
+                  <p>{benefit.description}</p>
+                  <a href={benefit.href}>
+                    了解更多 <span aria-hidden="true">→</span>
+                  </a>
+                </div>
+              </PointerGlowCard>
+            )
+          })}
         </Reveal>
       </div>
     </section>

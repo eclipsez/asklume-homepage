@@ -1,11 +1,15 @@
 .section {
-  background: #fff;
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 50% 34%, rgba(215, 226, 255, 0.22), transparent 31%),
+    #fff;
 }
 
 .inner {
   width: min(calc(100% - 48px), var(--content-width));
   margin-inline: auto;
-  padding: 0 0 18px;
+  padding: 54px 0 50px;
 }
 
 .heading {
@@ -13,138 +17,203 @@
 }
 
 .eyebrow {
-  color: #6857f2;
+  color: #624dff;
   font-size: 12px;
-  font-weight: 750;
-  letter-spacing: 0.02em;
+  font-weight: 780;
+  letter-spacing: 0.04em;
 }
 
 .heading h2 {
-  margin-top: 7px;
-  color: #0b1538;
-  font-size: clamp(27px, 2.4vw, 34px);
-  font-weight: 820;
-  letter-spacing: -0.035em;
-  line-height: 1.25;
+  margin-top: 8px;
+  color: #09163d;
+  font-size: clamp(28px, 2.7vw, 38px);
+  font-weight: 830;
+  letter-spacing: -0.045em;
+  line-height: 1.2;
 }
 
 .subtitle {
-  margin-top: 7px;
-  color: #68718e;
-  font-size: 12px;
+  margin-top: 10px;
+  color: #596583;
+  font-size: 13px;
   line-height: 1.7;
 }
 
 .grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  margin-top: 21px;
-  gap: 16px;
+  margin-top: 32px;
+  gap: 20px;
 }
 
 .card {
-  display: grid;
-  grid-template-columns: 74px minmax(0, 1fr);
-  min-height: 120px;
-  padding: 17px 18px 16px;
-  border: 1px solid rgba(79, 88, 131, 0.09);
-  border-radius: var(--radius-card);
-  background: rgba(255, 255, 255, 0.96);
-  box-shadow: 0 19px 48px rgba(35, 43, 84, 0.075);
-  transition: box-shadow 180ms ease, transform 180ms ease;
-}
-
-.card:hover {
-  box-shadow: 0 23px 52px rgba(35, 43, 84, 0.1);
-  transform: translateY(-2px);
-}
-
-.icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 50px;
-  height: 50px;
-  color: #6a5cf6;
-  border-radius: 15px;
+  min-height: 180px;
+  padding: 31px 27px 28px;
+  border: 1px solid rgba(96, 111, 171, 0.12);
+  border-radius: 17px;
   background:
-    radial-gradient(circle at 72% 18%, rgba(255, 255, 255, 0.94), transparent 34%),
-    linear-gradient(140deg, #eeebff, #f6f2ff);
-  box-shadow: inset 0 0 18px rgba(117, 87, 247, 0.08);
+    linear-gradient(135deg, rgba(255, 255, 255, 0.94), rgba(246, 248, 255, 0.82)),
+    rgba(255, 255, 255, 0.88);
+  box-shadow:
+    0 24px 64px rgba(32, 44, 100, 0.09),
+    0 3px 10px rgba(64, 77, 135, 0.035),
+    inset 0 1px 0 rgba(255, 255, 255, 0.98);
+  transition:
+    border-color 280ms ease,
+    box-shadow 320ms ease,
+    transform 320ms cubic-bezier(0.2, 0.75, 0.2, 1);
 }
 
-.card:nth-child(2) .icon {
-  color: #4c7cf7;
-  background: linear-gradient(140deg, #e8efff, #f4f6ff);
+.card::after {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  border-radius: inherit;
+  content: '';
+  pointer-events: none;
+  background:
+    linear-gradient(112deg, rgba(255, 255, 255, 0.72), transparent 26%),
+    radial-gradient(circle at 86% 8%, rgba(143, 164, 255, 0.11), transparent 35%);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.46);
 }
 
-.card:nth-child(3) .icon {
-  color: #e151c8;
-  background: linear-gradient(140deg, #fde7fa, #fff2fb);
+.copy {
+  position: relative;
+  z-index: 3;
+  width: 66%;
+}
+
+.card[data-glass-art='loop'] .copy {
+  width: 64%;
+  margin-left: 34%;
 }
 
 .copy h3 {
-  color: #101a3d;
-  font-size: 16px;
-  font-weight: 780;
-  letter-spacing: -0.015em;
+  color: #0b193f;
+  font-size: 18px;
+  font-weight: 790;
+  letter-spacing: -0.02em;
+  line-height: 1.38;
 }
 
 .copy p {
-  max-width: 210px;
-  margin-top: 9px;
-  color: #6a738f;
-  font-size: 11px;
-  line-height: 1.7;
+  margin-top: 12px;
+  color: #596583;
+  font-size: 12px;
+  line-height: 1.75;
 }
 
 .copy a {
   display: inline-flex;
   align-items: center;
-  margin-top: 9px;
-  gap: 5px;
-  color: #5e5ce9;
-  border-radius: 4px;
-  font-size: 11px;
-  font-weight: 680;
+  margin-top: 16px;
+  gap: 7px;
+  color: #4f5dff;
+  border-radius: 5px;
+  font-size: 12px;
+  font-weight: 720;
 }
 
 .copy a span {
-  transition: transform 160ms ease;
+  transition: transform 180ms ease;
 }
 
 .copy a:hover span {
-  transform: translateX(2px);
+  transform: translateX(3px);
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .copy a:hover span {
-    transform: none;
+.art {
+  --art-transform: rotate(0deg) scale(1);
+  position: absolute;
+  z-index: 2;
+  pointer-events: none;
+  user-select: none;
+  filter: saturate(0.96) contrast(1.02) drop-shadow(0 18px 17px rgba(76, 72, 196, 0.12));
+  transform:
+    translate3d(
+      calc(var(--depth-x) * -7px),
+      calc(var(--depth-y) * -5px),
+      0
+    )
+    var(--art-transform);
+  transition:
+    filter 320ms ease,
+    transform 320ms cubic-bezier(0.2, 0.75, 0.2, 1);
+}
+
+.card[data-glass-art='loop'] .art {
+  --art-transform: rotate(-9deg) scale(1.06);
+  width: 205px;
+  max-width: none;
+  top: -20px;
+  bottom: -43px;
+  left: -77px;
+}
+
+.card[data-glass-art='bloom'] .art {
+  --art-transform: rotate(-19deg) scale(1.08);
+  width: 181px;
+  max-width: none;
+  right: -55px;
+  bottom: -60px;
+}
+
+.card[data-glass-art='ribbon'] .art {
+  --art-transform: rotate(-2deg) scale(1.02);
+  width: 260px;
+  max-width: none;
+  right: -117px;
+  bottom: -57px;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .card:hover {
+    border-color: rgba(100, 107, 244, 0.24);
+    box-shadow:
+      0 30px 76px rgba(38, 49, 116, 0.14),
+      0 7px 18px rgba(71, 80, 151, 0.06),
+      inset 0 1px 0 #fff;
+    transform: translateY(-5px);
+  }
+
+  .card:hover .art {
+    filter: saturate(1.05) contrast(1.03) drop-shadow(0 22px 21px rgba(76, 72, 196, 0.18));
   }
 }
 
-/* Keep the icon-and-copy layout readable before the desktop cards get cramped. */
 @media (max-width: 900px) {
   .grid {
     grid-template-columns: minmax(0, 680px);
     justify-content: center;
-    gap: 14px;
+    gap: 18px;
   }
 
-  .copy p {
-    max-width: none;
+  .card {
+    min-height: 178px;
+    padding-inline: 36px;
+  }
+
+  .copy,
+  .card[data-glass-art='loop'] .copy {
+    width: 58%;
+    margin-left: 0;
+  }
+
+  .card[data-glass-art='loop'] .copy {
+    margin-left: 36%;
   }
 }
 
 @media (max-width: 768px) {
   .inner {
     width: min(calc(100% - 32px), 520px);
-    padding: 0 0 66px;
+    padding: 54px 0 68px;
   }
 
   .heading h2 {
-    margin-top: 10px;
-    font-size: 26px;
+    max-width: 340px;
+    margin: 10px auto 0;
+    font-size: 27px;
   }
 
   .subtitle {
@@ -154,27 +223,75 @@
   }
 
   .grid {
-    grid-template-columns: minmax(0, 1fr);
-    margin-top: 28px;
-    gap: 14px;
+    margin-top: 29px;
+    gap: 15px;
   }
 
   .card {
-    grid-template-columns: 66px minmax(0, 1fr);
-    min-height: 0;
-    padding: 20px 19px;
+    min-height: 168px;
+    padding: 27px 23px 24px;
   }
 
-  .icon {
-    width: 51px;
-    height: 51px;
+  .copy,
+  .card[data-glass-art='loop'] .copy {
+    width: 67%;
+  }
+
+  .card[data-glass-art='loop'] .copy {
+    width: 65%;
+    margin-left: 34%;
   }
 
   .copy h3 {
-    font-size: 15px;
+    font-size: 16px;
   }
 
   .copy p {
-    max-width: none;
+    margin-top: 9px;
+    font-size: 11px;
+  }
+
+  .copy a {
+    margin-top: 12px;
+    font-size: 11px;
+  }
+
+  .card[data-glass-art='loop'] .art {
+    width: 178px;
+    left: -72px;
+  }
+
+  .card[data-glass-art='bloom'] .art {
+    width: 155px;
+    right: -55px;
+  }
+
+  .card[data-glass-art='ribbon'] .art {
+    width: 230px;
+    right: -112px;
+  }
+}
+
+@media (max-width: 380px) {
+  .card {
+    padding-inline: 20px;
+  }
+
+  .copy {
+    width: 70%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card,
+  .art,
+  .copy a span {
+    transition: none;
+  }
+
+  .card:hover,
+  .card:hover .art,
+  .copy a:hover span {
+    transform: none;
   }
 }

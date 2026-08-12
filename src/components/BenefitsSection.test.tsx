@@ -29,4 +29,36 @@ describe('BenefitsSection', () => {
       '更强的品牌选择力',
     ])
   })
+
+  it('uses labelled glass-art cards while preserving every configured action', () => {
+    render(<BenefitsSection />)
+    const articles = screen.getAllByRole('article')
+
+    expect(articles.map((article) => article.dataset.glassArt)).toEqual([
+      'loop',
+      'bloom',
+      'ribbon',
+    ])
+    expect(articles.every((article) => article.querySelector('svg') === null)).toBe(true)
+
+    const headingIds = articles.map((article, index) => {
+      const heading = within(article).getByRole('heading', {
+        level: 3,
+        name: benefits[index].title,
+      })
+      const headingId = article.getAttribute('aria-labelledby')
+
+      expect(headingId).toBeTruthy()
+      expect(heading).toHaveAttribute('id', headingId)
+      expect(within(article).getByText(benefits[index].description)).toBeVisible()
+      expect(within(article).getByRole('link', { name: /了解更多/ })).toHaveAttribute(
+        'href',
+        benefits[index].href,
+      )
+
+      return headingId
+    })
+
+    expect(new Set(headingIds).size).toBe(3)
+  })
 })
