@@ -121,4 +121,10 @@ a {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
+
+  a:hover,
+  button:hover,
+  article:hover {
+    transform: none !important;
+  }
 }

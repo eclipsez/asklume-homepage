@@ -1,5 +1,6 @@
 import { useId } from 'react'
 import { footerContact } from '../content/homeContent'
+import { Reveal } from './Reveal'
 import styles from './DiagnosticCTA.module.css'
 
 const diagnosticEmailHref = `mailto:${footerContact.email}?subject=${encodeURIComponent('AI认知基线诊断')}`
@@ -18,7 +19,7 @@ export function DiagnosticCTA() {
       id="diagnostic"
     >
       <div className={styles.inner}>
-        <div className={styles.banner}>
+        <Reveal className={styles.banner}>
           <div className={styles.copy}>
             <h2 id="diagnostic-title">开启您的AI认知基线诊断</h2>
             <p>了解企业在AI中的真实表现，发现机会，制定提升策略。</p>
@@ -109,7 +110,7 @@ export function DiagnosticCTA() {
               strokeWidth="2"
             />
           </svg>
-        </div>
+        </Reveal>
       </div>
     </section>
   )

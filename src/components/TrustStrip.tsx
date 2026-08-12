@@ -1,4 +1,5 @@
 import { trustBrands } from '../content/homeContent'
+import { Reveal } from './Reveal'
 import styles from './TrustStrip.module.css'
 
 const markPaths = [
@@ -40,24 +41,26 @@ export function TrustStrip() {
   return (
     <section aria-label="客户信赖" className={styles.trustStrip}>
       <div className={styles.inner}>
-        <p className={styles.message}>
-          值得信赖的选择 · 为全球领先企业提供AI认知基线设施
-        </p>
-        <ul className={styles.brands}>
-          {trustBrands.map((brand, index) => (
-            <li className={styles.brand} key={brand}>
-              <svg
-                aria-hidden="true"
-                className={styles.mark}
-                fill="none"
-                viewBox="0 0 24 24"
-              >
-                {markPaths[index]}
-              </svg>
-              <span>{brand}</span>
-            </li>
-          ))}
-        </ul>
+        <Reveal>
+          <p className={styles.message}>
+            值得信赖的选择 · 为全球领先企业提供AI认知基线设施
+          </p>
+          <ul className={styles.brands}>
+            {trustBrands.map((brand, index) => (
+              <li className={styles.brand} key={brand}>
+                <svg
+                  aria-hidden="true"
+                  className={styles.mark}
+                  fill="none"
+                  viewBox="0 0 24 24"
+                >
+                  {markPaths[index]}
+                </svg>
+                <span>{brand}</span>
+              </li>
+            ))}
+          </ul>
+        </Reveal>
       </div>
     </section>
   )

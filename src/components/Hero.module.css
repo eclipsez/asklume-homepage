@@ -174,8 +174,11 @@
   transform: translateY(-1px);
 }
 
-.dashboard {
+.dashboardReveal {
   align-self: center;
+}
+
+.dashboard {
   transform: translateY(15px);
 }
 
@@ -238,7 +241,7 @@
     padding: 48px 0 90px;
   }
 
-  .dashboard {
+  .dashboardReveal {
     display: none;
   }
 

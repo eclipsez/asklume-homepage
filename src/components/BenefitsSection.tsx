@@ -1,5 +1,6 @@
 import { benefits } from '../content/homeContent'
 import { Icon } from './Icon'
+import { Reveal } from './Reveal'
 import styles from './BenefitsSection.module.css'
 
 export function BenefitsSection() {
@@ -10,15 +11,17 @@ export function BenefitsSection() {
       id="insights"
     >
       <div className={styles.inner}>
-        <header className={styles.heading}>
-          <p className={styles.eyebrow}>核心优势</p>
-          <h2 id="benefits-title">为什么选择问答光源</h2>
-          <p className={styles.subtitle}>
-            从发现、理解到选择，构建企业在AI时代的认知竞争力。
-          </p>
-        </header>
+        <Reveal>
+          <header className={styles.heading}>
+            <p className={styles.eyebrow}>核心优势</p>
+            <h2 id="benefits-title">为什么选择问答光源</h2>
+            <p className={styles.subtitle}>
+              从发现、理解到选择，构建企业在AI时代的认知竞争力。
+            </p>
+          </header>
+        </Reveal>
 
-        <div className={styles.grid}>
+        <Reveal className={styles.grid} delay={0.08}>
           {benefits.map((benefit) => (
             <article className={styles.card} key={benefit.title}>
               <span className={styles.icon}>
@@ -31,7 +34,7 @@ export function BenefitsSection() {
               </div>
             </article>
           ))}
-        </div>
+        </Reveal>
       </div>
     </section>
   )

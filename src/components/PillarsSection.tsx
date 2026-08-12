@@ -1,6 +1,7 @@
 import { useId } from 'react'
 import { pillars } from '../content/homeContent'
 import { Icon, type IconName } from './Icon'
+import { Reveal } from './Reveal'
 import styles from './PillarsSection.module.css'
 
 const pillarIcons: Record<(typeof pillars)[number]['title'], IconName> = {
@@ -19,17 +20,19 @@ export function PillarsSection() {
       id="pillars"
     >
       <div className={styles.inner}>
-        <header className={styles.heading}>
-          <p className={styles.eyebrow}>GEO-AIP™ 核心系统</p>
-          <h2 id="pillars-title">
-            三大信息支柱 · <span className={styles.titlePhrase}>构建AI认知基线</span>
-          </h2>
-          <p className={styles.subtitle}>
-            从事实到认知，从可见到可选，系统化提升企业在AI时代的影响力。
-          </p>
-        </header>
+        <Reveal>
+          <header className={styles.heading}>
+            <p className={styles.eyebrow}>GEO-AIP™ 核心系统</p>
+            <h2 id="pillars-title">
+              三大信息支柱 · <span className={styles.titlePhrase}>构建AI认知基线</span>
+            </h2>
+            <p className={styles.subtitle}>
+              从事实到认知，从可见到可选，系统化提升企业在AI时代的影响力。
+            </p>
+          </header>
+        </Reveal>
 
-        <div className={styles.grid}>
+        <Reveal className={styles.grid} delay={0.08}>
           {pillars.map((pillar, index) => {
             const headingId = `${articleIdPrefix}-pillar-${index}`
 
@@ -53,7 +56,7 @@ export function PillarsSection() {
               </article>
             )
           })}
-        </div>
+        </Reveal>
       </div>
     </section>
   )

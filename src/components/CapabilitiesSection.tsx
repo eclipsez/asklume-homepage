@@ -1,6 +1,7 @@
 import { useId } from 'react'
 import { capabilities } from '../content/homeContent'
 import { Icon } from './Icon'
+import { Reveal } from './Reveal'
 import styles from './CapabilitiesSection.module.css'
 
 export function CapabilitiesSection() {
@@ -13,15 +14,17 @@ export function CapabilitiesSection() {
       id="capabilities"
     >
       <div className={styles.inner}>
-        <header className={styles.heading}>
-          <p className={styles.eyebrow}>平台能力</p>
-          <h2 id="capabilities-title">从数据到决策的完整能力体系</h2>
-          <p className={styles.subtitle}>
-            一站式AI认知基础设施，帮助企业构建长期可持续的认知影响力。
-          </p>
-        </header>
+        <Reveal>
+          <header className={styles.heading}>
+            <p className={styles.eyebrow}>平台能力</p>
+            <h2 id="capabilities-title">从数据到决策的完整能力体系</h2>
+            <p className={styles.subtitle}>
+              一站式AI认知基础设施，帮助企业构建长期可持续的认知影响力。
+            </p>
+          </header>
+        </Reveal>
 
-        <div className={styles.grid}>
+        <Reveal className={styles.grid} delay={0.08}>
           {capabilities.map((capability, index) => {
             const headingId = `${articleIdPrefix}-capability-${index}`
 
@@ -51,7 +54,7 @@ export function CapabilitiesSection() {
               </article>
             )
           })}
-        </div>
+        </Reveal>
       </div>
     </section>
   )
