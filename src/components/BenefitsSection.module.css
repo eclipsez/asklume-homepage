@@ -117,6 +117,12 @@
   transform: translateX(2px);
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .copy a:hover span {
+    transform: none;
+  }
+}
+
 /* Keep the icon-and-copy layout readable before the desktop cards get cramped. */
 @media (max-width: 900px) {
   .grid {
