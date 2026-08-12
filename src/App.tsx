@@ -1,5 +1,7 @@
 import { Header } from './components/Header'
 import { Hero } from './components/Hero'
+import { BenefitsSection } from './components/BenefitsSection'
+import { TrustStrip } from './components/TrustStrip'
 
 function App() {
   return (
@@ -7,6 +9,8 @@ function App() {
       <Header />
       <main id="top">
         <Hero />
+        <TrustStrip />
+        <BenefitsSection />
       </main>
     </>
   )

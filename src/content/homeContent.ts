@@ -9,6 +9,7 @@ export interface FeatureCard {
   title: string
   description: string
   icon: IconName
+  href?: `#${string}`
 }
 
 export interface Pillar {
@@ -51,16 +52,19 @@ export const benefits = [
     title: '更高的AI可见性',
     description: '让企业在更多AI平台中被主动发现与识别',
     icon: 'target',
+    href: '#pillars',
   },
   {
     title: '更准确的AI理解',
     description: '让AI正确理解企业是谁、能做什么、适合谁',
     icon: 'brain',
+    href: '#pillars',
   },
   {
     title: '更强的品牌选择力',
     description: '为企业进入AI推荐与决策结果提供可信基础',
     icon: 'diamond',
+    href: '#capabilities',
   },
 ] as const satisfies readonly FeatureCard[]
 
