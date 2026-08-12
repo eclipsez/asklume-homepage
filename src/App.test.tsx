@@ -11,4 +11,11 @@ describe('App', () => {
       within(main).getByRole('heading', { level: 1, name: /让品牌被AI/ }),
     ).toBeInTheDocument()
   })
+
+  it('renders the navigation targets for pillars and capabilities', () => {
+    const { container } = render(<App />)
+
+    expect(container.querySelector('#pillars')).toBeInTheDocument()
+    expect(container.querySelector('#capabilities')).toBeInTheDocument()
+  })
 })
