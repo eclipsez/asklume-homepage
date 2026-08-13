@@ -1,15 +1,39 @@
 :root {
-  --ink: #0d1638;
-  --ink-muted: #68708b;
-  --blue: #566fff;
-  --violet: #7657f7;
-  --magenta: #df5fd1;
-  --coral: #ff7d8d;
-  --cloud: #f7f8fc;
-  --surface: rgba(255,255,255,.9);
-  --border: rgba(83,89,130,.11);
-  --shadow-card: 0 22px 60px rgba(32,39,86,.08);
-  --radius-card: 18px;
-  --content-width: clamp(890px, 78vw, 1120px);
-  --font-sans: "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
+  --ink: #0b132b;
+  --ink-muted: #525b7a;
+  --blue: #4972ff;
+  --violet: #7556f4;
+  --violet-deep: #5b46e5;
+  --magenta: #d14fd6;
+  --coral: #ff7a8a;
+  --page-bg: #fafbfd;
+  --cloud: var(--page-bg);
+  --surface: rgba(255, 255, 255, 0.92);
+  --surface-border: rgba(255, 255, 255, 0.85);
+  --border: rgba(148, 163, 184, 0.22);
+  --shadow-sm: 0 2px 6px rgba(15, 23, 42, 0.03);
+  --shadow-md: 0 12px 32px -4px rgba(99, 102, 241, 0.08);
+  --shadow-lg: 0 30px 80px -10px rgba(124, 58, 237, 0.16);
+  --shadow-glow: 0 10px 28px rgba(117, 86, 244, 0.4);
+  --shadow-card: var(--shadow-md);
+  --radius-pill: 9999px;
+  --radius-card: 24px;
+  --radius-control: 16px;
+  --content-width: 1200px;
+  --font-sans: "PingFang SC", "Microsoft YaHei", system-ui, -apple-system, sans-serif;
+
+  /* 8阶字号层级规范 (8-Step Typographic Scale Principle) */
+  --type-step-1: 12px;   /* Step 1: 辅助标注、脚标、微小 Eyebrow 标签 (line-height: 1.5) */
+  --type-step-2: 14px;   /* Step 2: 次要正文、描述、表单、页脚链接 (line-height: 1.5) */
+  --type-step-3: 16px;   /* Step 3: 标准正文、常规按钮、主导航 (line-height: 1.5) */
+  --type-step-4: 20px;   /* Step 4: 卡片标题、突出正文、小号 Heading (line-height: 1.4) */
+  --type-step-5: 24px;   /* Step 5: 模块小标题、二级板块 Headline (line-height: 1.35) */
+  --type-step-6: 32px;   /* Step 6: 模块主标题 Section Title (line-height: 1.3) */
+  --type-step-7: 40px;   /* Step 7: 页面级大标题、关键指标 Metrics (line-height: 1.25) */
+  --type-step-8: 56px;   /* Step 8: Hero 级顶阶视效大标题 Display (line-height: 1.18) */
+
+  /* 8阶响应式流体字号 (Fluid Scales for Mobile & Desktop) */
+  --fluid-step-6: clamp(24px, 3.5vw, 32px);
+  --fluid-step-7: clamp(32px, 4.5vw, 40px);
+  --fluid-step-8: clamp(40px, 6.5vw, 56px);
 }

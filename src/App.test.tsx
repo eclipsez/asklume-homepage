@@ -1,81 +1,63 @@
 import { render, screen, within } from '@testing-library/react'
-import userEvent from '@testing-library/user-event'
 import App from './App'
 
-describe('App', () => {
-  it('renders the AI brand visibility headline', () => {
+describe('AskLume homepage', () => {
+  it('renders the canonical homepage without a version switcher', () => {
+    const { container } = render(<App />)
+
+    expect(screen.getByRole('heading', { level: 1, name: /让品牌被AI/ })).toBeInTheDocument()
+    expect(screen.queryByText(/版本 1\.0/)).not.toBeInTheDocument()
+    expect(container.querySelector('#main-content')).toBeInTheDocument()
+  })
+
+  it('provides the canonical section targets', () => {
+    const { container } = render(<App />)
+
+    for (const id of ['top', 'features', 'solutions', 'pillars', 'capabilities', 'diagnostic', 'footer']) {
+      expect(container.querySelector(`#${id}`)).toBeInTheDocument()
+    }
+  })
+
+  it('links the primary navigation to the resource center', () => {
     render(<App />)
 
-    const main = screen.getByRole('main')
-
     expect(
-      within(main).getByRole('heading', { level: 1, name: /让品牌被AI/ }),
-    ).toBeInTheDocument()
-  })
-
-  it('renders the navigation targets for pillars and capabilities', () => {
-    const { container } = render(<App />)
-
-    expect(container.querySelector('#pillars')).toBeInTheDocument()
-    expect(container.querySelector('#capabilities')).toBeInTheDocument()
-  })
-
-  it('uses unique heading associations for all pillar and capability cards', () => {
-    const { container } = render(<App />)
-    const articles = Array.from(
-      container.querySelectorAll<HTMLElement>(
-        '#pillars article, #capabilities article',
+      screen.getAllByRole('link', { name: '资源中心' }).some(
+        (link) => link.getAttribute('href') === './resources.html',
       ),
-    )
-
-    expect(articles).toHaveLength(7)
-
-    const headingIds = articles.map((article) => {
-      const headingId = article.getAttribute('aria-labelledby')
-
-      expect(headingId).toBeTruthy()
-      expect(article.querySelector('h3')).toHaveAttribute('id', headingId)
-
-      return headingId
-    })
-
-    expect(new Set(headingIds).size).toBe(articles.length)
+    ).toBe(true)
   })
 
-  it('reuses the dashboard in a distinct mobile overview with unique prompt IDs', () => {
+  it('labels dashboard metrics as sample data', () => {
     render(<App />)
 
-    const mobileOverview = screen.getByRole('region', {
-      name: 'AI认知概览',
-    })
-    const prompts = screen.getAllByRole('textbox', { name: '向AskLume提问' })
+    expect(screen.getByRole('region', { name: 'AI认知基线示例数据' })).toBeInTheDocument()
+    expect(screen.getByText('以下为界面示例，不代表真实诊断结果。')).toBeInTheDocument()
+  })
 
+  it('separates solution selection from the diagnosable and verifiable method', () => {
+    const { container } = render(<App />)
+    const solutionPreview = container.querySelector('#solutions')
+    const solution = container.querySelector('#pillars')
+
+    expect(solutionPreview).toBeInTheDocument()
+    expect(within(solutionPreview as HTMLElement).getByRole('heading', {
+      level: 2,
+      name: '先识别业务断点，再选择建设路径',
+    })).toBeInTheDocument()
+    expect(within(solutionPreview as HTMLElement).getByRole('link', {
+      name: '查看全部解决方案',
+    })).toHaveAttribute('href', './solutions.html')
+
+    expect(solution).toBeInTheDocument()
+    const section = within(solution as HTMLElement)
     expect(
-      within(mobileOverview).getByRole('region', {
-        name: 'AskLume AI品牌影响力看板',
+      section.getByRole('heading', {
+        level: 2,
+        name: 'GEO-AIP™ 如何把企业事实变成可核验资产',
       }),
     ).toBeInTheDocument()
-    expect(prompts).toHaveLength(2)
-    expect(new Set(prompts.map((prompt) => prompt.id)).size).toBe(2)
-  })
-
-  it('gives every same-document link an existing anchor target', async () => {
-    const user = userEvent.setup()
-    render(<App />)
-
-    await user.click(screen.getByRole('button', { name: '打开菜单' }))
-
-    const sameDocumentLinks = Array.from(
-      document.querySelectorAll<HTMLAnchorElement>('a[href^="#"]'),
-    )
-
-    expect(sameDocumentLinks.length).toBeGreaterThan(0)
-
-    for (const link of sameDocumentLinks) {
-      const href = link.getAttribute('href')
-
-      expect(href).toBeTruthy()
-      expect(document.querySelector(href as string)).toBeInTheDocument()
-    }
+    expect(section.getAllByRole('article')).toHaveLength(3)
+    expect(section.getByText(/不承诺固定排名或推荐结果/)).toBeInTheDocument()
   })
 })

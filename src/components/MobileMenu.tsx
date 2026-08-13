@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react'
 import { createPortal } from 'react-dom'
-import { footerContact, navItems } from '../content/homeContent'
+import type { SiteNavItem, SiteNavLabel } from '../content/siteContent'
 import { Brand } from './Brand'
 import { Icon } from './Icon'
 import styles from './MobileMenu.module.css'
@@ -8,12 +8,28 @@ import styles from './MobileMenu.module.css'
 interface MobileMenuProps {
   id: string
   onClose: () => void
+  items: readonly SiteNavItem[]
+  activeLabel?: SiteNavLabel
+  homeHref: string
+  diagnosticHref: string
+  contact: {
+    phone?: string
+    email: string
+  }
 }
 
 const focusableSelector =
   'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'
 
-export function MobileMenu({ id, onClose }: MobileMenuProps) {
+export function MobileMenu({
+  id,
+  onClose,
+  items,
+  activeLabel,
+  homeHref,
+  diagnosticHref,
+  contact,
+}: MobileMenuProps) {
   const dialogRef = useRef<HTMLDivElement>(null)
   const closeButtonRef = useRef<HTMLButtonElement>(null)
 
@@ -88,16 +104,16 @@ export function MobileMenu({ id, onClose }: MobileMenuProps) {
           >
             <Icon name="close" size={22} />
           </button>
-          <a aria-label="AskLume 首页" href="#top" onClick={onClose}>
+          <a aria-label="AskLume 首页" href={homeHref} onClick={onClose}>
             <Brand compact />
           </a>
         </div>
 
         <nav aria-label="移动端主导航" className={styles.navigation}>
-          {navItems.map((item, index) => (
+          {items.map((item) => (
             <a
-              aria-current={index === 0 ? 'page' : undefined}
-              className={index === 0 ? styles.activeLink : styles.navLink}
+              aria-current={item.label === activeLabel ? 'page' : undefined}
+              className={item.label === activeLabel ? styles.activeLink : styles.navLink}
               href={item.href}
               key={item.href}
               onClick={onClose}
@@ -108,25 +124,14 @@ export function MobileMenu({ id, onClose }: MobileMenuProps) {
           ))}
         </nav>
 
-        <a className={styles.diagnosticLink} href="#diagnostic" onClick={onClose}>
-          AI认知基线诊断
+        <a className={styles.diagnosticLink} href={diagnosticHref} onClick={onClose}>
+          免费需求评估
           <Icon name="arrow" size={18} />
         </a>
 
-        <div className={styles.accountControls}>
-          <button className={styles.accountButton} type="button">
-            <Icon name="user" size={18} />
-            登录
-          </button>
-          <button className={styles.accountButton} type="button">
-            <Icon name="globe" size={18} />
-            中文
-          </button>
-        </div>
-
         <a
           className={styles.appointmentCard}
-          href={`mailto:${footerContact.email}`}
+          href={`mailto:${contact.email}`}
           onClick={onClose}
         >
           <span className={styles.cardEyebrow}>预约演示</span>
@@ -138,19 +143,16 @@ export function MobileMenu({ id, onClose }: MobileMenuProps) {
         </a>
 
         <div className={styles.contactGrid}>
-          <div>
-            <span className={styles.contactLabel}>电话咨询</span>
-            <a href={`tel:${footerContact.phone}`}>{footerContact.phone}</a>
-          </div>
+          {contact.phone ? (
+            <div>
+              <span className={styles.contactLabel}>电话咨询</span>
+              <a href={`tel:${contact.phone}`}>{contact.phone}</a>
+            </div>
+          ) : null}
           <div>
             <span className={styles.contactLabel}>邮箱联系</span>
-            <a href={`mailto:${footerContact.email}`}>{footerContact.email}</a>
+            <a href={`mailto:${contact.email}`}>{contact.email}</a>
           </div>
-        </div>
-
-        <div className={styles.footer}>
-          <span>{footerContact.copyright}</span>
-          <span>{footerContact.icp}</span>
         </div>
       </div>
     </div>,

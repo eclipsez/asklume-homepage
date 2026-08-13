@@ -39,6 +39,23 @@ describe('Header', () => {
     expect(
       container.querySelector('[data-header-brand="desktop"] [class*="brandCompact"]'),
     ).not.toBeInTheDocument()
+    expect(
+      container.querySelector('[data-header-brand="desktop"] img'),
+    ).toHaveClass(/brandMark/)
+    expect(container.querySelector('[data-header-brand="desktop"]')).toHaveTextContent(
+      '问答光源 | AskLume',
+    )
+  })
+
+  it('uses the brand as the home link without duplicating 首页 in the main navigation', () => {
+    const { container } = render(<Header />)
+    const navigation = within(screen.getByRole('navigation', { name: '主导航' }))
+
+    expect(navigation.queryByRole('link', { name: /^首页$/ })).not.toBeInTheDocument()
+    expect(container.querySelector('[data-header-brand="desktop"]')).toHaveAttribute(
+      'href',
+      '#top',
+    )
   })
 
   it('closes with Escape, restores trigger focus, and preserves the body scroll style', async () => {

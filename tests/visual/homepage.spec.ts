@@ -94,44 +94,36 @@ async function expectOneVisibleDashboardAndPrompt(page: Page) {
   ).toHaveCount(1)
 }
 
-async function expectBenefitsAndPillarsColumns(
+async function expectBenefitsColumns(
   page: Page,
   expectedColumns: 1 | 3,
 ) {
-  const sectionHeadingIds = ['benefits-title', 'pillars-title'] as const
+  const cards = page.locator(
+    'section[aria-labelledby="benefits-title"] article',
+  )
+  await expect(cards).toHaveCount(3)
 
-  for (const headingId of sectionHeadingIds) {
-    const cards = page.locator(
-      `section[aria-labelledby="${headingId}"] article`,
-    )
-    await expect(cards).toHaveCount(3)
+  const layout = await cards.evaluateAll(([firstCard, secondCard]) => {
+    const first = firstCard.getBoundingClientRect()
+    const second = secondCard.getBoundingClientRect()
+    const grid = firstCard.parentElement
 
-    const layout = await cards.evaluateAll(([firstCard, secondCard]) => {
-      const first = firstCard.getBoundingClientRect()
-      const second = secondCard.getBoundingClientRect()
-      const grid = firstCard.parentElement
-
-      return {
-        first: { x: first.x, y: first.y },
-        second: { x: second.x, y: second.y },
-        gridTemplateColumns: grid
-          ? getComputedStyle(grid).gridTemplateColumns.split(' ').length
-          : 0,
-      }
-    })
-
-    expect(layout.gridTemplateColumns, headingId).toBe(expectedColumns)
-    if (expectedColumns === 1) {
-      expect(Math.abs(layout.first.x - layout.second.x), headingId).toBeLessThan(
-        2,
-      )
-      expect(layout.second.y, headingId).toBeGreaterThan(layout.first.y)
-    } else {
-      expect(Math.abs(layout.first.y - layout.second.y), headingId).toBeLessThan(
-        2,
-      )
-      expect(layout.second.x, headingId).toBeGreaterThan(layout.first.x)
+    return {
+      first: { x: first.x, y: first.y },
+      second: { x: second.x, y: second.y },
+      gridTemplateColumns: grid
+        ? getComputedStyle(grid).gridTemplateColumns.split(' ').length
+        : 0,
     }
+  })
+
+  expect(layout.gridTemplateColumns, 'benefits-title').toBe(expectedColumns)
+  if (expectedColumns === 1) {
+    expect(Math.abs(layout.first.x - layout.second.x), 'benefits-title').toBeLessThan(2)
+    expect(layout.second.y, 'benefits-title').toBeGreaterThan(layout.first.y)
+  } else {
+    expect(Math.abs(layout.first.y - layout.second.y), 'benefits-title').toBeLessThan(2)
+    expect(layout.second.x, 'benefits-title').toBeGreaterThan(layout.first.x)
   }
 }
 
@@ -203,7 +195,7 @@ for (const viewport of boundaryViewports) {
     }
 
     if ('contentColumns' in viewport) {
-      await expectBenefitsAndPillarsColumns(page, viewport.contentColumns)
+      await expectBenefitsColumns(page, viewport.contentColumns)
     }
 
     if ('capabilityColumns' in viewport) {

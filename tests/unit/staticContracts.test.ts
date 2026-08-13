@@ -15,11 +15,10 @@ describe('static homepage contracts', () => {
       /<h1[^>]*>让品牌被AI看见、理解与选择。<\/h1>/,
     )
     expect(noscript).toContain('为什么选择问答光源')
-    expect(noscript).toContain('三大信息支柱')
+    expect(noscript).toContain('解决三个关键断点')
     expect(noscript).toContain('从数据到决策的完整能力体系')
     expect(noscript).toContain('hello@asklume.com')
-    expect(noscript).toContain('400-888-8888')
-    expect(noscript).toContain('© 2024 问答光源科技：保留所有权利')
+    expect(noscript).toContain('© 2026 问答光源｜AskLume')
   })
 
   it('stacks capabilities throughout the mobile navigation breakpoint', () => {
@@ -27,15 +26,13 @@ describe('static homepage contracts', () => {
       '../../src/components/CapabilitiesSection.module.css',
     )
     const mobileRules = css.match(
-      /@media \(max-width: 768px\) \{([\s\S]*?)@media \(max-width: 380px\)/,
+      /@media \(max-width: 768px\) \{([\s\S]*?)\}/,
     )?.[1]
 
     expect(mobileRules).toBeDefined()
     expect(mobileRules).toMatch(
-      /\.grid\s*\{[\s\S]*?grid-template-columns:\s*minmax\(0, 1fr\)/,
+      /\.grid\s*\{[\s\S]*?grid-template-columns:\s*1fr/,
     )
-    expect(mobileRules).toMatch(/\.card\[data-flow='next'\]::before/)
-    expect(mobileRules).toMatch(/\.card\[data-flow='next'\]::after/)
   })
 
   it('gives the mobile menu a reduced-motion-safe entrance', () => {

@@ -10,6 +10,7 @@
   width: 46px;
   height: 46px;
   flex: 0 0 auto;
+  object-fit: contain;
 }
 
 .brandCopy {

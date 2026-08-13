@@ -1,0 +1,43 @@
+.versionBar {
+  background: #0b132b;
+  color: #f8fafc;
+  padding: 8px 24px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 1000;
+  position: relative;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.versionButtons {
+  display: flex;
+  gap: 10px;
+}
+
+.mobileOverview {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .versionBar {
+    flex-direction: column;
+    gap: 8px;
+    padding: 8px 16px;
+    text-align: center;
+  }
+
+  .mobileOverview {
+    display: block;
+    overflow: hidden;
+    background: #fff;
+  }
+
+  .mobileOverviewInner {
+    width: min(calc(100% - 32px), 520px);
+    margin-inline: auto;
+    padding: 0 0 46px;
+  }
+}

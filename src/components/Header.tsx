@@ -1,5 +1,11 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
-import { navItems } from '../content/homeContent'
+import {
+  getDiagnosticHref,
+  getSiteNavItems,
+  siteContact,
+  type SiteNavLabel,
+  type SitePage,
+} from '../content/siteContent'
 import { Brand } from './Brand'
 import { Icon } from './Icon'
 import { MobileMenu } from './MobileMenu'
@@ -7,20 +13,23 @@ import styles from './Header.module.css'
 
 const mobileMenuId = 'mobile-site-navigation'
 
-export function Header() {
+interface HeaderProps {
+  activeLabel?: SiteNavLabel
+  page?: SitePage
+}
+
+export function Header({ activeLabel, page = 'home' }: HeaderProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const menuButtonRef = useRef<HTMLButtonElement>(null)
   const wasMenuOpen = useRef(false)
+  const navigationItems = getSiteNavItems(page)
+  const diagnosticHref = getDiagnosticHref(page)
+  const homeHref = page === 'home' ? '#top' : './index.html#top'
 
-  const closeMenu = useCallback(() => {
-    setIsMenuOpen(false)
-  }, [])
+  const closeMenu = useCallback(() => setIsMenuOpen(false), [])
 
   useEffect(() => {
-    if (wasMenuOpen.current && !isMenuOpen) {
-      menuButtonRef.current?.focus()
-    }
-
+    if (wasMenuOpen.current && !isMenuOpen) menuButtonRef.current?.focus()
     wasMenuOpen.current = isMenuOpen
   }, [isMenuOpen])
 
@@ -33,20 +42,17 @@ export function Header() {
     }
 
     desktopQuery.addEventListener('change', handleDesktopChange)
-
-    return () => {
-      desktopQuery.removeEventListener('change', handleDesktopChange)
-    }
+    return () => desktopQuery.removeEventListener('change', handleDesktopChange)
   }, [closeMenu])
 
   return (
     <header className={styles.header}>
-      <div className={styles.inner}>
+      <div className={styles.navInner}>
         <a
           aria-label="AskLume 首页"
           className={styles.desktopBrandLink}
           data-header-brand="desktop"
-          href="#top"
+          href={homeHref}
         >
           <Brand />
         </a>
@@ -54,16 +60,16 @@ export function Header() {
           aria-label="AskLume 首页"
           className={styles.mobileBrandLink}
           data-header-brand="mobile"
-          href="#top"
+          href={homeHref}
         >
           <Brand compact />
         </a>
 
-        <nav aria-label="主导航" className={styles.desktopNav}>
-          {navItems.map((item, index) => (
+        <nav aria-label="主导航" className={styles.navMenu}>
+          {navigationItems.map((item) => (
             <a
-              aria-current={index === 0 ? 'page' : undefined}
-              className={index === 0 ? styles.activeNavLink : styles.navLink}
+              aria-current={item.label === activeLabel ? 'page' : undefined}
+              className={item.label === activeLabel ? styles.activeNavLink : styles.navLink}
               href={item.href}
               key={item.href}
             >
@@ -72,17 +78,9 @@ export function Header() {
           ))}
         </nav>
 
-        <div className={styles.utilities}>
-          <button aria-label="搜索" className={styles.iconButton} type="button">
-            <Icon name="search" size={19} />
-          </button>
-          <button className={styles.languageButton} type="button">
-            中文
-          </button>
-          <a className={styles.diagnosticLink} href="#diagnostic">
-            AI认知基线诊断
-          </a>
-        </div>
+        <a className={styles.ctaPill} href={diagnosticHref}>
+          免费需求评估
+        </a>
 
         <button
           aria-controls={mobileMenuId}
@@ -93,11 +91,21 @@ export function Header() {
           ref={menuButtonRef}
           type="button"
         >
-          <Icon name="menu" size={23} />
+          <Icon name="menu" size={22} />
         </button>
       </div>
 
-      {isMenuOpen ? <MobileMenu id={mobileMenuId} onClose={closeMenu} /> : null}
+      {isMenuOpen ? (
+        <MobileMenu
+          activeLabel={activeLabel}
+          contact={siteContact}
+          diagnosticHref={diagnosticHref}
+          homeHref={homeHref}
+          id={mobileMenuId}
+          items={navigationItems}
+          onClose={closeMenu}
+        />
+      ) : null}
     </header>
   )
 }
