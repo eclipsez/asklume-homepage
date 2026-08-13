@@ -1,5 +1,6 @@
 import { useMemo, useState } from 'react'
 import { Header } from '../components/Header'
+import { Footer } from '../components/Footer'
 import { Brand } from '../components/Brand'
 import evidenceLedgerCover from '../assets/resources/evidence-ledger-cover.jpg'
 import queryMapCover from '../assets/resources/query-map-cover.jpg'
@@ -88,7 +89,7 @@ function ResourceLibrary() {
                     <span>{resource.readingTime}</span>
                   </div>
                   <h3>
-                    <a href="/resource-detail.html" style={{ color: 'inherit', textDecoration: 'none' }}>
+                    <a href={`/resource-detail.html?id=${resource.id}`} style={{ color: 'inherit', textDecoration: 'none' }}>
                       {resource.title}
                     </a>
                   </h3>
@@ -103,13 +104,14 @@ function ResourceLibrary() {
                   </div>
                   <div style={{ display: 'flex', gap: '12px', alignItems: 'center', marginTop: '12px' }}>
                     <a
-                      href="/resource-detail.html"
+                      href={`/resource-detail.html?id=${resource.id}`}
                       className={styles.textButton}
                       style={{ textDecoration: 'none', fontWeight: 750, color: '#6857f2' }}
                     >
                       阅读全文 →
                     </a>
                     <button
+                      aria-label={isExpanded ? '收起摘要' : '查看摘要'}
                       aria-controls={`${resource.id}-summary`}
                       aria-expanded={isExpanded}
                       className={styles.textButton}
@@ -146,7 +148,7 @@ function ResourceLibrary() {
 export function ResourcesPage() {
   return (
     <div className={styles.page}>
-      <Header />
+      <Header page="resources" />
 
       <main>
         <section className={styles.hero} id="top">
@@ -161,7 +163,7 @@ export function ResourcesPage() {
                 <a className={styles.primaryButton} href="#resource-library">
                   浏览资源
                 </a>
-                <a className={styles.secondaryButton} href="/resource-detail.html">
+                <a className={styles.secondaryButton} href="/resource-detail.html?id=geo101">
                   阅读推荐指南
                 </a>
               </div>
@@ -197,7 +199,7 @@ export function ResourcesPage() {
                   <span>入门指南</span>
                   <h3>GEO 101：从可发现性到数字证据工程</h3>
                   <p>理解 GEO 能解决什么、不能保证什么，以及它为什么必须建立在真实业务与证据之上。</p>
-                  <a href="/resource-detail.html">阅读全文 →</a>
+                  <a href="/resource-detail.html?id=geo101">阅读全文 →</a>
                 </div>
               </article>
 
@@ -212,7 +214,7 @@ export function ResourcesPage() {
                   <span>证据建设</span>
                   <h3>一条主张如何变成可核验的数字资产</h3>
                   <p>用来源、日期、范围、责任人与限制条件，让品牌事实可以被团队复用和外部核验。</p>
-                  <a href="/resource-detail.html">阅读全文 →</a>
+                  <a href="/resource-detail.html?id=evidence">阅读全文 →</a>
                 </div>
               </article>
             </div>
@@ -227,7 +229,6 @@ export function ResourcesPage() {
               <div className={styles.actionIntro}>
                 <h2>阅读之后，下一步是什么</h2>
                 <p>从低成本确认问题开始。诊断结果决定是否进入后续建设，不预设项目规模。</p>
-                <a className={styles.textButton} href="/geo-aip.html">阅读 GEO-AIP™ 方法</a>
               </div>
               <ol className={styles.pathList}>
                 <li>
@@ -278,19 +279,7 @@ export function ResourcesPage() {
         </section>
       </main>
 
-      <footer className={styles.footer}>
-        <div className={styles.footerInner}>
-          <a aria-label="问答光源首页" href="/#top">
-            <Brand />
-          </a>
-          <nav aria-label="资源中心页脚导航">
-            <a href="/#capabilities">产品与服务</a>
-            <a href="/resources.html">资源中心</a>
-            <a href="mailto:hello@asklume.com">邮箱联系</a>
-          </nav>
-          <p>© 2026 问答光源｜AskLume</p>
-        </div>
-      </footer>
+      <Footer page="resources" />
     </div>
   )
 }

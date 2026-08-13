@@ -5,7 +5,22 @@ export interface SiteNavItem {
   href: string
 }
 
-export type SitePage = 'home' | 'services' | 'solutions' | 'globalGeo' | 'methodology' | 'resources' | 'about'
+export type SitePage =
+  | 'home'
+  | 'services'
+  | 'solutions'
+  | 'globalGeo'
+  | 'methodology'
+  | 'resources'
+  | 'about'
+  | 'diagnostic'
+  | 'deliverables'
+  | 'cases'
+  | 'faq'
+  | 'contact'
+  | 'privacy'
+  | 'terms'
+  | 'notFound'
 
 const homeNavItems = [
   { label: '产品与服务', href: './services.html' },
@@ -19,7 +34,7 @@ export function getSiteNavItems(page: SitePage): readonly SiteNavItem[] {
 }
 
 export function getDiagnosticHref(page: SitePage) {
-  return page === 'home' ? '#diagnostic' : './index.html#diagnostic'
+  return page === 'home' ? '#diagnostic' : './diagnostic.html'
 }
 
 export const siteContact = {

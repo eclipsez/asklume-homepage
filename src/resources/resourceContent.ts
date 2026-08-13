@@ -22,7 +22,7 @@ export type ResourceFilter = (typeof resourceCategories)[number]
 
 export const resources: readonly ResourceItem[] = [
   {
-    id: 'geo-foundations',
+    id: 'geo101',
     category: '入门指南',
     title: 'GEO 101：先理解 AI 可发现性',
     summary: '从搜索、生成式答案与数字证据三个层面，建立一套不依赖效果承诺的 GEO 基础认知。',
@@ -31,7 +31,7 @@ export const resources: readonly ResourceItem[] = [
     format: '指南',
   },
   {
-    id: 'baseline-diagnosis',
+    id: 'baseline',
     category: '诊断方法',
     title: 'AI 认知基线诊断看什么',
     summary: '拆解问题集、平台样本、原始回答、引用来源、事实准确性与竞品参照的基本结构。',
@@ -49,7 +49,7 @@ export const resources: readonly ResourceItem[] = [
     format: '指南',
   },
   {
-    id: 'evidence-ledger',
+    id: 'evidence',
     category: '证据建设',
     title: '企业证据台账最小字段',
     summary: '用来源、日期、适用范围、责任人和限制条件管理事实、资质、案例与关键主张。',

@@ -63,8 +63,6 @@ export function Footer({ page = 'home' }: FooterProps) {
 
   const navItems = getSiteNavItems(page)
   const homeHref = page === 'home' ? '#top' : './index.html#top'
-  const homeSectionHref = (section: string) => page === 'home' ? section : `./index.html${section}`
-
   const toggleColumn = (key: string) => {
     setOpenColumns((prev) => ({
       ...prev,
@@ -75,9 +73,8 @@ export function Footer({ page = 'home' }: FooterProps) {
   return (
     <footer className={styles.footer} id="footer" role="contentinfo">
       <div className={styles.container}>
-        {/* 5-Column Layout with Collapsible Accordion on Mobile */}
+        {/* Conversion, proof, learning, and contact paths remain visible on desktop and collapse on mobile. */}
         <div className={styles.grid}>
-          {/* Column 1: Brand & Tagline */}
           <div className={styles.brandColumn}>
             <a aria-label="AskLume 首页" className={styles.brandLink} href={homeHref}>
               <Brand />
@@ -85,9 +82,9 @@ export function Footer({ page = 'home' }: FooterProps) {
             <p className={styles.brandTagline}>
               问答光源通过 GEO-AIP™ 数字证据工程，帮助企业掌控 AI 时代的用户决策旅程。
             </p>
+            <a className={styles.brandCta} href={page === 'home' ? '#diagnostic' : './diagnostic.html'}>免费需求评估</a>
           </div>
 
-          {/* Column 2: Platform */}
           <div className={`${styles.linkColumn} ${openColumns.platform ? styles.columnOpen : ''}`}>
             <button
               type="button"
@@ -95,22 +92,20 @@ export function Footer({ page = 'home' }: FooterProps) {
               onClick={() => toggleColumn('platform')}
               aria-expanded={openColumns.platform}
             >
-              <h3 className={styles.columnTitle}>核心平台</h3>
+              <h3 className={styles.columnTitle}>了解 AskLume</h3>
               <ChevronIcon isOpen={!!openColumns.platform} />
             </button>
             <div className={styles.linkListWrapper}>
               <ul className={styles.linkList}>
-                <li><a href="./services.html#plans">标准建设服务</a></li>
-                <li><a href="./solutions.html">企业问题解决方案</a></li>
-                <li><a href="./global-geo.html">品牌出海与全球AI可发现性</a></li>
-                <li><a href="./services.html#custom">企业定制项目</a></li>
-                <li><a href="./services.html#monitoring">持续监测与迭代</a></li>
+                <li><a href="./solutions.html">解决方案</a></li>
+                <li><a href="./services.html#plans">产品与服务</a></li>
                 <li><a href="./geo-aip.html">GEO-AIP™ 方法</a></li>
+                <li><a href="./global-geo.html">海外 GEO</a></li>
+                <li><a href="./about.html">关于我们</a></li>
               </ul>
             </div>
           </div>
 
-          {/* Column 3: About Us */}
           <div className={`${styles.linkColumn} ${openColumns.about ? styles.columnOpen : ''}`}>
             <button
               type="button"
@@ -118,21 +113,20 @@ export function Footer({ page = 'home' }: FooterProps) {
               onClick={() => toggleColumn('about')}
               aria-expanded={openColumns.about}
             >
-              <h3 className={styles.columnTitle}>关于我们</h3>
+              <h3 className={styles.columnTitle}>证明与交付</h3>
               <ChevronIcon isOpen={!!openColumns.about} />
             </button>
             <div className={styles.linkListWrapper}>
               <ul className={styles.linkList}>
-                <li><a href="./about.html">公司概览</a></li>
+                <li><a href="./cases.html">验证记录</a></li>
+                <li><a href="./deliverables.html">交付物样例</a></li>
+                <li><a href="./faq.html">服务 FAQ</a></li>
+                <li><a href="./resources.html">资源中心</a></li>
                 <li><a href="./about.html#method">工作方式</a></li>
-                <li><a href="./geo-aip.html">方法与交付标准</a></li>
-                <li><a href="./resources.html">新闻与前沿动态</a></li>
-                <li><a href="mailto:hello@asklume.com">联系专家团队</a></li>
               </ul>
             </div>
           </div>
 
-          {/* Column 4: Resources */}
           <div className={`${styles.linkColumn} ${openColumns.resources ? styles.columnOpen : ''}`}>
             <button
               type="button"
@@ -140,20 +134,19 @@ export function Footer({ page = 'home' }: FooterProps) {
               onClick={() => toggleColumn('resources')}
               aria-expanded={openColumns.resources}
             >
-              <h3 className={styles.columnTitle}>资源中心</h3>
+              <h3 className={styles.columnTitle}>开始合作</h3>
               <ChevronIcon isOpen={!!openColumns.resources} />
             </button>
             <div className={styles.linkListWrapper}>
               <ul className={styles.linkList}>
-                <li><a href="./resources.html">研究与洞察</a></li>
-                <li><a href="./resources.html">实践指南</a></li>
-                <li><a href="./resource-detail.html?id=geo101">GEO 101 基础指南</a></li>
-                <li><a href="./resources.html">方法与工具</a></li>
+                <li><a href="./diagnostic.html">AI认知基线诊断</a></li>
+                <li><a href="./contact.html">联系我们</a></li>
+                <li><a href="mailto:hello@asklume.com?subject=预约专家演示">预约专家演示</a></li>
+                <li><a href="mailto:hello@asklume.com?subject=订阅品牌周刊">订阅品牌周刊</a></li>
               </ul>
             </div>
           </div>
 
-          {/* Column 5: Connect */}
           <div className={`${styles.linkColumn} ${openColumns.connect ? styles.columnOpen : ''}`}>
             <button
               type="button"
@@ -161,14 +154,15 @@ export function Footer({ page = 'home' }: FooterProps) {
               onClick={() => toggleColumn('connect')}
               aria-expanded={openColumns.connect}
             >
-              <h3 className={styles.columnTitle}>联系与关注</h3>
+              <h3 className={styles.columnTitle}>企业服务</h3>
               <ChevronIcon isOpen={!!openColumns.connect} />
             </button>
             <div className={styles.linkListWrapper}>
               <ul className={styles.linkList}>
-                <li><a href="mailto:hello@asklume.com?subject=预约演示">预约专家演示 (Book a Demo)</a></li>
-                <li><a href="mailto:hello@asklume.com">订阅品牌周刊</a></li>
-                <li><a href="tel:400-888-8888">热线: 400-888-8888</a></li>
+                <li><a href="./services.html#custom">企业定制项目</a></li>
+                <li><a href="./services.html#monitoring">持续监测与迭代</a></li>
+                <li><a href="./global-geo.html">品牌出海与全球 AI 可发现性</a></li>
+                <li><a href="mailto:hello@asklume.com">hello@asklume.com</a></li>
               </ul>
 
               <div className={styles.socialGroup}>
@@ -189,7 +183,6 @@ export function Footer({ page = 'home' }: FooterProps) {
           </div>
         </div>
 
-        {/* Accessible Navigation for Screen Readers & Tests */}
         <nav aria-label="页脚导航" className={styles.visuallyHidden}>
           {navItems.map((item) => (
             <a href={item.href} key={item.href}>
@@ -198,23 +191,21 @@ export function Footer({ page = 'home' }: FooterProps) {
           ))}
         </nav>
 
-        {/* Thin Divider Line */}
         <div className={styles.divider} />
 
-        {/* Bottom Bar: Clean Left Copyright & Right Legal Links */}
         <div className={styles.bottomBar}>
           <div className={styles.copyrightText}>
-            © 2026 问答光源 (AskLume Inc.) 保留所有权利。粤ICP备2024001234号
+            © 2026 问答光源｜AskLume。粤ICP备2024001234号
           </div>
 
           <div className={styles.legalLinks}>
-            <a href="#footer">服务条款</a>
+            <a href="./terms.html">服务条款</a>
             <span className={styles.dot}>/</span>
-            <a href="#footer">隐私政策</a>
+            <a href="./privacy.html">隐私政策</a>
             <span className={styles.dot}>/</span>
-            <a href="#footer">Cookie 设置</a>
+            <a href="./privacy.html#cookies">Cookie 设置</a>
             <span className={styles.dot}>/</span>
-            <a href="#footer">媒体联系</a>
+            <a href="./contact.html#media">媒体联系</a>
           </div>
         </div>
       </div>

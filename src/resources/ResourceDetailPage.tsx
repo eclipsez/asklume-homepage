@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { Header } from '../components/Header'
 import { Footer } from '../components/Footer'
 import { Icon } from '../components/Icon'
+import { SupplementaryArticleBody } from './SupplementaryArticleBody'
 import styles from './ResourceDetailPage.module.css'
 
 interface ArticleData {
@@ -13,12 +14,14 @@ interface ArticleData {
   toc: { id: string; title: string }[]
 }
 
+export type ArticleId = 'evidence' | 'geo101' | 'baseline' | 'question-set' | 'answer-audit' | 'schema-boundary'
+
 const evidenceLedgerArticle: ArticleData = {
   category: '证据建设',
   readTime: '⏱ 预计阅读 10 分钟',
   publishDate: '📅 2026年8月最新指南',
   title: '一条主张如何变成可核验的数字资产',
-  goldenAssertion: '【断言摘要】在 AI 搜索（RAG）时代，缺乏证明来源、时间戳、适用范围、内部责任人与限制条件的主张会被 AI 直接判定为低置信度噪声。构建规范的数字证据台账（Evidence Ledger），是企业将品牌事实转化为大模型高频引用的唯一路径。',
+  goldenAssertion: '在 AI 搜索（RAG）时代，缺乏来源、时间戳、适用范围、责任人与限制条件的主张更难被稳定核验。数字证据台账是一条把企业事实整理成可维护记录的工作路径。',
   toc: [
     { id: 'section-1', title: '1. 为什么“口号式宣传”在大模型检索中被判定为噪声' },
     { id: 'section-2', title: '2. 构成可核验数字资产的 5 大核心要素' },
@@ -33,9 +36,9 @@ const geo101Article: ArticleData = {
   readTime: '⏱ 预计阅读 8 分钟',
   publishDate: '📅 2026年8月最新指南',
   title: 'GEO 101：从可发现性到数字证据工程',
-  goldenAssertion: '【断言摘要】GEO 关注的是“事实被大模型理解的精确度”与“品牌主张被 AI 决策推荐的比率”。企业通过构建 GEO-AIP™ 数字证据工程，可将真实能力转化为 ChatGPT、Perplexity、Claude 可发现、可理解与可引用的认知资产。',
+  goldenAssertion: 'GEO 关注企业事实如何被 AI 发现、理解、核验和引用。企业可以通过 GEO-AIP™ 与数字证据工程，把真实能力组织成更容易被机器读取和复核的认知资产。',
   toc: [
-    { id: 'section-1', title: '1. 为什么传统 SEO 在 AI 时代全面失效' },
+    { id: 'section-1', title: '1. 为什么传统 SEO 需要补充 AI 认知工作' },
     { id: 'section-2', title: '2. 什么是 GEO-AIP™ 数字证据工程' },
     { id: 'section-3', title: '3. 构建可核验数字证据链的三大要素' },
     { id: 'section-4', title: '4. 结构化 Schema 标记实操范例' },
@@ -43,22 +46,103 @@ const geo101Article: ArticleData = {
   ],
 }
 
+const baselineArticle: ArticleData = {
+  category: '诊断方法',
+  readTime: '预计阅读 10 分钟',
+  publishDate: '2026 年 8 月更新',
+  title: 'AI 认知基线诊断看什么',
+  goldenAssertion: '一份可复核的 AI 认知基线，至少要保留问题、平台、模型、时间、地区、原始回答、引用来源和事实判断。只有在测试条件稳定时，建设前后的变化才有比较意义。',
+  toc: [
+    { id: 'section-1', title: '1. 基线要回答什么问题' },
+    { id: 'section-2', title: '2. 一条样本记录需要哪些字段' },
+    { id: 'section-3', title: '3. 如何区分四类认知断点' },
+    { id: 'section-4', title: '4. 从诊断记录到建设清单' },
+    { id: 'section-5', title: '5. 复测时如何保持可比' },
+  ],
+}
+
+const questionSetArticle: ArticleData = {
+  category: '诊断方法',
+  readTime: '预计阅读 9 分钟',
+  publishDate: '2026 年 8 月更新',
+  title: '如何建立有效的品牌问题集',
+  goldenAssertion: '品牌问题集不应只测试“AI 是否知道我是谁”，还应覆盖品类、场景、比较、限制条件和风险问题。问题的层次决定了诊断能否接近真实决策场景。',
+  toc: [
+    { id: 'section-1', title: '1. 从真实决策问题开始' },
+    { id: 'section-2', title: '2. 五类问题如何分层' },
+    { id: 'section-3', title: '3. 如何避免只测品牌自问自答' },
+    { id: 'section-4', title: '4. 问题集字段模板' },
+    { id: 'section-5', title: '5. 问题集的维护机制' },
+  ],
+}
+
+const answerAuditArticle: ArticleData = {
+  category: '测量与治理',
+  readTime: '预计阅读 7 分钟',
+  publishDate: '2026 年 8 月更新',
+  title: '怎样保存一条可复核的 AI 回答',
+  goldenAssertion: 'AI 回答只有在原始文本、测试条件和引用来源被同时保存时，才适合作为后续判断的证据。截图可以辅助沟通，但不应替代结构化记录。',
+  toc: [
+    { id: 'section-1', title: '1. 为什么截图不够' },
+    { id: 'section-2', title: '2. 最小记录字段' },
+    { id: 'section-3', title: '3. 如何做事实核验' },
+    { id: 'section-4', title: '4. 如何记录引用质量' },
+    { id: 'section-5', title: '5. 如何管理版本和权限' },
+  ],
+}
+
+const schemaBoundaryArticle: ArticleData = {
+  category: '测量与治理',
+  readTime: '预计阅读 8 分钟',
+  publishDate: '2026 年 8 月更新',
+  title: 'Schema、llms.txt 与 GEO 的边界',
+  goldenAssertion: 'Schema、robots.txt 和 llms.txt 都能帮助机器读取或发现信息，但它们不能替代真实事实、权威来源、清晰页面和持续复测。技术配置是基础条件，不是 AI 推荐保证。',
+  toc: [
+    { id: 'section-1', title: '1. 三类文件各自解决什么' },
+    { id: 'section-2', title: '2. Schema 适合表达什么' },
+    { id: 'section-3', title: '3. 抓取规则与内容质量的边界' },
+    { id: 'section-4', title: '4. 如何安排技术验收' },
+    { id: 'section-5', title: '5. 什么时候需要继续诊断' },
+  ],
+}
+
 export function ResourceDetailPage() {
   const [scrollProgress, setScrollProgress] = useState(0)
   const [copied, setCopied] = useState(false)
-  const [articleId, setArticleId] = useState<'evidence' | 'geo101'>('evidence')
+  const [articleId, setArticleId] = useState<ArticleId>('evidence')
   const [activeSection, setActiveSection] = useState('section-1')
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search)
-    if (params.get('id') === 'geo101') {
-      setArticleId('geo101')
-    } else {
-      setArticleId('evidence')
-    }
+    const requestedId = params.get('id')
+    const supportedIds: ArticleId[] = ['evidence', 'geo101', 'baseline', 'question-set', 'answer-audit', 'schema-boundary']
+    setArticleId(supportedIds.includes(requestedId as ArticleId) ? requestedId as ArticleId : 'evidence')
   }, [])
 
-  const article = articleId === 'geo101' ? geo101Article : evidenceLedgerArticle
+  const article = {
+    evidence: evidenceLedgerArticle,
+    geo101: geo101Article,
+    baseline: baselineArticle,
+    'question-set': questionSetArticle,
+    'answer-audit': answerAuditArticle,
+    'schema-boundary': schemaBoundaryArticle,
+  }[articleId]
+
+  const articleSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: article.title,
+    description: article.goldenAssertion,
+    inLanguage: 'zh-CN',
+    dateModified: '2026-08-13',
+    author: { '@type': 'Organization', name: '问答光源｜AskLume', url: 'https://asklume.com/' },
+    publisher: { '@type': 'Organization', name: '问答光源｜AskLume', url: 'https://asklume.com/' },
+    mainEntityOfPage: { '@type': 'WebPage', '@id': `https://asklume.com/resource-detail.html?id=${articleId}` },
+  }
+
+  useEffect(() => {
+    document.title = `${article.title}｜问答光源｜AskLume`
+  }, [article.title])
 
   useEffect(() => {
     const handleScroll = () => {
@@ -91,6 +175,7 @@ export function ResourceDetailPage() {
 
   return (
     <div className={styles.page}>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
       {/* Reading Progress Indicator */}
       <div
         className={styles.progressBar}
@@ -99,7 +184,7 @@ export function ResourceDetailPage() {
       />
 
       {/* Unified Global Header */}
-      <Header />
+      <Header page="resources" />
 
       <main className={styles.main}>
         {/* Breadcrumb Navigation */}
@@ -195,7 +280,7 @@ export function ResourceDetailPage() {
                 <section id="section-1" className={styles.sectionBlock}>
                   <h2>1. 为什么“口号式宣传”在大模型检索中被判定为噪声</h2>
                   <p>
-                    在过去，企业的品牌公关与营销习惯使用抽象的修饰词——例如“业内首创”、“性能提升 50%”、“市场占有率第一”。在传统的搜索引擎环境里，这类口号配合高调的媒体软文和关键词堆砌，能够获得可观的搜索流量。
+                    在过去，企业的品牌公关与营销习惯使用抽象的修饰词，例如“业内首创”“性能提升 50%”“市场占有率第一”。在传统的搜索引擎环境里，这类口号配合高调的媒体软文和关键词堆砌，可能带来搜索流量，但不等于事实已经被核验。
                   </p>
                   <p>
                     但在大模型（ChatGPT、Perplexity、Claude、Kimi）主导的 AI 搜索时代，底层机制发生了颠覆性的变化：AI 检索系统（RAG & Web Crawlers）对全网信息进行提取时，会自动运行<strong>事实核验与可信度过滤算法 (Fact-Checking & Provenance Verification)</strong>。
@@ -207,7 +292,7 @@ export function ResourceDetailPage() {
                       <strong>大模型检索核心规则 (RAG Core Rule)</strong>
                     </div>
                     <p>
-                      没有出处、没有时间限制、没有数据支撑的“口号式主张”，在大模型向量提取过程中会被识别为 low-confidence noise（低置信度噪声），在 AI 生成决策推荐时被直接过滤忽略。
+                      没有出处、没有时间限制、没有数据支撑的“口号式主张”，更容易在 AI 检索和回答组织中缺少充分依据。企业需要补充来源、范围与限制条件，才能让后续核验有据可查。
                     </p>
                   </div>
                 </section>
@@ -215,7 +300,7 @@ export function ResourceDetailPage() {
                 <section id="section-2" className={styles.sectionBlock}>
                   <h2>2. 构成可核验数字资产的 5 大核心要素</h2>
                   <p>
-                    要让一条品牌主张（Claim）具备被大模型采纳并向用户主动推荐的资格，必须将其升级为包含以下 5 大要素的“数字证据资产”：
+                    为了让一条品牌主张（Claim）更容易被大模型理解和核验，可以将其整理为包含以下 5 大要素的“数字证据资产”：
                   </p>
 
                   <ol className={styles.styledList}>
@@ -249,34 +334,34 @@ export function ResourceDetailPage() {
                         <tr>
                           <th>五大要素</th>
                           <th>传统口号式表达（不可核验）</th>
-                          <th>AskLume 证据台账表达（AI 可核验）</th>
+                          <th>结构化证据台账示例</th>
                         </tr>
                       </thead>
                       <tbody>
                         <tr>
                           <td><strong>主张 (Claim)</strong></td>
                           <td>“我们的安全防护业内第一”</td>
-                          <td>通过 SOC 2 Type II 及 ISO 27001 双重合规审计</td>
+                          <td>某项安全控制已完成独立审计（以实际报告为准）</td>
                         </tr>
                         <tr>
                           <td><strong>来源 (Source)</strong></td>
                           <td>无（企业宣传彩页）</td>
-                          <td>第三方机构 EY 审计报告文档 ID: #EY-2025-SOC2</td>
+                          <td>经授权的第三方审计报告编号（示例）</td>
                         </tr>
                         <tr>
                           <td><strong>日期 (Timestamp)</strong></td>
                           <td>未标注</td>
-                          <td>生效期: 2025-10-15 / 年检更新期: 2026-10-14</td>
+                          <td>发布日期、有效期与下一次复核日期（示例）</td>
                         </tr>
                         <tr>
                           <td><strong>范围 (Scope)</strong></td>
                           <td>笼统适用于所有业务</td>
-                          <td>适用于 AskLume Cloud 亚太节点基础设施</td>
+                          <td>适用的产品版本、区域和测试环境（示例）</td>
                         </tr>
                         <tr>
                           <td><strong>限制 (Constraints)</strong></td>
                           <td>无限制</td>
-                          <td>私有化部署版本需单独评估符合性</td>
+                          <td>不适用范围和需要另行确认的条件（示例）</td>
                         </tr>
                       </tbody>
                     </table>
@@ -295,7 +380,7 @@ export function ResourceDetailPage() {
 {`{
   "@context": "https://schema.org",
   "@type": "ClaimReview",
-  "claimReviewed": "AskLume 平台通过 SOC 2 Type II 安全认证",
+  "claimReviewed": "某项安全控制已完成独立审计（示例）",
   "reviewRating": {
     "@type": "Rating",
     "ratingValue": "5",
@@ -303,15 +388,14 @@ export function ResourceDetailPage() {
   },
   "author": {
     "@type": "Organization",
-    "name": "Ernst & Young Audit (EY)",
-    "url": "https://ey.com"
+    "name": "经授权的第三方审计机构（示例）"
   },
   "datePublished": "2025-10-15",
   "validUntil": "2026-10-14",
   "itemReviewed": {
     "@type": "Thing",
-    "name": "AskLume GEO-AIP Cloud Infrastructure",
-    "description": "适用于 AskLume 亚太全区云基础设施安全体系"
+    "name": "企业产品或服务（示例）",
+    "description": "需要结合实际产品、版本、区域和测试环境确认"
   }
 }`}
                     </pre>
@@ -329,7 +413,7 @@ export function ResourceDetailPage() {
                       <strong>内部高效复用 (Internal Synergy)</strong>：市场、公关、销售与技术团队统一调取经合规核验的只读事实库，彻底解决口径不一致与虚假宣传风险。
                     </li>
                     <li>
-                      <strong>外部 AI 自动核验 (External Verification)</strong>：大模型在回答用户选型提问时，能够精确识别出处、引用来源并积极做出优先推荐。
+                      <strong>外部 AI 核验 (External Verification)</strong>：在约定的回答记录中检查出处、引用来源和事实表达是否准确。
                     </li>
                   </ul>
 
@@ -344,10 +428,10 @@ export function ResourceDetailPage() {
                   </div>
                 </section>
               </>
-            ) : (
+            ) : articleId === 'geo101' ? (
               <>
                 <section id="section-1" className={styles.sectionBlock}>
-                  <h2>1. 为什么传统 SEO 在 AI 时代全面失效</h2>
+                  <h2>1. 为什么传统 SEO 需要补充 AI 认知工作</h2>
                   <p>
                     在传统的搜索引擎时代，用户通过输入关键词（Keywords）获取包含多个网页链接的列表（SERP），然后自行点击阅读与筛选信息。企业传统的 SEO 策略核心围绕“关键词堆砌、外链建设与点击率优化”。
                   </p>
@@ -369,10 +453,10 @@ export function ResourceDetailPage() {
                 <section id="section-2" className={styles.sectionBlock}>
                   <h2>2. 什么是 GEO-AIP™ 数字证据工程</h2>
                   <p>
-                    <strong>GEO (Generative Engine Optimization，生成式引擎优化)</strong> 与传统 SEO 的根本差异在于：GEO 关注的是“事实被大模型理解的精确度”与“品牌主张被 AI 决策推荐的比率”。
+                    <strong>GEO (Generative Engine Optimization，生成式引擎优化)</strong> 与传统 SEO 的差异在于：GEO 更关注事实被 AI 发现、理解、核验和引用的情况，以及品牌是否进入相关决策语境。
                   </p>
                   <p>
-                    AskLume 首创的 <strong>GEO-AIP™ (AI Perception Infrastructure，企业 AI 认知基础设施)</strong> 工程体系，旨在帮助企业将其真实的业务能力、客群场景、产品优势与成功案例，转化为大模型在预训练、RAG（检索增强生成）与实时联网搜索中均可发现且可信赖的数字资产。
+                    AskLume 使用 <strong>GEO-AIP™ (AI Perception Infrastructure，企业 AI 认知基础设施)</strong> 工程体系，帮助企业将真实的业务能力、客群场景、产品优势与成功案例，整理为更容易被机器读取、理解和复核的数字资产。
                   </p>
 
                   <div className={styles.tableWrapper}>
@@ -455,9 +539,9 @@ export function ResourceDetailPage() {
                     理解了 GEO 的方法论之后，建议企业按照以下三步推进 AI 认知建设：
                   </p>
                   <ul className={styles.actionSteps}>
-                    <li><strong>第一步：基线诊断</strong> —— 测量品牌在主流 5 大 AI 平台中的当前认知现状与错漏误读。</li>
-                    <li><strong>第二步：事实台账梳理</strong> —— 梳理企业核心产品主张，补齐缺失的真实数据与证明材料。</li>
-                    <li><strong>第三步：证据部署与复测</strong> —— 部署结构化数据与权威来源，定期复测 AI 引用的改善幅度。</li>
+                    <li><strong>第一步：基线诊断</strong>：测量品牌在约定平台和问题集中的当前认知现状与错漏误读。</li>
+                    <li><strong>第二步：事实台账梳理</strong>：梳理企业核心产品主张，补齐缺失的真实数据与证明材料。</li>
+                    <li><strong>第三步：证据部署与复测</strong>：部署结构化数据与权威来源，按约定条件复测 AI 回答变化。</li>
                   </ul>
 
                   <div className={styles.inlineCtaBanner} id="diagnostic">
@@ -471,13 +555,13 @@ export function ResourceDetailPage() {
                   </div>
                 </section>
               </>
-            )}
+            ) : <SupplementaryArticleBody articleId={articleId} />}
           </article>
         </div>
       </main>
 
       {/* Unified Global Footer */}
-      <Footer />
+      <Footer page="resources" />
     </div>
   )
 }

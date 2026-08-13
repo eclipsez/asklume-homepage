@@ -46,6 +46,25 @@
   max-width: 280px;
 }
 
+.brandCta {
+  display: inline-flex;
+  align-items: center;
+  min-height: 42px;
+  margin-top: 22px;
+  padding: 0 17px;
+  border-radius: var(--radius-pill);
+  background: #0d1638;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 780;
+  transition: transform 160ms ease, background 160ms ease;
+}
+
+.brandCta:hover {
+  background: #6857f2;
+  transform: translateY(-2px);
+}
+
 /* Link Columns */
 .linkColumn {
   display: flex;

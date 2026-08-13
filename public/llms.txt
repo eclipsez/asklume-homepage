@@ -1,0 +1,34 @@
+# AskLume
+
+> 问答光源｜AskLume 是企业 AI 认知与影响力基础设施服务商。我们通过 GEO-AIP™ 与数字证据工程，帮助企业把真实能力建设成更容易被 AI 发现、理解、核验和引用的数字资产。
+
+## Start here
+
+- [产品与服务](https://asklume.com/services.html): 两档建设服务、定制项目、持续监测与品牌出海增强项。
+- [解决方案](https://asklume.com/solutions.html): 按 AI 可发现性、认知纠偏、复杂业务和品牌出海组织的解决方案。
+- [GEO-AIP™ 方法](https://asklume.com/geo-aip.html): 基线、证据、建设和复测的工作方法。
+- [AI 认知基线诊断](https://asklume.com/diagnostic.html): 了解如何记录现状并确定建设重点。
+
+## Evidence and delivery
+
+- [交付物与验收](https://asklume.com/deliverables.html): 基线记录、事实与证据台账、建设清单和复测记录。
+- [案例与证据](https://asklume.com/cases.html): 案例公开原则与授权边界。
+- [常见问题](https://asklume.com/faq.html): 服务范围、价格层级、结果边界和出海服务说明。
+
+## Resources
+
+- [资源中心](https://asklume.com/resources.html): GEO 入门、诊断方法、证据建设、测量与治理。
+- [GEO 101](https://asklume.com/resource-detail.html?id=geo101): 从可发现性到数字证据工程。
+- [AI 认知基线诊断看什么](https://asklume.com/resource-detail.html?id=baseline): 基线记录与四类认知断点。
+- [品牌问题集](https://asklume.com/resource-detail.html?id=question-set): 真实决策问题的分层方法。
+- [可复核 AI 回答](https://asklume.com/resource-detail.html?id=answer-audit): AI 回答记录和引用核验字段。
+- [Schema、llms.txt 与 GEO 的边界](https://asklume.com/resource-detail.html?id=schema-boundary): 技术配置的适用范围与限制。
+
+## Contact
+
+- [联系专家团队](https://asklume.com/contact.html)
+- Email: hello@asklume.com
+
+## Boundaries
+
+AskLume 不承诺固定排名、推荐率、引用量或第三方 AI 模型的固定结果。项目验收以双方确认的事实准确性、证据覆盖、页面和技术交付、复测记录及持续维护边界为准。
