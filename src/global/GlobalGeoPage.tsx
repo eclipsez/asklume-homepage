@@ -100,7 +100,7 @@ export function GlobalGeoPage() {
             <div className={styles.scopeHeading}><h2>单市场可增强，多市场需定制</h2><p>先确认品牌、站点、语言和目标市场数量，再决定进入标准服务增强项还是定制项目。</p></div>
             <div className={styles.scopeOptions}>
               <article><span>标准服务增强项</span><h3>单品牌、单站点、单一目标市场</h3><p>可在39,800或69,800标准建设范围上增加海外市场工作。</p><a href="./services.html#global">查看产品与服务边界</a></article>
-              <article><span>定制触发项</span><h3>多国家、多语言、多站点或持续本地运营</h3><p>需要单独拆解市场优先级、内容依赖、当地来源与验收协议。</p><a href="mailto:hello@asklume.com?subject=申请海外GEO范围评估">申请海外范围评估</a></article>
+              <article><span>定制触发项</span><h3>多国家、多语言、多站点或持续本地运营</h3><p>需要单独拆解市场优先级、内容依赖、当地来源与验收协议。</p><a href="./diagnostic.html?intent=global-geo#intake">申请海外范围评估</a></article>
             </div>
             <p className={styles.boundary}>不承诺固定排名、引用率或推荐结果，只交付约定范围内可控制、可复核的工程改进。</p>
           </div>

@@ -57,7 +57,7 @@ export function Footer({ page = 'home' }: FooterProps) {
   const [openColumns, setOpenColumns] = useState<Record<string, boolean>>({
     platform: false,
     about: false,
-    resources: false,
+    partnerships: false,
     connect: false,
   })
 
@@ -127,22 +127,21 @@ export function Footer({ page = 'home' }: FooterProps) {
             </div>
           </div>
 
-          <div className={`${styles.linkColumn} ${openColumns.resources ? styles.columnOpen : ''}`}>
+          <div className={`${styles.linkColumn} ${openColumns.partnerships ? styles.columnOpen : ''}`}>
             <button
               type="button"
               className={styles.columnHeaderBtn}
-              onClick={() => toggleColumn('resources')}
-              aria-expanded={openColumns.resources}
+              onClick={() => toggleColumn('partnerships')}
+              aria-expanded={openColumns.partnerships}
             >
-              <h3 className={styles.columnTitle}>开始合作</h3>
-              <ChevronIcon isOpen={!!openColumns.resources} />
+              <h3 className={styles.columnTitle}>合作与生态</h3>
+              <ChevronIcon isOpen={!!openColumns.partnerships} />
             </button>
             <div className={styles.linkListWrapper}>
               <ul className={styles.linkList}>
-                <li><a href="./diagnostic.html">AI认知基线诊断</a></li>
-                <li><a href="./contact.html">联系我们</a></li>
-                <li><a href="mailto:hello@asklume.com?subject=预约专家演示">预约专家演示</a></li>
-                <li><a href="mailto:hello@asklume.com?subject=订阅品牌周刊">订阅品牌周刊</a></li>
+                <li><a href="./partners.html">渠道与代理合作</a></li>
+                <li><a href="./media.html">媒体与研究合作</a></li>
+                <li><a href="./public-sector.html">政府与产业合作</a></li>
               </ul>
             </div>
           </div>

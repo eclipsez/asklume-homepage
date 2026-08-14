@@ -16,7 +16,7 @@ export function DiagnosticPage() {
       heroAlt="多来源证据进入 AI 认知基线校准网格"
       heroImage={diagnosticHero}
       page="diagnostic"
-      primaryAction={{ href: 'mailto:hello@asklume.com?subject=申请AI认知基线诊断', label: '提交诊断需求' }}
+      primaryAction={{ href: './diagnostic.html#intake', label: '申请免费需求评估' }}
       secondaryAction={{ href: './services.html', label: '查看服务范围' }}
       title="先看清问题，再安排建设"
     >
@@ -68,7 +68,7 @@ export function DiagnosticPage() {
         <div className={styles.inner}>
           <div className={styles.callout}>
             <div><p className={styles.eyebrow}>下一步</p><h2>把最想确认的问题发给我们</h2><p>邮件中写明公司名称、官网、目标市场和当前困惑即可。</p></div>
-            <a className={styles.primaryButton} href="mailto:hello@asklume.com?subject=申请AI认知基线诊断">提交诊断需求</a>
+            <a className={styles.primaryButton} href="./diagnostic.html#intake">申请免费需求评估</a>
           </div>
         </div>
       </section>

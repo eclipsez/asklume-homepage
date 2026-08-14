@@ -496,13 +496,52 @@
 }
 
 .closingInner {
+  position: relative;
+  isolation: isolate;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  overflow: hidden;
   padding: clamp(34px, 5vw, 58px);
+  border: 1px solid rgba(117, 86, 244, 0.14);
   border-radius: var(--radius-card);
-  background: #eef1fb;
+  background: var(--cta-surface-light);
+  box-shadow: 0 22px 58px rgba(81, 70, 170, 0.1);
   gap: 36px;
+}
+
+.closingInner::before {
+  position: absolute;
+  z-index: -1;
+  top: 50%;
+  right: 8%;
+  width: 150px;
+  height: 150px;
+  border: 1px solid rgba(117, 86, 244, 0.16);
+  border-radius: 50%;
+  background: radial-gradient(circle at 34% 28%, rgba(255, 255, 255, 0.96), rgba(209, 79, 214, 0.3) 36%, rgba(117, 86, 244, 0.1) 72%);
+  box-shadow: 0 24px 62px rgba(117, 86, 244, 0.16);
+  content: '';
+  transform: translateY(-50%);
+}
+
+.closingInner > * {
+  position: relative;
+  z-index: 1;
+}
+
+.closingInner > .primaryButton {
+  margin-right: 190px;
+}
+
+.closingInner > .primaryButton::after {
+  margin-left: 10px;
+  content: '→';
+  transition: transform 180ms ease;
+}
+
+.closingInner > .primaryButton:hover::after {
+  transform: translateX(4px);
 }
 
 .closingInner > div {
@@ -629,6 +668,19 @@
   .closingInner {
     align-items: stretch;
     flex-direction: column;
+  }
+
+  .closingInner::before {
+    top: 22px;
+    right: -40px;
+    width: 124px;
+    height: 124px;
+    transform: none;
+  }
+
+  .closingInner > .primaryButton {
+    width: 100%;
+    margin-right: 0;
   }
 }
 

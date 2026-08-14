@@ -61,8 +61,8 @@ export function AboutPage() {
                 <a className={styles.primaryButton} href="#method">
                   了解工作方式
                 </a>
-                <a className={styles.secondaryButton} href="./index.html#diagnostic">
-                  申请免费初筛
+                <a className={styles.secondaryButton} href="./diagnostic.html?intent=general#intake">
+                  申请免费需求评估
                 </a>
               </div>
             </div>
@@ -210,8 +210,8 @@ export function AboutPage() {
               <h2>先确认问题，再决定建设</h2>
               <p>提交一个业务方向，我们先判断当前更像事实、证据、结构还是测量问题。</p>
             </div>
-            <a className={styles.primaryButton} href="./index.html#diagnostic">
-              申请免费初筛
+            <a className={styles.primaryButton} href="./diagnostic.html?intent=general#intake">
+              申请免费需求评估
             </a>
           </div>
         </section>

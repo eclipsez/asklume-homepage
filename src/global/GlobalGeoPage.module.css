@@ -6,9 +6,12 @@
 .hero h1 { max-width: 9em; margin-top: 18px; font-size: clamp(3rem,5.6vw,5.15rem); font-weight: 900; letter-spacing: -.065em; line-height: 1.04; }
 .heroCopy > p:not(.eyebrow) { max-width: 560px; margin-top: 24px; color: var(--ink-muted); font-size: 1.04rem; line-height: 1.78; }
 .actions { display: flex; flex-wrap: wrap; margin-top: 30px; gap: 12px; }
-.primaryButton,.secondaryButton { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 0 22px; border-radius: var(--radius-pill); font-size: .9rem; font-weight: 820; }
-.primaryButton { background: var(--ink); color: #fff; box-shadow: 0 12px 30px rgba(11,19,43,.18); }
+.primaryButton,.secondaryButton { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 0 22px; border-radius: var(--radius-pill); font-size: .9rem; font-weight: 820; transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease, background 180ms ease; }
+.primaryButton { background: var(--cta-gradient); color: #fff; box-shadow: var(--cta-shadow); }
+.primaryButton:hover { background: var(--cta-gradient-hover); box-shadow: var(--cta-shadow-hover); transform: translateY(-2px); }
+.primaryButton:active { transform: scale(.98); }
 .secondaryButton { border: 1px solid rgba(11,19,43,.16); background: #fff; }
+.secondaryButton:hover { border-color: rgba(117,86,244,.42); color: var(--violet-deep); transform: translateY(-1px); }
 .heroVisual { min-height: 560px; overflow: hidden; border-radius: var(--radius-card); background: #07142c; box-shadow: 0 32px 80px rgba(11,19,43,.24); }
 .heroVisual img { width: 100%; height: 100%; min-height: 560px; object-fit: cover; }
 .breakpointSection,.technicalSection { padding: 112px 0; }

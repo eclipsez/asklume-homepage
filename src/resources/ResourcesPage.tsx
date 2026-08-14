@@ -272,8 +272,8 @@ export function ResourcesPage() {
               <h2>不确定该从哪份资源开始？</h2>
               <p>提交一个业务方向，我们先帮你判断当前问题更像内容缺口、证据缺口，还是测量缺口。</p>
             </div>
-            <a className={styles.primaryButton} href="/#diagnostic">
-              申请免费初筛
+            <a className={styles.primaryButton} href="./diagnostic.html?intent=general#intake">
+              申请免费需求评估
             </a>
           </div>
         </section>

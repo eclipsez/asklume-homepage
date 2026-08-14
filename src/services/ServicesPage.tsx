@@ -43,7 +43,7 @@ export function ServicesPage() {
               <p>两档标准服务覆盖诊断、建设与复测。复杂范围先评估，再进入定制。</p>
               <div className={styles.heroActions}>
                 <a className={styles.primaryButton} href="#plans">选择服务</a>
-                <a className={styles.secondaryButton} href="./index.html#diagnostic">免费需求评估</a>
+                <a className={styles.secondaryButton} href="./diagnostic.html?intent=general#intake">申请免费需求评估</a>
               </div>
             </div>
             <figure className={styles.heroVisual}>
@@ -65,7 +65,7 @@ export function ServicesPage() {
             </div>
 
             <div className={styles.planGrid}>
-              <article className={styles.planBase}>
+              <article className={styles.planBase} id="standard">
                 <div className={styles.planTopline}>
                   <span>基础建设</span>
                   <span>完整闭环</span>
@@ -80,10 +80,10 @@ export function ServicesPage() {
                 <ul>
                   {basePlan.items.map((item) => <li key={item}>{item}</li>)}
                 </ul>
-                <a className={styles.planButton} href="mailto:hello@asklume.com?subject=咨询39800基础建设服务">咨询基础建设</a>
+                <a className={styles.planButton} href="./diagnostic.html?intent=base-plan#intake">咨询基础建设</a>
               </article>
 
-              <article className={styles.planGrowth}>
+              <article className={styles.planGrowth} id="growth">
                 <div className={styles.planTopline}>
                   <span>增长建设</span>
                   <span>推荐方案</span>
@@ -98,7 +98,7 @@ export function ServicesPage() {
                 <ul>
                   {growthPlan.items.map((item) => <li key={item}>{item}</li>)}
                 </ul>
-                <a className={styles.planButtonStrong} href="mailto:hello@asklume.com?subject=咨询69800增长建设服务">咨询增长建设</a>
+                <a className={styles.planButtonStrong} href="./diagnostic.html?intent=growth-plan#intake">咨询增长建设</a>
               </article>
             </div>
             <p className={styles.priceNote}>以上为标准服务价格。最终范围以双方确认的项目说明书为准。</p>
@@ -161,7 +161,7 @@ export function ServicesPage() {
               </div>
               <div className={styles.globalActions}>
                 <a className={styles.textLink} href="./global-geo.html">了解海外 GEO 解决方案</a>
-                <a className={styles.textLinkMuted} href="mailto:hello@asklume.com?subject=申请品牌出海范围评估">申请出海范围评估</a>
+                <a className={styles.textLinkMuted} href="./diagnostic.html?intent=global-geo#intake">申请出海范围评估</a>
               </div>
             </div>
           </div>
@@ -177,7 +177,7 @@ export function ServicesPage() {
               <div className={styles.triggerCloud} aria-label="企业定制触发条件">
                 {customTriggers.map((item) => <span key={item}>{item}</span>)}
               </div>
-              <a href="mailto:hello@asklume.com?subject=提交企业定制需求">提交定制需求</a>
+              <a href="./diagnostic.html?intent=custom#intake">提交定制需求</a>
             </article>
 
             <article className={styles.monitoringPanel} id="monitoring">
@@ -188,7 +188,7 @@ export function ServicesPage() {
                 <li>证据资产维护建议</li>
                 <li>新增问题与竞争场景评估</li>
               </ul>
-              <a href="mailto:hello@asklume.com?subject=咨询持续监测服务">咨询监测服务</a>
+              <a href="./diagnostic.html?intent=monitoring#intake">咨询监测服务</a>
             </article>
           </div>
         </section>
@@ -199,7 +199,7 @@ export function ServicesPage() {
               <h2>先确认问题，再确定服务范围</h2>
               <p>我们不承诺固定排名、推荐率或第三方模型输出，只交付可控制、可复核的工程改进。</p>
             </div>
-            <a className={styles.primaryButton} href="./index.html#diagnostic">免费需求评估</a>
+            <a className={styles.primaryButton} href="./diagnostic.html?intent=general#intake">申请免费需求评估</a>
           </div>
         </section>
       </main>

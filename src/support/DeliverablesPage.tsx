@@ -3,7 +3,7 @@ import { SupportPageFrame, supportStyles as styles } from './SupportPageFrame'
 
 export function DeliverablesPage() {
   return (
-    <SupportPageFrame activeLabel="产品与服务" description="每一项服务都要留下可以复核、交接和继续维护的资产，而不是只交一份演示报告。" eyebrow="交付物与验收" heroAlt="证据台账与来源卡片组成的工作材料" heroImage={ledgerCover} page="deliverables" primaryAction={{ href: './diagnostic.html', label: '先做需求评估' }} secondaryAction={{ href: './services.html', label: '查看两档服务' }} title="客户最终拿到什么" >
+    <SupportPageFrame activeLabel="产品与服务" description="每一项服务都要留下可以复核、交接和继续维护的资产，而不是只交一份演示报告。" eyebrow="交付物与验收" heroAlt="证据台账与来源卡片组成的工作材料" heroImage={ledgerCover} page="deliverables" primaryAction={{ href: './diagnostic.html?intent=general#intake', label: '申请免费需求评估' }} secondaryAction={{ href: './services.html', label: '查看两档服务' }} title="客户最终拿到什么" >
       <section className={`${styles.section} ${styles.sectionWhite}`}>
         <div className={styles.inner}>
           <div className={styles.sectionHeading}><p className={styles.eyebrow}>交付逻辑</p><h2>围绕四个问题，组织一套可继续使用的资产</h2><p>交付物的价值不在于页面数量，而在于团队能否理解、验收并继续维护。</p></div>

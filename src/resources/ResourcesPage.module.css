@@ -619,9 +619,12 @@
 }
 
 .closingInner {
+  position: relative;
+  isolation: isolate;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  overflow: hidden;
   padding: clamp(32px, 5vw, 56px);
   gap: 36px;
   border: 1px solid rgba(101, 88, 217, 0.2);
@@ -630,6 +633,35 @@
     radial-gradient(circle at 86% 18%, rgba(209, 79, 214, 0.18), transparent 28%),
     linear-gradient(120deg, rgba(73, 114, 255, 0.12), rgba(117, 86, 244, 0.09) 52%, #ffffff);
   box-shadow: var(--shadow-md, 0 12px 32px -4px rgba(99, 102, 241, 0.08));
+}
+
+.closingInner::before {
+  position: absolute;
+  z-index: -1;
+  top: -48px;
+  right: 8%;
+  width: 154px;
+  height: 154px;
+  border: 1px solid rgba(117, 86, 244, 0.16);
+  border-radius: 50%;
+  background: radial-gradient(circle at 34% 28%, rgba(255, 255, 255, 0.96), rgba(209, 79, 214, 0.28) 36%, rgba(117, 86, 244, 0.1) 72%);
+  box-shadow: 0 24px 62px rgba(117, 86, 244, 0.15);
+  content: '';
+}
+
+.closingInner > * {
+  position: relative;
+  z-index: 1;
+}
+
+.closingInner > .primaryButton::after {
+  margin-left: 10px;
+  content: '→';
+  transition: transform 180ms ease;
+}
+
+.closingInner > .primaryButton:hover::after {
+  transform: translateX(4px);
 }
 
 .closingSection h2 {

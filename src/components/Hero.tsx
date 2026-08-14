@@ -24,8 +24,8 @@ export function Hero() {
             </p>
 
             <div className={styles.heroActions}>
-              <a href="#diagnostic" className={styles.primaryBtn}>
-                开启AI认知基线诊断
+              <a href="./diagnostic.html?intent=general#intake" className={styles.primaryBtn}>
+                申请免费需求评估
                 <SiteIcon name="arrow" size={16} />
               </a>
               <a href="#capabilities" className={styles.secondaryBtn}>

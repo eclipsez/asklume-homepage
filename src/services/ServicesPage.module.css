@@ -640,13 +640,46 @@
 }
 
 .boundaryInner {
+  position: relative;
+  isolation: isolate;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  overflow: hidden;
   padding: clamp(34px, 5vw, 58px);
+  border: 1px solid rgba(117, 86, 244, 0.14);
   border-radius: var(--radius-card);
-  background: var(--service-soft);
+  background: var(--cta-surface-light);
+  box-shadow: 0 22px 58px rgba(81, 70, 170, 0.1);
   gap: 36px;
+}
+
+.boundaryInner::before {
+  position: absolute;
+  z-index: -1;
+  top: -58px;
+  right: 8%;
+  width: 164px;
+  height: 164px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 34% 28%, rgba(255, 255, 255, 0.96), rgba(209, 79, 214, 0.3) 36%, rgba(117, 86, 244, 0.11) 72%);
+  box-shadow: 0 24px 62px rgba(117, 86, 244, 0.16);
+  content: '';
+}
+
+.boundaryInner > * {
+  position: relative;
+  z-index: 1;
+}
+
+.boundaryInner > .primaryButton::after {
+  margin-left: 10px;
+  content: '→';
+  transition: transform 180ms ease;
+}
+
+.boundaryInner > .primaryButton:hover::after {
+  transform: translateX(4px);
 }
 
 .boundaryInner > div {

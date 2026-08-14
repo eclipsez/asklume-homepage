@@ -245,7 +245,7 @@ export function GeoAipPage() {
               <h2>先建立基线，再决定建设重点</h2>
               <p>提交一个业务方向，我们先确认问题范围、测试条件和是否值得进入建设。</p>
             </div>
-            <a className={styles.primaryButton} href="./index.html#diagnostic">免费需求评估</a>
+            <a className={styles.primaryButton} href="./diagnostic.html?intent=general#intake">申请免费需求评估</a>
           </div>
         </section>
       </main>

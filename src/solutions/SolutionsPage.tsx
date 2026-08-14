@@ -114,7 +114,7 @@ export function SolutionsPage() {
 
         <section className={styles.cta}>
           <div><h2>不知道属于哪一种问题？</h2><p>先提交当前业务、目标市场和关注问题，我们会判断适合的解决路径与服务范围。</p></div>
-          <a className={styles.primaryButton} href="./index.html#diagnostic">免费需求评估</a>
+          <a className={styles.primaryButton} href="./diagnostic.html?intent=general#intake">申请免费需求评估</a>
         </section>
       </main>
       <Footer page="solutions" />

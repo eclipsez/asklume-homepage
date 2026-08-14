@@ -266,8 +266,8 @@ export function ResourceDetailPage() {
               <div className={styles.tocCtaCard}>
                 <p className={styles.tocCtaTitle}>梳理您的品牌事实台账</p>
                 <p className={styles.tocCtaSub}>免费获取 AI 可见性基线评估</p>
-                <a href="#diagnostic" className={styles.tocCtaBtn}>
-                  开始免费初筛 →
+                <a href="./diagnostic.html?intent=general#intake" className={styles.tocCtaBtn}>
+                  申请免费需求评估 →
                 </a>
               </div>
             </div>
@@ -422,8 +422,8 @@ export function ResourceDetailPage() {
                       <h3>准备好梳理您品牌的数字证据台账了吗？</h3>
                       <p>免费获取针对您企业主营业务的 AI 发现性与事实准备度初始诊断报告。</p>
                     </div>
-                    <a className={styles.ctaBannerBtn} href="/#diagnostic">
-                      申请免费初筛 →
+                    <a className={styles.ctaBannerBtn} href="./diagnostic.html?intent=general#intake">
+                      申请免费需求评估 →
                     </a>
                   </div>
                 </section>
@@ -549,8 +549,8 @@ export function ResourceDetailPage() {
                       <h3>准备好评估您品牌的 AI 认知基线了吗？</h3>
                       <p>免费获取针对您企业主营业务的 AI 发现性与理解度初始诊断报告。</p>
                     </div>
-                    <a className={styles.ctaBannerBtn} href="/#diagnostic">
-                      申请免费初筛 →
+                    <a className={styles.ctaBannerBtn} href="./diagnostic.html?intent=general#intake">
+                      申请免费需求评估 →
                     </a>
                   </div>
                 </section>

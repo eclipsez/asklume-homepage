@@ -53,16 +53,28 @@
   margin-top: 22px;
   padding: 0 17px;
   border-radius: var(--radius-pill);
-  background: #0d1638;
+  background: var(--cta-gradient);
   color: #fff;
   font-size: 13px;
   font-weight: 780;
-  transition: transform 160ms ease, background 160ms ease;
+  box-shadow: var(--cta-shadow);
+  transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
+}
+
+.brandCta::after {
+  margin-left: 8px;
+  content: '→';
+  transition: transform 180ms ease;
 }
 
 .brandCta:hover {
-  background: #6857f2;
+  background: var(--cta-gradient-hover);
+  box-shadow: var(--cta-shadow-hover);
   transform: translateY(-2px);
+}
+
+.brandCta:hover::after {
+  transform: translateX(3px);
 }
 
 /* Link Columns */
