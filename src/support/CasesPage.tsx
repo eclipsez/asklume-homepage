@@ -1,9 +1,9 @@
-import clarityPrinciple from '../assets/about/clarity-principle.jpg'
+import verifiedOutcomes from '../assets/cases/verified-outcomes-generated.jpg'
 import { SupportPageFrame, supportStyles as styles } from './SupportPageFrame'
 
 export function CasesPage() {
   return (
-    <SupportPageFrame activeLabel="关于我们" description="案例要先能够被复核，再用于说明方法的价值。AskLume 不用未经授权的数字和截图替代证据。" eyebrow="案例与证据" heroAlt="清晰光束穿过深色结构的抽象视觉" heroImage={clarityPrinciple} page="cases" primaryAction={{ href: './diagnostic.html', label: '申请需求评估' }} secondaryAction={{ href: './contact.html', label: '联系专家团队' }} title="先展示证据，再谈结果" >
+    <SupportPageFrame activeLabel="关于我们" description="案例要先能够被复核，再用于说明方法的价值。AskLume 不用未经授权的数字和截图替代证据。" eyebrow="案例与证据" heroAlt="分散的事实与信号经过整理后汇入稳定的验证节点" heroImage={verifiedOutcomes} page="cases" primaryAction={{ href: './diagnostic.html', label: '申请需求评估' }} secondaryAction={{ href: './contact.html', label: '联系专家团队' }} title="先展示证据，再谈结果" >
       <section className={`${styles.section} ${styles.sectionWhite}`}>
         <div className={styles.inner}><div className={styles.split}><div className={styles.splitCopy}><p className={styles.eyebrow}>公开记录原则</p><h2>每个结果都要有范围、有时间、有出处</h2><p>GEO 变化受到平台、模型、时间、问题集和外部来源影响。我们会把观察到的变化与因果判断分开。</p></div><ol className={styles.numberList}>{['只使用已授权或公开的材料','保留测试条件、原始回答和引用来源','区分事实改善、可见性变化与业务结果'].map((item, index) => <li key={item}><span>0{index + 1}</span><div><h3>{item}</h3><p>在案例公开前，先由项目负责人确认范围与表述。</p></div></li>)}</ol></div></div>
       </section>

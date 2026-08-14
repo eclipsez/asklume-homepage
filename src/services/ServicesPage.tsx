@@ -1,5 +1,5 @@
 import evidenceEngineeringHero from '../assets/services/evidence-engineering-hero.jpg'
-import globalEvidenceVisual from '../assets/resources/query-map-cover.jpg'
+import globalEvidenceVisual from '../assets/services/evidence-system-generated.jpg'
 import { Footer } from '../components/Footer'
 import { Header } from '../components/Header'
 import styles from './ServicesPage.module.css'

@@ -1,4 +1,4 @@
-import queryMapCover from '../assets/resources/query-map-cover.jpg'
+import questionToClarity from '../assets/faq/question-to-clarity-generated.jpg'
 import { SupportPageFrame, supportStyles as styles } from './SupportPageFrame'
 
 const questions = [
@@ -14,7 +14,7 @@ const questions = [
 
 export function FaqPage() {
   return (
-    <SupportPageFrame activeLabel="资源中心" description="把 GEO 服务中最容易被误解的问题说清楚，帮助团队判断是否适合开始。" eyebrow="常见问题" heroAlt="问题地图和证据节点组成的抽象视觉" heroImage={queryMapCover} page="faq" primaryAction={{ href: './diagnostic.html', label: '申请需求评估' }} secondaryAction={{ href: './services.html', label: '查看服务范围' }} title="先理解边界，再决定投入" >
+    <SupportPageFrame activeLabel="资源中心" description="把 GEO 服务中最容易被误解的问题说清楚，帮助团队判断是否适合开始。" eyebrow="常见问题" heroAlt="分散的问题节点逐步汇入清晰有序的路径" heroImage={questionToClarity} page="faq" primaryAction={{ href: './diagnostic.html', label: '申请需求评估' }} secondaryAction={{ href: './services.html', label: '查看服务范围' }} title="先理解边界，再决定投入" >
       <section className={`${styles.section} ${styles.sectionWhite}`}><div className={styles.inner}><div className={styles.sectionHeading}><p className={styles.eyebrow}>FAQ</p><h2>关于服务、结果与合作方式</h2></div><div className={styles.faqList}>{questions.map(([question, answer]) => <details key={question}><summary>{question}</summary><p>{answer}</p></details>)}</div></div></section>
       <section className={`${styles.section} ${styles.sectionDark}`}><div className={styles.inner}><div className={styles.callout}><div><p className={styles.eyebrow}>仍有具体问题</p><h2>把你的场景发给我们</h2><p>如果问题涉及目标市场、产品线或现有内容资产，直接描述现状会更有效。</p></div><a className={styles.primaryButton} href="./contact.html">联系专家团队</a></div></div></section>
     </SupportPageFrame>
