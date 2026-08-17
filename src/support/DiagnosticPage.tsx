@@ -1,5 +1,6 @@
 import diagnosticHero from '../assets/diagnostic/diagnostic-baseline-hero.jpg'
 import { SupportPageFrame, supportStyles as styles } from './SupportPageFrame'
+import { IntakeForm } from '../components/IntakeForm'
 
 const diagnosticSteps = [
   { title: '记录现状', body: '围绕约定的问题、平台、模型与时间，保留原始回答和引用来源。' },
@@ -64,14 +65,17 @@ export function DiagnosticPage() {
         </div>
       </section>
 
-      <section className={`${styles.section} ${styles.sectionDark}`}>
+      <section className={`${styles.section} ${styles.sectionWhite}`} id="intake">
         <div className={styles.inner}>
-          <div className={styles.callout}>
-            <div><p className={styles.eyebrow}>下一步</p><h2>把最想确认的问题发给我们</h2><p>邮件中写明公司名称、官网、目标市场和当前困惑即可。</p></div>
-            <a className={styles.primaryButton} href="./diagnostic.html#intake">申请免费需求评估</a>
+          <div className={styles.sectionHeading}>
+            <p className={styles.eyebrow}>需求申请</p>
+            <h2>申请免费需求评估</h2>
+            <p>填写以下信息，我们通常在 1 个工作日内明确问题属于诊断、建设还是定制范围。</p>
           </div>
+          <IntakeForm />
         </div>
       </section>
     </SupportPageFrame>
   )
 }
+
