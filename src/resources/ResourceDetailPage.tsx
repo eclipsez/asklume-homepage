@@ -19,7 +19,7 @@ export type ArticleId = 'evidence' | 'geo101' | 'baseline' | 'question-set' | 'a
 const evidenceLedgerArticle: ArticleData = {
   category: '证据建设',
   readTime: '⏱ 预计阅读 10 分钟',
-  publishDate: '📅 2026年8月最新指南',
+  publishDate: '📅 2026年8月实操指南',
   title: '一条主张如何变成可核验的数字资产',
   goldenAssertion: '在 AI 搜索（RAG）时代，缺乏来源、时间戳、适用范围、责任人与限制条件的主张更难被稳定核验。数字证据台账是一条把企业事实整理成可维护记录的工作路径。',
   toc: [
@@ -34,7 +34,7 @@ const evidenceLedgerArticle: ArticleData = {
 const geo101Article: ArticleData = {
   category: '入门指南',
   readTime: '⏱ 预计阅读 8 分钟',
-  publishDate: '📅 2026年8月最新指南',
+  publishDate: '📅 2026年8月实操指南',
   title: 'GEO 101：从可发现性到数字证据工程',
   goldenAssertion: 'GEO 关注企业事实如何被 AI 发现、理解、核验和引用。企业可以通过 GEO-AIP™ 与数字证据工程，把真实能力组织成更容易被机器读取和复核的认知资产。',
   toc: [
@@ -283,7 +283,7 @@ export function ResourceDetailPage() {
                     在过去，企业的品牌公关与营销习惯使用抽象的修饰词，例如“业内首创”“性能提升 50%”“市场占有率第一”。在传统的搜索引擎环境里，这类口号配合高调的媒体软文和关键词堆砌，可能带来搜索流量，但不等于事实已经被核验。
                   </p>
                   <p>
-                    但在大模型（ChatGPT、Perplexity、Claude、Kimi）主导的 AI 搜索时代，底层机制发生了颠覆性的变化：AI 检索系统（RAG & Web Crawlers）对全网信息进行提取时，会自动运行<strong>事实核验与可信度过滤算法 (Fact-Checking & Provenance Verification)</strong>。
+                    但在大模型（ChatGPT、Perplexity、Claude、Kimi）主导的 AI 搜索时代，底层机制发生了结构性的变化：AI 检索系统（RAG & Web Crawlers）对多来源公开信息进行提取时，会自动运行<strong>事实核验与可信度过滤算法 (Fact-Checking & Provenance Verification)</strong>。
                   </p>
 
                   <div className={styles.calloutNote}>
@@ -410,7 +410,7 @@ export function ResourceDetailPage() {
 
                   <ul className={styles.actionSteps}>
                     <li>
-                      <strong>内部高效复用 (Internal Synergy)</strong>：市场、公关、销售与技术团队统一调取经合规核验的只读事实库，彻底解决口径不一致与虚假宣传风险。
+                      <strong>内部高效复用 (Internal Synergy)</strong>：市场、公关、销售与技术团队统一调取经合规核验的只读事实库，系统性降低口径不一致与虚假宣传风险。
                     </li>
                     <li>
                       <strong>外部 AI 核验 (External Verification)</strong>：在约定的回答记录中检查出处、引用来源和事实表达是否准确。
@@ -527,7 +527,7 @@ export function ResourceDetailPage() {
     "price": "0",
     "priceCurrency": "CNY"
   },
-  "description": "企业AI认知与影响力基础设施，帮助品牌实现全网AI可发现、可理解与可引用。"
+  "description": "企业AI认知与影响力基础设施，帮助品牌建立跨平台 AI 可发现、可理解与可核验资产。"
 }`}
                     </pre>
                   </div>

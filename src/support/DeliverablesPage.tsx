@@ -20,7 +20,7 @@ export function DeliverablesPage() {
       <section className={`${styles.section} ${styles.sectionSoft}`}>
         <div className={styles.inner}><div className={styles.sectionHeading}><p className={styles.eyebrow}>服务层级</p><h2>价格不同，交付深度不同</h2></div>
           <div className={styles.featureGrid}>
-            <article className={`${styles.panel} ${styles.panelLead}`}><span className={styles.panelLabel}>39,800 元服务档</span><h3>建立首个可执行的 GEO 基础</h3><p>适合先解决核心品牌与产品的可见性、事实一致性和首轮证据建设问题。具体范围以诊断后确认的工作单为准。</p><a className={styles.inlineLink} href="./services.html#standard">查看服务边界 →</a></article>
+            <article className={`${styles.panel} ${styles.panelLead}`}><span className={styles.panelLabel}>39,800 元服务档</span><h3>建立首期可执行的 GEO 基础</h3><p>适合先解决核心品牌与产品的可见性、事实一致性和首轮证据建设问题。具体范围以诊断后确认的工作单为准。</p><a className={styles.inlineLink} href="./services.html#standard">查看服务边界 →</a></article>
             <div className={styles.stack}><article className={styles.panel}><span className={styles.panelLabel}>69,800 元服务档</span><h3>覆盖更复杂的业务与验证周期</h3><p>适合产品线、场景、来源和复测要求更多的企业，包含更深的内容与证据建设。</p></article><article className={styles.panel}><span className={styles.panelLabel}>定制与出海</span><h3>按市场、语言和系统复杂度评估</h3><p>品牌出海、多市场、多语言、持续监测和深度定制不直接塞进固定套餐，先基于范围评估再报价。</p><a className={styles.inlineLink} href="./global-geo.html">了解全球 AI 可发现性 →</a></article></div>
           </div>
         </div>
