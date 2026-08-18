@@ -14,7 +14,7 @@ interface ArticleData {
   toc: { id: string; title: string }[]
 }
 
-export type ArticleId = 'evidence' | 'geo101' | 'baseline' | 'question-set' | 'answer-audit' | 'schema-boundary'
+export type ArticleId = 'evidence' | 'geo101' | 'baseline' | 'question-set' | 'answer-audit' | 'schema-boundary' | 'geo-vs-seo' | 'domestic-ai-engines' | 'geo-glossary' | 'b2b-geo-guide' | 'entity-building' | 'self-check-20'
 
 const evidenceLedgerArticle: ArticleData = {
   category: '证据建设',
@@ -106,16 +106,107 @@ const schemaBoundaryArticle: ArticleData = {
   ],
 }
 
+const geoVsSeoArticle: ArticleData = {
+  category: '入门指南',
+  readTime: '预计阅读 10 分钟',
+  publishDate: '2026 年 8 月更新',
+  title: 'GEO 与传统 SEO：8 个核心维度对比',
+  goldenAssertion: 'GEO 不是 SEO 的替代，而是补充。SEO 优化网页在搜索引擎中的可检索性， GEO 优化企业事实如何被生成式 AI 理解、核验和引用。两者共享部分技术基础，但测试问题和验收方式完全不同。',
+  toc: [
+    { id: 'section-1', title: '1. 目标与工作对象的差异' },
+    { id: 'section-2', title: '2. 可控范围对比' },
+    { id: 'section-3', title: '3. 测量指标与验收方式' },
+    { id: 'section-4', title: '4. 工具与方法论的表面相似与本质差异' },
+    { id: 'section-5', title: '5. 预算和团队的协作方式' },
+  ],
+}
+
+const domesticAiEnginesArticle: ArticleData = {
+  category: '入门指南',
+  readTime: '预计阅读 12 分钟',
+  publishDate: '2026 年 8 月更新',
+  title: '国内主流大模型检索机制与信源偏好',
+  goldenAssertion: '国内主流 AI 引擎（Kimi、豆包、文心一言、腾训元宝、通义千问）在检索外部信源时，各自具有不同的生态偏好。企业需要了解各平台的抓取逻辑，才能有针对性地建设公众号、知乎、百科等外部证据阵地。',
+  toc: [
+    { id: 'section-1', title: '1. 国内 AI 引擎与海外的核心差异' },
+    { id: 'section-2', title: '2. Kimi（月之暗面）：长文本与中文权威内容' },
+    { id: 'section-3', title: '3. 豆包（字节）：头条生态与知乎深度科普' },
+    { id: 'section-4', title: '4. 文心一言（百度）：百科、爱企查与百家号生态' },
+    { id: 'section-5', title: '5. 腾训元宝 & 通义千问：公众号与阿里生态信源' },
+  ],
+}
+
+const geoGlossaryArticle: ArticleData = {
+  category: '入门指南',
+  readTime: '预计阅读 15 分钟',
+  publishDate: '2026 年 8 月更新',
+  title: 'GEO 核心术语标准定义百科',
+  goldenAssertion: '一个企业如果连内部团队的 GEO 术语都没有统一，就不可能延伸到对外的一致表达。本百科收录生成式引擎优化领域 20 个核心术语的标准定义，可直接用于提案、汇报与团队培训。',
+  toc: [
+    { id: 'section-1', title: '1. GEO 核心概念：可发现性与认知资产' },
+    { id: 'section-2', title: '2. 证据与事实类术语' },
+    { id: 'section-3', title: '3. 诊断与测量类术语' },
+    { id: 'section-4', title: '4. 国内 AI 生态与技术类术语' },
+    { id: 'section-5', title: '5. 天然语言与吸引力类术语' },
+  ],
+}
+
+const b2bGeoGuideArticle: ArticleData = {
+  category: '诊断方法',
+  readTime: '预计阅读 11 分钟',
+  publishDate: '2026 年 8 月更新',
+  title: 'B2B 企业 GEO 实操：从问题集到证据链',
+  goldenAssertion: 'B2B 场景的 GEO 不是流量优化，而是决策内容工程。些客户在不同环节提问不同类型的问题（认知、比较、验证、风险），企业需要应对每类场景构建不同层次的事实证据与内容资产。',
+  toc: [
+    { id: 'section-1', title: '1. 为什么 B2B GEO 必须区别于消费品逻辑' },
+    { id: 'section-2', title: '2. B2B 决策问题的四个层次' },
+    { id: 'section-3', title: '3. AI 选型词拦截：让 AI 在专业对比场景中提及你' },
+    { id: 'section-4', title: '4. 多决策人证据组织：如何应对不同评审者的问题' },
+    { id: 'section-5', title: '5. 验收和复测： B2B GEO 项目中的闭环设计' },
+  ],
+}
+
+const entityBuildingArticle: ArticleData = {
+  category: '证据建设',
+  readTime: '预计阅读 9 分钟',
+  publishDate: '2026 年 8 月更新',
+  title: '企业实体建设：让大模型稳定识别你是谁',
+  goldenAssertion: '国内大模型将官网、百科词条、企查查工商主体信息和公众号简介汇通后构建对一个广义“企业实体”的理解。各信源之间存在信息冲突时，模型会降低对该企业相关回答的信心度。',
+  toc: [
+    { id: 'section-1', title: '1. 大模型如何构建对企业的理解' },
+    { id: 'section-2', title: '2. 实体信息的四个层次' },
+    { id: 'section-3', title: '3. 实体信息冲突的三种常见场景与处理方式' },
+    { id: 'section-4', title: '4. 国内实体建设的优先序列' },
+    { id: 'section-5', title: '5. 如何验收实体信息的一致性' },
+  ],
+}
+
+const selfCheck20Article: ArticleData = {
+  category: '实用工具',
+  readTime: '预计阅读 6 分钟',
+  publishDate: '2026 年 8 月更新',
+  title: '国内 AI 认知自测清单：20 个判断问题',
+  goldenAssertion: '不需要任何专业工具，团队可以用 20 个结构化问题将当前 AI 认知状态分类定义为四类认知断点（不可见、被误解、无来源、无法被选择）的哪个阶段，从而确定优先建设方向。',
+  toc: [
+    { id: 'section-1', title: '1. 如何使用这份清单' },
+    { id: 'section-2', title: '2. 第一类：可见性断点评估（问题 1–5）' },
+    { id: 'section-3', title: '3. 第二类：理解准确性断点评估（问题 6–10）' },
+    { id: 'section-4', title: '4. 第三类：证据充分性断点评估（问题 11–15）' },
+    { id: 'section-5', title: '5. 第四类：决策场景适配性断点评估（问题 16–20）' },
+  ],
+}
+
 export function ResourceDetailPage() {
   const [scrollProgress, setScrollProgress] = useState(0)
   const [copied, setCopied] = useState(false)
   const [articleId, setArticleId] = useState<ArticleId>('evidence')
   const [activeSection, setActiveSection] = useState('section-1')
 
+
   useEffect(() => {
     const params = new URLSearchParams(window.location.search)
     const requestedId = params.get('id')
-    const supportedIds: ArticleId[] = ['evidence', 'geo101', 'baseline', 'question-set', 'answer-audit', 'schema-boundary']
+  const supportedIds: ArticleId[] = ['evidence', 'geo101', 'baseline', 'question-set', 'answer-audit', 'schema-boundary', 'geo-vs-seo', 'domestic-ai-engines', 'geo-glossary', 'b2b-geo-guide', 'entity-building', 'self-check-20']
     setArticleId(supportedIds.includes(requestedId as ArticleId) ? requestedId as ArticleId : 'evidence')
   }, [])
 
@@ -126,6 +217,12 @@ export function ResourceDetailPage() {
     'question-set': questionSetArticle,
     'answer-audit': answerAuditArticle,
     'schema-boundary': schemaBoundaryArticle,
+    'geo-vs-seo': geoVsSeoArticle,
+    'domestic-ai-engines': domesticAiEnginesArticle,
+    'geo-glossary': geoGlossaryArticle,
+    'b2b-geo-guide': b2bGeoGuideArticle,
+    'entity-building': entityBuildingArticle,
+    'self-check-20': selfCheck20Article,
   }[articleId]
 
   const articleSchema = {

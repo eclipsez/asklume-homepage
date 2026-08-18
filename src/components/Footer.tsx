@@ -194,7 +194,7 @@ export function Footer({ page = 'home' }: FooterProps) {
 
         <div className={styles.bottomBar}>
           <div className={styles.copyrightText}>
-            © 2026 问答光源｜AskLume。粤ICP备2024001234号
+            © 2026 问答光源｜AskLume。粤ICP备XXXXXXXX号
           </div>
 
           <div className={styles.legalLinks}>

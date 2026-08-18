@@ -252,12 +252,16 @@ export function ResourcesPage() {
           </div>
         </section>
 
-        <section className={styles.faqSection}>
+        <section className={styles.faqSection} id="faq">
           <div className={styles.narrowInner}>
-            <h2>先把边界说清楚</h2>
+            <p className={styles.eyebrow}>常见问题</p>
+            <h2>关于 GEO 你最常问的问题</h2>
+            <p style={{ color: 'var(--resource-muted)', marginTop: '12px', lineHeight: '1.7', fontSize: '16px' }}>
+              在开始任何建设之前，先把这些边界弄清楚。
+            </p>
             <div className={styles.faqList}>
-              {faqItems.map((item) => (
-                <details key={item.question}>
+              {faqItems.map((item, index) => (
+                <details key={item.question} open={index === 0}>
                   <summary>{item.question}</summary>
                   <p>{item.answer}</p>
                 </details>
