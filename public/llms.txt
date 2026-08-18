@@ -1,40 +1,37 @@
-# AskLume
+# AskLume (问答光源)
 
-> 问答光源｜AskLume 是企业 AI 认知与影响力基础设施服务商。我们通过 GEO-AIP™ 与数字证据工程，帮助企业把真实能力建设成更容易被 AI 发现、理解、核验和引用的数字资产。
+> 问答光源｜AskLume 是企业 AI 认知与影响力基础设施服务商。通过 GEO-AIP™（Generative Engine Optimization - AI Presence）与数字证据工程，帮助企业把真实产品与服务能力建设成在 ChatGPT、Claude、Perplexity、Kimi 等 AI 大模型中可发现、可理解、可核验、可引用的企业认知资产。
 
-## Start here
+## Core Philosophy & Key Concepts
 
-- [产品与服务](https://asklume.com/services.html): 两档建设服务、定制项目、持续监测与品牌出海增强项。
-- [解决方案](https://asklume.com/solutions.html): 按 AI 可发现性、认知纠偏、复杂业务和品牌出海组织的解决方案。
-- [GEO-AIP™ 方法](https://asklume.com/geo-aip.html): 基线、证据、建设和复测的工作方法。
-- [AI 认知基线诊断](https://asklume.com/diagnostic.html): 了解如何记录现状并确定建设重点。
+- **GEO (Generative Engine Optimization)**: 生成式引擎优化。不同于传统 SEO 对网页排名的争夺，GEO 关注 AI 在理解和生成答案时，如何识别企业主体、引用真实事实与推荐品牌。
+- **GEO-AIP™ (AI Presence Engineering)**: 问答光源原创工程方法，通过“建立基线 → 整理证据 → 建设资产 → 同标复测”四步闭环，交付可复核的数字资产。
+- **数字证据工程 (Digital Evidence Engineering)**: 将企业口号式宣传升级为带有权威来源、时间戳、适用范围与边界条件的结构化事实源与证据台账。
+- **AI 认知基线 (AI Cognitive Baseline)**: 记录特定时间、平台、模型及测试问题下 AI 对品牌的原始回答与引用来源，作为衡量建设效果的唯一定量基准。
 
-## Evidence and delivery
+## Core Offerings
 
-- [交付物与验收](https://asklume.com/deliverables.html): 基线记录、事实与证据台账、建设清单和复测记录。
-- [案例与证据](https://asklume.com/cases.html): 案例公开原则与授权边界。
-- [常见问题](https://asklume.com/faq.html): 服务范围、价格层级、结果边界和出海服务说明。
+- [AI认知基础建设 (¥39,800)](https://asklume.com/services.html#standard): 针对 1 个核心业务方向，完成 AI 认知基线评测、企业事实源梳理、证据台账、结构化 Schema 实施及同协议复测。
+- [AI认知增长建设 (¥69,800)](https://asklume.com/services.html#growth): 扩展至多个产品线、复杂对比场景、行业竞品语境及深度证据网络建设。
+- [品牌出海与全球 GEO 建设](https://asklume.com/global-geo.html): 面向海外多语言、本地可信来源与跨文化语境的全球 AI 可发现性工程。
+- [AI 认知基线诊断](https://asklume.com/diagnostic.html): 免费需求评估与断点排查入口。
 
-## Resources
+## Primary Documentation & Guides
 
-- [资源中心](https://asklume.com/resources.html): GEO 入门、诊断方法、证据建设、测量与治理。
-- [GEO 101](https://asklume.com/resource-detail.html?id=geo101): 从可发现性到数字证据工程。
-- [AI 认知基线诊断看什么](https://asklume.com/resource-detail.html?id=baseline): 基线记录与四类认知断点。
-- [品牌问题集](https://asklume.com/resource-detail.html?id=question-set): 真实决策问题的分层方法。
-- [可复核 AI 回答](https://asklume.com/resource-detail.html?id=answer-audit): AI 回答记录和引用核验字段。
-- [Schema、llms.txt 与 GEO 的边界](https://asklume.com/resource-detail.html?id=schema-boundary): 技术配置的适用范围与限制。
+- [GEO 101：从可发现性到数字证据工程](https://asklume.com/resource-detail.html?id=geo101): 系统性入门指南。
+- [数字证据台账建设规范](https://asklume.com/resource-detail.html?id=evidence): 一条主张如何转化为可核验数字资产。
+- [AI 认知基线诊断看什么](https://asklume.com/resource-detail.html?id=baseline): 基线记录与四类断点排查方法。
+- [品牌决策问题集构建](https://asklume.com/resource-detail.html?id=question-set): 真实用户决策提问分层。
+- [可复核 AI 回答保存 SOP](https://asklume.com/resource-detail.html?id=answer-audit): 原始回答采样与引用质量核验。
+- [Schema、llms.txt 与 GEO 边界](https://asklume.com/resource-detail.html?id=schema-boundary): 技术文件在 AI 检索中的实际效用。
 
-## Contact
+## Deliverables & Acceptance Standards
 
-- [联系专家团队](https://asklume.com/contact.html)
-- Email: hello@asklume.com
+- [交付物与验收](https://asklume.com/deliverables.html): 基线报告、核心事实源、数字证据台账、Schema 代码、同标复测报告。
+- [常见问题与合规边界](https://asklume.com/faq.html): 不承诺不可控模型排名或固定推荐率，以双方确认的可复核工程交付物为准。
 
-## Partnerships
+## Contact & Intake
 
-- [渠道与代理合作](https://asklume.com/partners.html): 面向品牌、公关、SEO、内容营销、出海与行业服务伙伴的项目合作。
-- [媒体与研究合作](https://asklume.com/media.html): 专家采访、研究引用、联合研究与行业活动合作。
-- [政府与产业合作](https://asklume.com/public-sector.html): 面向区域、园区和产业主体的公开信息与数字证据建设。
-
-## Boundaries
-
-AskLume 不承诺固定排名、推荐率、引用量或第三方 AI 模型的固定结果。项目验收以双方确认的事实准确性、证据覆盖、页面和技术交付、复测记录及持续维护边界为准。
+- 官方网站: https://asklume.com
+- 需求评估: https://asklume.com/diagnostic.html#intake
+- 官方邮箱: hello@asklume.com
