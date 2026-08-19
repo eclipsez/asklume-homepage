@@ -1,4 +1,4 @@
-export type ResourceCategory = '入门指南' | '诊断方法' | '证据建设' | '测量与治理' | '实用工具'
+export type ResourceCategory = '入门指南' | '诊断方法' | '证据建设' | '测量与治理'
 
 export interface ResourceItem {
   id: string
@@ -16,12 +16,20 @@ export const resourceCategories = [
   '诊断方法',
   '证据建设',
   '测量与治理',
-  '实用工具',
 ] as const
 
 export type ResourceFilter = (typeof resourceCategories)[number]
 
 export const resources: readonly ResourceItem[] = [
+  {
+    id: 'geo-zero-to-one',
+    category: '入门指南',
+    title: '从 0 到 1 读懂 GEO：非技术人也能看懂的生成式引擎优化指南',
+    summary: '用最通俗的语言厘清 GEO 本质：当客户从“搜关键词”变成“直接问 AI”，企业如何被说对、被证明、被纳入考虑。剥离所有术语包装，讲透真实逻辑与避坑要点。',
+    takeaway: '你将掌握判断企业是否需要做 GEO 的 5 个核心问题、常见 6 大认知误区，以及为什么真实证据永远比发稿数量更重要。',
+    readingTime: '12 分钟',
+    format: '指南',
+  },
   {
     id: 'geo101',
     category: '入门指南',
@@ -86,6 +94,24 @@ export const resources: readonly ResourceItem[] = [
     format: '指南',
   },
   {
+    id: 'manufacturing-geo-guide',
+    category: '诊断方法',
+    title: '高端制造与工业品 GEO 实操：复杂参数与资质证据链',
+    summary: '针对参数繁多、资质要求高、选型决策链长的制造业场景，拆解如何将检测报告、专利资质与工程参数转化为 AI 认可的权威数字证据。',
+    takeaway: '你将理解高端制造在 AI 时代的核心认知风险，以及如何将分散的技术文档与合规资产重构成 AI 选型时的高权重证据链。',
+    readingTime: '13 分钟',
+    format: '指南',
+  },
+  {
+    id: 'global-geo-guide',
+    category: '诊断方法',
+    title: '跨境出海品牌多语言 GEO 实操：跨生态事实一致性',
+    summary: '针对海外 ChatGPT、Perplexity、Claude 与国内生态的分野，梳理跨语言实体对齐、海外本地权威信源（Wikidata、行业媒体、测评平台）布局与跨国认知基线治理。',
+    takeaway: '你将掌握出海企业在多语种、多模型环境下防止品牌被误解与信息脱节的系统化工程路径。',
+    readingTime: '14 分钟',
+    format: '指南',
+  },
+  {
     id: 'evidence',
     category: '证据建设',
     title: '企业证据台账最小字段',
@@ -123,7 +149,7 @@ export const resources: readonly ResourceItem[] = [
   },
   {
     id: 'self-check-20',
-    category: '实用工具',
+    category: '测量与治理',
     title: '国内 AI 认知自测清单：20 个判断问题',
     summary: '不需要专业工具，团队自行用 20 个结构化问题评估当前 AI 认知状态，识别四类认知断点的优先级。',
     takeaway: '你将能在 30 分钟内完成初步自测，判断品牌处于"不可见、被误解、无来源、无法被选择"中的哪个阶段。',

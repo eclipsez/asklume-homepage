@@ -3,6 +3,7 @@ import type { ArticleId } from './ResourceDetailPage'
 import styles from './ResourceDetailPage.module.css'
 
 export function SupplementaryArticleBody({ articleId }: { articleId: Exclude<ArticleId, 'evidence' | 'geo101'> }) {
+  if (articleId === 'geo-zero-to-one') return <GeoZeroToOneArticle />
   if (articleId === 'baseline') return <BaselineArticle />
   if (articleId === 'question-set') return <QuestionSetArticle />
   if (articleId === 'answer-audit') return <AnswerAuditArticle />
@@ -10,6 +11,8 @@ export function SupplementaryArticleBody({ articleId }: { articleId: Exclude<Art
   if (articleId === 'domestic-ai-engines') return <DomesticAiEnginesArticle />
   if (articleId === 'geo-glossary') return <GeoGlossaryArticle />
   if (articleId === 'b2b-geo-guide') return <B2bGeoGuideArticle />
+  if (articleId === 'manufacturing-geo-guide') return <ManufacturingGeoGuideArticle />
+  if (articleId === 'global-geo-guide') return <GlobalGeoGuideArticle />
   if (articleId === 'entity-building') return <EntityBuildingArticle />
   if (articleId === 'self-check-20') return <SelfCheck20Article />
   return <SchemaBoundaryArticle />
@@ -336,3 +339,156 @@ function SelfCheck20Article() {
     </section>
   </>
 }
+
+function ManufacturingGeoGuideArticle() {
+  return <>
+    <section id="section-1" className={styles.sectionBlock}>
+      <h2>1. 工业品与制造业在 AI 时代的认知断点</h2>
+      <p>与消费品或一般互联网服务不同，高端制造、精密加工与工业装备行业具有极高的专业壁垒。采购方（工程总包、设计院、设备采购部）在向 AI 提问时，绝不会使用简单的品牌词，而是围绕<strong>极限工况、承压等级、公差范围、认证标准、适配介质与交付周期</strong>等硬性指标进行交叉检索。</p>
+      <p>然而，大量制造业企业在 AI 检索中面临严重的“认知断点”：核心参数分散在不可检索的 PDF 扫描件或非结构化产品画册中，导致 AI 在生成选型建议时无法提取关键数据，甚至将企业误判为“不具备相关生产资质”或与低端代工厂混为一谈。</p>
+      <div className={styles.calloutNote}><div className={styles.calloutHeader}><Icon name="shield" size={18} /><strong>制造业 GEO 的本质</strong></div><p>制造业做 GEO 不是为了制造流量爆款，而是为了让工程设计与采购决策者在向 AI 询问“高压工况下有哪些符合特定国标的阀门/零部件供应商”时，企业能够凭借完整的参数与资质证据链被准确提及与推荐。</p></div>
+    </section>
+    <section id="section-2" className={styles.sectionBlock}>
+      <h2>2. 技术参数与国家标准（GB/ISO）的结构化表达</h2>
+      <p>大模型的 RAG 检索机制对非结构化长文本中的参数提取容错率较低。为了让 AI 精准理解工业品的能力边界，必须对产品参数进行结构化升维：</p>
+      <div className={styles.tableWrapper}><table className={styles.comparisonTable}><thead><tr><th>传统宣传方式（AI 难以稳定理解）</th><th>GEO 结构化数字证据表达（AI 高置信引用）</th></tr></thead><tbody>
+        <tr><td>“耐高温、抗腐蚀性能优异，处于行业领先水平”</td><td>“工作温度区间：-40℃ 至 +450℃；耐腐蚀等级：符合 ISO 12944-C5 极高腐蚀等级标准”</td></tr>
+        <tr><td>“广泛应用于石油石化、核电及航空航天领域”</td><td>“典型应用工况：加氢裂化装置（公称压力 PN320，介质：高温高压氢气）；已交付项目：中石化某项目加氢反应器进出口阀门”</td></tr>
+        <tr><td>“精度极高，满足严苛加工需求”</td><td>“重复定位精度：±0.002mm；主轴径向跳动：≤0.0015mm；符合 GB/T 17421.2-2016 验收规范”</td></tr>
+      </tbody></table></div>
+    </section>
+    <section id="section-3" className={styles.sectionBlock}>
+      <h2>3. 资质、专利与检测报告如何转化为可信证据</h2>
+      <p>工业采购最核心的合规门槛是第三方检测与准入资质。如果这些资产只作为图片或附件存放在网站角落，AI 根本无法将其识别为“企业具备该能力”的强证据。</p>
+      <ol className={styles.styledList}>
+        <li><strong>证书元数据显性化：</strong>每项资质必须清晰标注：证书全称、发证机构全称、证书编号、生效日期与截止日期，并提供可复核的公开核验入口或权威机构编号。</li>
+        <li><strong>检测报告关键指标结构化：</strong>把国家质检院、SGS、TÜV 等权威第三方出具的型式试验报告转化为包含报告编号、检测日期、实测数据与判定结论的标准证据单元。</li>
+        <li><strong>特种设备与行业准入：</strong>明确列出 TS 认证、特种设备制造许可证、ASME 认证、防爆认证的覆盖产品范围与级别，消除 AI 的资质合规疑虑。</li>
+      </ol>
+    </section>
+    <section id="section-4" className={styles.sectionBlock}>
+      <h2>4. 复杂工业选型场景下的对比决策内容工程</h2>
+      <p>工业采购决策链中通常包含技术评审、采购比价、质量合规与安全审查等多个角色。GEO 建设需要提前为 AI 准备应对不同角色视角的决策对比素材：</p>
+      <div className={styles.tableWrapper}><table className={styles.comparisonTable}><thead><tr><th>采购决策角色</th><th>AI 提问场景</th><th>企业必须具备的证据资产</th></tr></thead><tbody>
+        <tr><td>总工程师 / 设计院</td><td>“在 XX 极限介质下，A 材质与 B 材质密封阀门的寿命对比与选型标准”</td><td>技术白皮书、工况选型图表、金相分析报告与材质对照表</td></tr>
+        <tr><td>采购经理</td><td>“国内具备 XX 吨级以上锻件自主生产能力且有交付记录的厂家”</td><td>产能规格清单、交付周期说明、标杆项目业绩表（脱敏）</td></tr>
+        <tr><td>质量安全总监</td><td>“XX 厂家的质量管理体系与特种设备安全追溯机制如何”</td><td>ISO 9001 体系认证编号、MES 批次追溯流程说明、无重大事故运行记录</td></tr>
+      </tbody></table></div>
+    </section>
+    <section id="section-5" className={styles.sectionBlock}>
+      <h2>5. 制造业从基线诊断到证据交付的实施路径</h2>
+      <p>高端制造企业的 GEO 是一项严密的认知工程，不能依靠通用的模板套用，而必须建立在对技术事实、产品谱系与决策问题的深度梳理之上。</p>
+      <p>问答光源通过 <strong>GEO-AIP™ 制造专项方法</strong>，帮助制造企业建立包含参数基准、合规台账、选型问题集与同标复测在内的完整证据体系，让企业过硬的技术实力在 AI 采购时代转化为持续的商业竞争优势。</p>
+      <div className={styles.inlineCtaBanner}><div className={styles.ctaCopy}><h3>评估制造品牌在 AI 中的选型可见度</h3><p>提供核心产品线与对标工况，我们先为您诊断 AI 认知基线与事实断点。</p></div><a className={styles.ctaBannerBtn} href="./diagnostic.html?intent=manufacturing">申请工业 GEO 需求评估 →</a></div>
+    </section>
+  </>
+}
+
+function GlobalGeoGuideArticle() {
+  return <>
+    <section id="section-1" className={styles.sectionBlock}>
+      <h2>1. 出海企业的双重挑战：跨语种与跨模型生态</h2>
+      <p>中国企业在跨境出海（硬件制造、跨国企服、工业出口、全球消费品牌）过程中，往往发现原本在国内建立的品牌认知在海外完全失效。这不仅是因为语言翻译问题，更是由于<strong>全球大模型生态与信源权重的根本性分野</strong>。</p>
+      <p>当海外买家向 ChatGPT、Perplexity、Claude 或 Google Gemini 提问“Best enterprise software for multi-warehouse management”或“Reliable industrial suppliers for precision CNC components”时，海外模型依赖的是完全不同的英文生态信源。如果企业缺乏海外权威信源布局，即便产品极具竞争力，也会在海外 AI 推荐中彻底“隐形”。</p>
+      <div className={styles.calloutNote}><div className={styles.calloutHeader}><Icon name="brain" size={18} /><strong>全球 GEO 的双轨事实治理</strong></div><p>出海品牌必须建立“国内信源（公众号/知乎/百科）+ 海外信源（Wikidata/海外行业媒体/第三方测评/国际标准）”的双轨证据体系，确保全球大模型在不同语种下调取一致的企业实体事实。</p></div>
+    </section>
+    <section id="section-2" className={styles.sectionBlock}>
+      <h2>2. 海外 AI 核心信源机制（Wikidata/Reddit/行业测评）</h2>
+      <p>海外主流大模型在回答企业选型与商业问题时，对信源的权威性与真实性评估有着明确的偏好阶梯：</p>
+      <div className={styles.tableWrapper}><table className={styles.comparisonTable}><thead><tr><th>信源层级</th><th>核心渠道与平台</th><th>海外 AI 检索与引用逻辑</th></tr></thead><tbody>
+        <tr><td><strong>第 1 层：全球实体知识图谱</strong></td><td>Wikidata、Wikipedia、Crunchbase、OpenCorporates</td><td>大模型确认企业主体、母子公司关系、创立年份与总部位置的基础锚点。</td></tr>
+        <tr><td><strong>第 2 层：独立第三方商业评审</strong></td><td>G2、Capterra、TrustRadius、Gartner Peer Insights</td><td>大模型生成 SaaS 与企业服务对比推荐时首选引用的客户真实反馈与评分源。</td></tr>
+        <tr><td><strong>第 3 层：社区深度讨论与经验</strong></td><td>Reddit（专业 subreddits）、Hacker News、Quora</td><td>Perplexity 与 ChatGPT 检索真实使用体验、优缺点对比与避坑指南时的关键来源。</td></tr>
+        <tr><td><strong>第 4 层：国际行业媒体与报告</strong></td><td>TechCrunch、Reuters、行业专业期刊、国际标准化组织</td><td>大模型确认企业重大技术突破、合规认证与国际交付能力的高权重事实源。</td></tr>
+      </tbody></table></div>
+    </section>
+    <section id="section-3" className={styles.sectionBlock}>
+      <h2>3. 跨语言实体对齐：消除翻译导致的事实脱节</h2>
+      <p>跨国企业最容易出现的 GEO 事故是“实体分裂”：英文官网使用的产品名、功能描述与中文母公司信息无法被 AI 关联，导致 AI 认为这是两家不同的公司，或在回答海外用户时给出过时的旧信息。</p>
+      <ol className={styles.styledList}>
+        <li><strong>统一实体别名与中英映射：</strong>在 Schema.org 中通过 <code>alternateName</code>、<code>sameAs</code> 与多语言 <code>inLanguage</code> 明确关联中文主体与海外商业实体。</li>
+        <li><strong>跨语种主张一致性核验：</strong>确保多语种网站在产品参数、合规条款、退换货政策与安全认证上的数据严格对齐，避免因翻译误差被 AI 标记为“自相矛盾”。</li>
+        <li><strong>全球总部与本地支持机构声明：</strong>明确标注全球交付能力、海外办公室地址与当地技术支持时区，消除跨国采购的安全信任障碍。</li>
+      </ol>
+    </section>
+    <section id="section-4" className={styles.sectionBlock}>
+      <h2>4. 本地化合规与第三方证据资产建设</h2>
+      <p>海外大模型受到当地严苛的隐私与数据合规约束（如欧盟 GDPR、美国 CCPA、SOC 2 认证）。当涉及企业级采购提问时，AI 会主动核验供应商的合规声明：</p>
+      <div className={styles.tableWrapper}><table className={styles.comparisonTable}><thead><tr><th>合规与证据维度</th><th>海外采购常见 AI 提问</th><th>必须公开部署的证据资产</th></tr></thead><tbody>
+        <tr><td>数据安全与隐私</td><td>“Is [Company] compliant with GDPR and SOC 2 Type II?”</td><td>独立的合规与安全信任中心页面、DPA（数据处理协议）、安全白皮书</td></tr>
+        <tr><td>国际合规认证</td><td>“Does [Product] hold CE marking / FCC / UL certifications?”</td><td>认证证书编号、测试标准（EN/IEC）、发证机构与测试实验室明细</td></tr>
+        <tr><td>真实客户用例</td><td>“Case studies of [Company] in North American / European market”</td><td>结构化客户案例库（包含具体业务挑战、实施周期与客观衡量指标）</td></tr>
+      </tbody></table></div>
+    </section>
+    <section id="section-5" className={styles.sectionBlock}>
+      <h2>5. 跨国基线监测与多市场复测机制</h2>
+      <p>出海企业的 GEO 治理必须按目标市场（北美、欧洲、东南亚、中东）进行差异化区域采样。同一个问题在不同地区 IP、不同语种环境下，大模型返回的结果与引用信源可能截然不同。</p>
+      <p>问答光源提供<strong>全球化 GEO-AIP™ 跨境专项服务</strong>，覆盖国内外主流大模型，通过多语种基线诊断、跨生态信源工程与海外权威资产对齐，帮助出海品牌在国际市场建立高置信度的 AI 商业存在感。</p>
+      <div className={styles.inlineCtaBanner}><div className={styles.ctaCopy}><h3>开启跨境出海品牌 GEO 诊断</h3><p>提交目标海外市场与核心业务语种，我们为您定制跨模型认知基线评估。</p></div><a className={styles.ctaBannerBtn} href="./global-geo.html">了解全球化 GEO 服务 →</a></div>
+    </section>
+  </>
+}
+
+function GeoZeroToOneArticle() {
+  return <>
+    <section id="section-1" className={styles.sectionBlock}>
+      <h2>1. 一句话看懂：当客户从“搜关键词”变成“直接问 AI”</h2>
+      <p>过去，客户遇到需求或问题时，典型的操作是：打开百度或谷歌，输入几个关键词，浏览一堆蓝色链接，逐个点开网站，自己比对哪家靠谱。</p>
+      <p>现在，越来越多人在做决策前增加了一条新路径：<strong>直接打开 DeepSeek、Kimi、豆包、腾讯元宝或文心一言，向 AI 提出一个完整、具体的现实问题</strong>，让大模型替他联网检索、归纳要点、比对优劣，并直接给出总结和推荐选项。</p>
+      <div className={styles.tableWrapper}><table className={styles.comparisonTable}><thead><tr><th>发展阶段</th><th>用户的核心行为</th><th>企业竞争的关键</th><th>需要沉淀的核心资产</th></tr></thead><tbody>
+        <tr><td><strong>SEO｜搜索时代</strong></td><td>输入关键词，逐个浏览搜索链接</td><td>页面收录、搜索排位与网页点击</td><td>合规网站、关键词布局、页面内容与外链</td></tr>
+        <tr><td><strong>内容时代</strong></td><td>在公众号、知乎、媒体看图文视频</td><td>品牌曝光、行业口碑与社会公信力</td><td>行业深度文章、权威媒体背书、专家评审</td></tr>
+        <tr><td><strong>GEO｜AI 答案时代</strong></td><td>直接向 AI 提出复杂多条件问题</td><td><strong>被 AI 正确理解、可信引用、纳入候选</strong></td><td><strong>清晰事实源、数字证据台账、决策对比内容</strong></td></tr>
+      </tbody></table></div>
+      <div className={styles.calloutNote}><div className={styles.calloutHeader}><Icon name="brain" size={18} /><strong>用大白话定义 GEO</strong></div><p>GEO（生成式引擎优化）的本质，就是：<strong>围绕客户真实采购时会问的问题，把企业真实的产品、参数、资质和案例，整理成客户和 AI 都能轻松读懂、核验和引用的公开数字资产。</strong></p></div>
+    </section>
+
+    <section id="section-2" className={styles.sectionBlock}>
+      <h2>2. 用户提问方式的巨变：从单一名词到多条件选型</h2>
+      <p>在 AI 时代，用户不会再提问宽泛的“词汇”，而是会带着明确的角色、工况、预算和限制条件发起长文本提问。这些长尾问题直接决定了订单走向：</p>
+      <ol className={styles.styledList}>
+        <li><strong>工业与制造业场景：</strong>不再只搜“晶振厂家”，而是问“适用于车载摄像头、工作温度在 -40℃ 至 +125℃ 的车规级晶振有哪些国内成熟供应商？选型时看什么指标？”</li>
+        <li><strong>工程与企服招采场景：</strong>不再只搜“医用工程公司”，而是问“新建三甲医院的医用气体系统工程，对投标企业的压力管道特种设备许可证有哪些具体要求？”</li>
+        <li><strong>耐用消费品与家居场景：</strong>不再只搜“智能马桶”，而是问“高楼层、水压较低的老旧小区，选购无水压限制的智能马桶要注意哪些排污参数和防臭设计？”</li>
+      </ol>
+      <p>当 AI 回答这类问题时，<strong>它不会背诵企业宣传口号</strong>，而是专门检索：谁有明确的参数对照表？谁有权威的检测证书编号？谁公开说明了适用条件与限制边界？缺乏证据的企业，在第一轮检索中就会被自动过滤。</p>
+    </section>
+
+    <section id="section-3" className={styles.sectionBlock}>
+      <h2>3. 为什么 GEO 很难靠“走捷径”：三大底层现实</h2>
+      <p>很多人误以为 GEO 像以前刷外链一样简单，其实它是一项严密的“企业信息治理工程”。必须认清三个底层客观规律：</p>
+      <div className={styles.tableWrapper}><table className={styles.comparisonTable}><thead><tr><th>底层客观规律</th><th>为什么走不通“捷径”</th><th>正确的应对策略</th></tr></thead><tbody>
+        <tr><td><strong>大模型不可直接控制</strong></td><td>AI 每天都在更新算法与检索策略，没有任何人能“把你的资料直接注入模型内部”。</td><td>放弃走后门思维，把精力放在官网与公开渠道的权威事实建设上。</td></tr>
+        <tr><td><strong>答案具有概率性与波动性</strong></td><td>不同时间、不同 IP 地区、不同提问上下文，AI 的回答可能略有差异，单次截图毫无统计意义。</td><td>建立系统化的问题集与基线监测机制，多轮采样、科学复测。</td></tr>
+        <tr><td><strong>企业内部事实经常分裂矛盾</strong></td><td>销售说一套、官网写一套、早年新闻留一套、百科词条又一套，AI 检索到冲突会主动降低置信度。</td><td>梳理企业事实源，统一全网公开信息口径，消除矛盾信息。</td></tr>
+      </tbody></table></div>
+    </section>
+
+    <section id="section-4" className={styles.sectionBlock}>
+      <h2>4. 彻底避坑：关于 GEO 最常见的 6 个致命误区</h2>
+      <ol className={styles.styledList}>
+        <li><strong>误区一：“GEO 会彻底取代传统 SEO”</strong> —— 错误。SEO 解决的是网页能否被爬取、收录和正常打开的基础门槛；没有健康的网站基础，AI 的爬虫根本连页面都进不去。</li>
+        <li><strong>误区二：“批量用 AI 写几千篇文章发全网就能搞定”</strong> —— 危险。低质、无原创事实支撑的批量灌水内容，会被各大搜索引擎和 AI 识别为“垃圾内容（Spam）”并降权过滤。</li>
+        <li><strong>误区三：“配置几行 Schema 代码就是推荐开关”</strong> —— 误导。结构化代码只是给机器看的一张“名片”，它能帮 AI 读懂字段，但不能代替真实的资质、案例与客户评价。</li>
+        <li><strong>误区四：“只要某一次提问看到了我们，就代表成功了”</strong> —— 浅层。偶然一次出现不代表模型真正掌握了你的实体。必须检验 AI 引用的是不是官方来源、说得是否准确。</li>
+        <li><strong>误区五：“有服务商保证能把企业排在 AI 第一名”</strong> —— 违背科学。大模型是基于生成概率和 RAG 检索的黑盒系统，任何声称“包第一、包推荐”的承诺都不符合技术原理。</li>
+        <li><strong>误区六：“做了 GEO，下个月销售额必须翻倍”</strong> —— 错位。GEO 的核心作用是“在客户调研比选阶段建立信任、拦截高意向选型需求”，最终签单仍需要产品力、定价与销售团队配合。</li>
+      </ol>
+    </section>
+
+    <section id="section-5" className={styles.sectionBlock}>
+      <h2>5. 企业自查：判断你是否需要 GEO 的 5 个灵魂拷问</h2>
+      <p>企业如果不确定现阶段是否该投入资源做 GEO，管理层或业务负责人可以先自问以下 5 个问题：</p>
+      <div className={styles.tableWrapper}><table className={styles.comparisonTable}><thead><tr><th>序号</th><th>自测问题</th><th>背后的商业逻辑</th></tr></thead><tbody>
+        <tr><td>01</td><td>贵公司未来 12 个月最希望增长的核心业务或产品线是哪一条？</td><td>GEO 必须聚焦在有商业价值的核心业务上，而不是全集团盲目铺量。</td></tr>
+        <tr><td>02</td><td>客户在决定采购或签约前，最常问销售哪 10 个对比或顾虑问题？</td><td>真实的销售问题，就是 AI 时代用户向大模型提问的高频问题集。</td></tr>
+        <tr><td>03</td><td>有哪些真实优势是销售常在嘴边讲，但官网却找不到完整证据的？</td><td>这就是典型的“证据断点”，需要被沉淀为可被引用的数字资产。</td></tr>
+        <tr><td>04</td><td>如果现在去问 Kimi 或 DeepSeek，AI 把哪项信息说错对业务伤害最大？</td><td>找出最致命的事实误区（如混淆产品定位、报错参数、错配竞品）。</td></tr>
+        <tr><td>05</td><td>内部是否有明确的业务对接人和技术人员配合事实确认？</td><td>GEO 需要企业协同梳理真实事实，无法完全“脱手托管”。</td></tr>
+      </tbody></table></div>
+      <div className={styles.inlineCtaBanner}><div className={styles.ctaCopy}><h3>想知道 AI 目前究竟怎么描述你的企业？</h3><p>从一条核心业务开始，进行客观可复核的 AI 认知基线初筛。</p></div><a className={styles.ctaBannerBtn} href="./diagnostic.html">申请免费需求评估 →</a></div>
+    </section>
+  </>
+}
+
+

@@ -14,7 +14,37 @@ interface ArticleData {
   toc: { id: string; title: string }[]
 }
 
-export type ArticleId = 'evidence' | 'geo101' | 'baseline' | 'question-set' | 'answer-audit' | 'schema-boundary' | 'geo-vs-seo' | 'domestic-ai-engines' | 'geo-glossary' | 'b2b-geo-guide' | 'entity-building' | 'self-check-20'
+export type ArticleId =
+  | 'geo-zero-to-one'
+  | 'evidence'
+  | 'geo101'
+  | 'baseline'
+  | 'question-set'
+  | 'answer-audit'
+  | 'schema-boundary'
+  | 'geo-vs-seo'
+  | 'domestic-ai-engines'
+  | 'geo-glossary'
+  | 'b2b-geo-guide'
+  | 'manufacturing-geo-guide'
+  | 'global-geo-guide'
+  | 'entity-building'
+  | 'self-check-20'
+
+const geoZeroToOneArticle: ArticleData = {
+  category: '入门指南',
+  readTime: '预计阅读 12 分钟',
+  publishDate: '2026 年 8 月更新',
+  title: '从 0 到 1 读懂 GEO：非技术人也能看懂的生成式引擎优化指南',
+  goldenAssertion: 'GEO 不是把企业名字塞进大模型，而是管理企业在 AI 生成答案中的公开事实、证据和客户决策内容。企业无法控制模型内部输出，但能控制自身事实是否准确、证据是否可核验、页面是否回答真实问题。',
+  toc: [
+    { id: 'section-1', title: '1. 一句话看懂：当客户从“搜关键词”变成“直接问 AI”' },
+    { id: 'section-2', title: '2. 用户提问方式的巨变：从单一名词到多条件选型' },
+    { id: 'section-3', title: '3. 为什么 GEO 很难靠“走捷径”：三大底层现实' },
+    { id: 'section-4', title: '4. 彻底避坑：关于 GEO 最常见的 6 个致命误区' },
+    { id: 'section-5', title: '5. 企业自查：判断你是否需要 GEO 的 5 个灵魂拷问' },
+  ],
+}
 
 const evidenceLedgerArticle: ArticleData = {
   category: '证据建设',
@@ -181,8 +211,38 @@ const entityBuildingArticle: ArticleData = {
   ],
 }
 
+const manufacturingGeoGuideArticle: ArticleData = {
+  category: '诊断方法',
+  readTime: '预计阅读 13 分钟',
+  publishDate: '2026 年 8 月更新',
+  title: '高端制造与工业品 GEO 实操：复杂参数与资质证据链',
+  goldenAssertion: '高端制造与工业装备的采购决策依赖极高维度的技术参数、国家标准、检测报告与行业资质。AI 在推荐工业品牌时不会采纳口号，而是严格检索经过结构化核验的工程数据与认证来源。',
+  toc: [
+    { id: 'section-1', title: '1. 工业品与制造业在 AI 时代的认知断点' },
+    { id: 'section-2', title: '2. 技术参数与国家标准（GB/ISO）的结构化表达' },
+    { id: 'section-3', title: '3. 资质、专利与检测报告如何转化为可信证据' },
+    { id: 'section-4', title: '4. 复杂工业选型场景下的对比决策内容工程' },
+    { id: 'section-5', title: '5. 制造业从基线诊断到证据交付的实施路径' },
+  ],
+}
+
+const globalGeoGuideArticle: ArticleData = {
+  category: '诊断方法',
+  readTime: '预计阅读 14 分钟',
+  publishDate: '2026 年 8 月更新',
+  title: '跨境出海品牌多语言 GEO 实操：跨生态事实一致性',
+  goldenAssertion: '跨境出海企业不仅面对多语种翻译差异，更面临海外 AI 生态（ChatGPT/Claude/Perplexity）与国内模型完全不同的信源权重。只有建立跨语言统一的实体知识库与多语种本地权威证据，才能避免在海外大模型中被边缘化或产生事实断层。',
+  toc: [
+    { id: 'section-1', title: '1. 出海企业的双重挑战：跨语种与跨模型生态' },
+    { id: 'section-2', title: '2. 海外 AI 核心信源机制（Wikidata/Reddit/行业测评）' },
+    { id: 'section-3', title: '3. 跨语言实体对齐：消除翻译导致的事实脱节' },
+    { id: 'section-4', title: '4. 本地化合规与第三方证据资产建设' },
+    { id: 'section-5', title: '5. 跨国基线监测与多市场复测机制' },
+  ],
+}
+
 const selfCheck20Article: ArticleData = {
-  category: '实用工具',
+  category: '测量与治理',
   readTime: '预计阅读 6 分钟',
   publishDate: '2026 年 8 月更新',
   title: '国内 AI 认知自测清单：20 个判断问题',
@@ -202,15 +262,31 @@ export function ResourceDetailPage() {
   const [articleId, setArticleId] = useState<ArticleId>('evidence')
   const [activeSection, setActiveSection] = useState('section-1')
 
-
   useEffect(() => {
     const params = new URLSearchParams(window.location.search)
     const requestedId = params.get('id')
-  const supportedIds: ArticleId[] = ['evidence', 'geo101', 'baseline', 'question-set', 'answer-audit', 'schema-boundary', 'geo-vs-seo', 'domestic-ai-engines', 'geo-glossary', 'b2b-geo-guide', 'entity-building', 'self-check-20']
-    setArticleId(supportedIds.includes(requestedId as ArticleId) ? requestedId as ArticleId : 'evidence')
+    const supportedIds: ArticleId[] = [
+      'geo-zero-to-one',
+      'evidence',
+      'geo101',
+      'baseline',
+      'question-set',
+      'answer-audit',
+      'schema-boundary',
+      'geo-vs-seo',
+      'domestic-ai-engines',
+      'geo-glossary',
+      'b2b-geo-guide',
+      'manufacturing-geo-guide',
+      'global-geo-guide',
+      'entity-building',
+      'self-check-20',
+    ]
+    setArticleId(supportedIds.includes(requestedId as ArticleId) ? (requestedId as ArticleId) : 'evidence')
   }, [])
 
   const article = {
+    'geo-zero-to-one': geoZeroToOneArticle,
     evidence: evidenceLedgerArticle,
     geo101: geo101Article,
     baseline: baselineArticle,
@@ -221,6 +297,8 @@ export function ResourceDetailPage() {
     'domestic-ai-engines': domesticAiEnginesArticle,
     'geo-glossary': geoGlossaryArticle,
     'b2b-geo-guide': b2bGeoGuideArticle,
+    'manufacturing-geo-guide': manufacturingGeoGuideArticle,
+    'global-geo-guide': globalGeoGuideArticle,
     'entity-building': entityBuildingArticle,
     'self-check-20': selfCheck20Article,
   }[articleId]
